@@ -21,10 +21,10 @@ class Mood extends React.Component{
            moodDiv.style.backgroundImage = 'url(media/good.svg)';
         }
         else if(this.state.mood == "neutral"){
-            moodDiv.style.backgroundImage = 'url(media/good.svg)';
+            moodDiv.style.backgroundImage = 'url(media/neutral.svg)';
         }
         else{
-            moodDiv.style.backgroundImage = 'url(media/good.svg)';
+            moodDiv.style.backgroundImage = 'url(media/sad.svg)';
         }
         
     }
