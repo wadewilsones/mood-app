@@ -1,7 +1,10 @@
 import Today from './js/date';
 
 function Header(){
-        return <h4>Today is {Today()}</h4>
+        return (
+        <header>
+        <h4>Today: {Today()}</h4>
+        </header>)
 }
 
 export default Header;

@@ -1,10 +1,12 @@
 import './App.css';
 import Header from './Header';
+import Mood from './Mood';
 
 function App() {
   return (
     <div>
-    <h2>Hello world!</h2>
+      <Header/>
+      <Mood/>
     </div>
   );
 }
