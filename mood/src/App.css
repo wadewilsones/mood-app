@@ -106,6 +106,7 @@ body{
 
 }
 
+/*For tablets*/
 
     @media screen and (min-width: 701px) and (max-width:1200px){
 
@@ -199,4 +200,97 @@ body{
     
         }
     
+}
+
+@media screen and (min-width: 1201px){
+    header{
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background-color: #C598FF;  
+        box-shadow: #5e055625 2px 5px 6px;
+
+    }
+
+    #root{
+        height:95vh;
+
+    }
+
+    footer{
+        text-align: center;
+    }
+
+    h4{
+        text-align: center;
+        padding: 1em;
+        font-size: 1.5em;
+        color: white;
+        font-weight: 400;
+    }
+
+    h3{
+        text-align: center;
+        margin-top: 4em;
+        font-size: 2em;
+        line-height: 1.5;
+        color: rgb(93, 93, 93);
+    }
+
+    #mood-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width:1000px;
+        margin: auto;
+ 
+    }
+    #mood-container div {
+        width:20%;
+       margin: 2em 0.3em 1em 0.3em;
+    }
+
+    .userMood{
+        width:100%;
+        color:white;
+        font-weight: 500;
+        border-radius: 15px;
+        text-align: center;
+        padding: 1em 0;
+        font-size: 1.3em;
+        box-shadow: #5e055625 2px 5px 6px;
+        background-color: #C598FF;
+        cursor: pointer;
+
+    }
+
+    .userMood:hover{
+        background-color: #8253c0;
+    }
+
+
+    #mood{
+        display: none;
+        background-size: cover;
+        background-position: center;
+        width: 300px;
+        height: 200px;
+        color: white;
+        text-align: center;
+        margin: 5vh auto;
+        padding-top: 5em;
+        border-radius: 30px;
+
+    }
+
+    #mood p{
+        color:rgb(255, 255, 255);
+        width: 50%;
+        margin: auto;
+        margin-top:-5em;
+        padding: 0.4em;
+        border-radius: 50px;
+        box-shadow: #27212f21 1px 0px 10px ;
+        background-color: #8e65c463;
+
+    }
 }
