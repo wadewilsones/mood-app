@@ -121,7 +121,23 @@ footer{
         border-radius:10px;
         background-color: #8253c0b6;
         box-shadow: #241d2c5e 1px 4px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
     }
+
+
+    #Location{
+        text-align: left;
+        font-size: 2em;
+        font-weight: 400;
+    }
+
+    #temperature{
+        font-size: 3em;
+    }
+
+
 }
 
 /*For tablets*/
