@@ -1,6 +1,7 @@
 import React, { createElement } from 'react';
 import ReactDOM from 'react-dom';
 import DetectLocation from './js/weatherAPI';
+import Today from './js/date';
 //Call weather API
 
 function Weather(){
@@ -19,12 +20,16 @@ function Weather(){
         DetectLocation(lat,lot);
     }
 
-
+    let todayInfo = Today();
+    const time = todayInfo[1];
+    
     GeoObject();
     return(   
         <div className="weather_container">
         <p id="Location"></p> 
         <p id="temperature"></p>
+        <p id="weather-decrs"></p>
+        <p id="time">{time}</p>
         </div>
     )
 }
