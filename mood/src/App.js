@@ -7,8 +7,8 @@ function App() {
   return (
     <div>
       <Header/>
-      <Weather/>
       <Mood/>
+      <Weather/>
     </div>
   );
 }

@@ -15,18 +15,41 @@ class Mood extends React.Component{
     displayMood(){
         let moodDiv = document.getElementById('mood');
         moodDiv.style.display = "block";
-        moodDiv.innerHTML = "<p>My mood is " + this.state.mood + "</p>";
+        moodDiv.innerHTML = "<p>My mood is " + this.state.mood + "!</p>";
+
         //display mood picture
+        let moodPic = document.createElement('img');
         if(this.state.mood == "good"){
-           moodDiv.style.backgroundImage = 'url(media/good.svg)';
+            //Prepare pic;
+            moodPic.src = 'media/good.svg';
+            moodPic.setAttribute("class", "moodPicClass"); 
+           moodDiv.appendChild(moodPic); 
+        
         }
         else if(this.state.mood == "neutral"){
-            moodDiv.style.backgroundImage = 'url(media/neutral.svg)';
+            moodPic.src = 'media/neutral.svg';
+            moodPic.setAttribute("class", "moodPicClass"); 
+           moodDiv.appendChild(moodPic); 
         }
         else{
-            moodDiv.style.backgroundImage = 'url(media/sad.svg)';
+            moodPic.src = 'media/sad.svg';
+            moodPic.setAttribute("class", "moodPicClass"); 
+           moodDiv.appendChild(moodPic); 
         }
         
+
+        let closeButn = document.createElement('button');
+        closeButn.innerText = "Hide";
+        closeButn.setAttribute("class", "closeTabBtn")
+        moodDiv.appendChild(closeButn);
+
+        closeButn.addEventListener('click', CloseTab);
+
+        function CloseTab(){
+            moodDiv.style.display = "none";
+        }
+
+
     }
 
     changeMoodGood(){
@@ -55,7 +78,7 @@ class Mood extends React.Component{
         return(
             <div>
                 <section id ="mood-section">
-                <h3>Hello User, <br/> How do you feel today?</h3>
+                <h3>How do you feel today?</h3>
                 <div id="mood-container">
                     <div id ="good">
                         <button className = "userMood" onClick = {this.changeMoodGood}>Good</button>

@@ -1,9 +1,11 @@
 import Today from './js/date';
-
+let todayInfo = Today();
+const date = todayInfo[0];
 function Header(){
         return (
         <header>
-        <h4>Today: {Today()}</h4>
+        <h4>{date}</h4>
+        <h3>Hello username</h3>
         </header>)
 }
 
