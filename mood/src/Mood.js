@@ -1,6 +1,8 @@
 //set up class
 import React, { createElement } from 'react';
 import ReactDOM from 'react-dom';
+import Header from './js/Header';
+import Weather from './js/Weather';
 
 class Mood extends React.Component{
     
@@ -77,6 +79,7 @@ class Mood extends React.Component{
     render() {
         return(
             <div>
+                <Header/>
                 <section id ="mood-section">
                 <h3>How do you feel today?</h3>
                 <div id="mood-container">
@@ -92,6 +95,7 @@ class Mood extends React.Component{
                 </div>
                 <div id="mood"></div>
                 </section>
+                <Weather/>
             </div>
         )
     }

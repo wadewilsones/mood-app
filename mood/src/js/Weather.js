@@ -1,6 +1,6 @@
 import React, { createElement } from 'react';
-import DetectLocation from './js/weatherAPI';
-import Today from './js/date';
+import DetectLocation from './weatherAPI';
+import Today from './date';
 //Call weather API
 
 function Weather(){

@@ -1,16 +1,16 @@
 import './App.css';
-import Header from './Header';
+import React, { Component } from "react";
+import ReactDOM from 'react-dom';
 import Mood from './Mood';
-import Weather from './Weather';
+import SignUp from './Sign-Up';
 
-function App() {
-  return (
-    <div>
-      <Header/>
-      <Mood/>
-      <Weather/>
-    </div>
-  );
+
+class App extends React.Component {
+  render(){
+    return (
+        <Mood/>
+    );
+  }
 }
 
 export default App;
