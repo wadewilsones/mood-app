@@ -201,6 +201,72 @@ footer{
         margin:10px 0 0 10px;
         grid-column-start: 1;
     }
+
+    /*Sig up*/
+
+    .sign-up-container{   
+        display:grid;
+        width:95%;
+        margin: auto;
+        padding-top: 6em;
+    }
+    
+    .sign-up-container h1{
+      font-family: Allura, Helvetica, sans-serif;
+      text-align: center;
+      font-weight: 300;
+      font-size:3em;
+    }
+    .sign-up-container h5{
+        text-align: center;
+        font-size:1.2em;
+        font-weight: 300;
+    }
+    .sign-up-container p:first-of-type {
+        text-align: center;
+        margin-top: 2em;
+        font-size:1.5em;
+    }
+
+  .sign-up-container form p:first-of-type{
+      font-size: 1em;
+  }
+
+    .sign-up-container form {
+        margin-top: 2em;
+    }
+    .sign-up-container form label{
+        margin-left:1em;
+        font-size: 1.2em;
+    }
+    .sign-up-container form input[type="text"]{
+        display: block;
+        margin: 0.5em auto;
+        width:300px;
+        height: 50px;
+        border-radius: 10px;
+        padding-left:10px;
+    }
+
+    .sign-up-container form input[type="submit"]{
+        display: block;
+        margin: 2em auto 0;
+        width:150px;
+        text-align: center;
+        height: 50px;
+        border-radius: 10px;
+        font-size: 1.2em;
+        background-color: #8AC6D1;
+        color:white;
+
+    }
+
+   a{
+        color:white;
+        text-decoration: none;
+    }
+
+    
 }
 
 /*For tablets*/

@@ -1,5 +1,7 @@
-import { NavLink } from 'react-router-dom';
+
+import { Link } from "react-router-dom";
 import Today from './date';
+
 let todayInfo = Today();
 const date = todayInfo[0];
 function Header(){
@@ -7,7 +9,7 @@ function Header(){
         <header>
         <h4>{date}</h4>
         <h3>Hello username</h3>
-        <h5>Log Out</h5>
+        <h5><Link to="/login">Log Out</Link></h5>
         </header>)
 }
 
