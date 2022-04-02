@@ -1,0 +1,31 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "mood app",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js",
+    "serve": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wadewilsones/mood-app.git"
+  },
+  "keywords": [
+    "mood"
+  ],
+  "author": "ulada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wadewilsones/mood-app/issues"
+  },
+  "homepage": "https://github.com/wadewilsones/mood-app#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "pg-promise": "^10.11.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
