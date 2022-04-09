@@ -1,6 +1,11 @@
-import React, { createElement } from 'react';
+import React, { createElement } from 'react'
 import DetectLocation from './weatherAPI';
 import Today from './date';
+
+import ReactDOM from 'react-dom';
+import DetectLocation from './js/weatherAPI';
+import Today from './js/date';
+
 //Call weather API
 
 function Weather(){
