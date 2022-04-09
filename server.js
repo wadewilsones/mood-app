@@ -3,30 +3,53 @@ const express = require("express");
 const PORT = process.env.PORT || 5000; // global variable that represent the state of the system environment when it starts
 const app = express();
 const path = require("path");
-const bodyParser = require('body-parser');
+const pool = require("./db")
+const cors = require('cors');
 
 
 //set up middleware
 app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
-
-app.use(express.static(path.join(__dirname, 'mood/public')));
+app.use(cors({  origin: 'http://localhost:3000/'}));
+app.use(express.static(path.join(__dirname, 'client/public')));
 
 app.post('/signUp', async (req,res) => {
 
     try{
         const { username, password } = req.body;
         console.log(req.body.username);
-        res.json('Server got your data!' + req.body.username + " " + req.body.password)
+        //add data to database
+       const addUser = await pool.query(
+            "INSERT INTO users (username, password) VALUES($1,$2) RETURNING *", [username, atob(password)]);
+        res.json(addUser.rows[0])
     }
     catch(err){
         console.error(err.message)
     }
 })
 
-app.get('/signUp', async (req, res) =>{
-    res.send("Hello user!")
+app.post('/login', async (req,res) => {
+    try{
+        const { username, password } = req.body;
+        //Get data from DB
+        const checkUser = await pool.query("SELECT * FROM users WHERE username = $1 AND password = $2", 
+        [username, password], 
+        (err, result) => {
+            if (err){
+                res.send({err:err})
+            }
+            if(result.rows.length > 0){
+                res.send(result)
+            }
+            else{
+                res.send({message:"No user found"})
+            }
+        });
+
+     
+    }
+    catch(err){
+        console.error(message.err)
+    }
 })
 
 app.listen(PORT, () => {
