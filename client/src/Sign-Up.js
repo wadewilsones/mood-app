@@ -16,11 +16,13 @@ class SignUp extends React.Component{
         this.validateForm = this.validateForm.bind(this);
         this.processForm = this.processForm.bind(this);
         this.sendData = this.sendData.bind(this);
+        this.thankNotif = this.thankNotif.bind(this);
+        this.closeNote = this.closeNote.bind(this);
+
     }
 
     validateForm(e){
        e.preventDefault();
-       console.log('Form submitted');
        if(document.getElementById('password').value.length > 6){
            let encryptpsw = btoa(document.getElementById('password').value);
            this.processForm(encryptpsw);
@@ -41,7 +43,6 @@ class SignUp extends React.Component{
     }
 
      sendData(){
-         alert("Send data works!");
          const formData = {
             username:this.state.username,
             password:this.state.password,
@@ -53,17 +54,32 @@ class SignUp extends React.Component{
             body:JSON.stringify(formData)
         })
 
-
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data)
+            this.thankNotif()})
     }
 
+    thankNotif(){
+      document.getElementById('thanksNote').style.display = 'block';
+       document.getElementById('sign-up-container').style.filter = "blur(1.5rem)"; 
+    }
 
+    closeNote(){
+        document.getElementById('thanksNote').style.display = 'none';
+        document.getElementById('sign-up-container').style.filter = "blur(0rem)";
+    
+}
 
     render(){
       
         return(
-            <div className="sign-up-container">
+            <div id="sign-up">
+                 <div id='thanksNote'>
+                    <h3>Thank you for registration, {this.state.username}</h3>
+                    <button id='close-note-btn' onClick={this.closeNote}>Close</button>
+             </div>
+            <div className="sign-up-container" id='sign-up-container'>
                 <h1>Moodnex</h1>
                 <h5>Your personal mood app</h5>
                 <p>Sign Up</p>
@@ -73,8 +89,11 @@ class SignUp extends React.Component{
                    <label htmlFor="password">Password</label>
                    <input type="text" id="password" name="password" placeholder='Type here..' required></input>
                    <input type="submit" id="subBtn" value="Sign Up" name="Submit"/>
-                   <p>Already have an account? Login!</p>
+                   <p>Already have an account?  <Link to="/login">Log in!</Link></p>
                </form>
+
+               </div>
+
             </div>
 
         )
