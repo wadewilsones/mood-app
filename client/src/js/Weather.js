@@ -1,10 +1,7 @@
 import React, { createElement } from 'react'
-import DetectLocation from './weatherAPI';
 import Today from './date';
-
 import ReactDOM from 'react-dom';
-import DetectLocation from './js/weatherAPI';
-import Today from './js/date';
+import DetectLocation from './weatherAPI';
 
 //Call weather API
 
@@ -21,7 +18,7 @@ function Weather(){
         let lat = position.latitude;
         let lot = position.longitude;
         //Display location
-        DetectLocation(lat,lot);
+        DetectLocation(lat, lot);
     }
 
     let todayInfo = Today();

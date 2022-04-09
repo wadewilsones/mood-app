@@ -1,7 +1,7 @@
 //Set up API call
 function DetectLocation(lat,lon){
 
-    const API_KEY = "";
+    const API_KEY = "f160bf0abe9fe5dde87e073cda69e092";
     const API_link = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
     console.log(API_link);
     //Make a call
