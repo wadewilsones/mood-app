@@ -4,7 +4,6 @@
     padding: 0;
 }
 
-
 body{
     background-color: #bbded6;
     font-family: Urbanist, Helvetica, sans-serif ;
@@ -255,7 +254,7 @@ footer{
         padding-left:10px;
     }
 
-    #passwordR{
+    .sign-up-container form input[type="password"]{
         display: block;
         margin: 0.5em auto;
         width:300px;
@@ -519,7 +518,7 @@ footer{
         padding-left:10px;
     }
 
-    #passwordR{
+    .sign-up-container form input[type="password"]{
         display: block;
         margin: 0.5em auto;
         width:300px;
@@ -528,6 +527,7 @@ footer{
         border-radius: 10px;
         padding-left:10px;
     }
+
 
    a{
         color:white;
@@ -772,7 +772,7 @@ footer{
         font-size: 1.2em;
     }
     
-    #passwordR{
+    .sign-up-container form input[type="password"]{
         display: block;
         margin: 0.5em auto;
         width:300px;
