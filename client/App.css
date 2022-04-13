@@ -771,7 +771,16 @@ footer{
         margin-left:10px;
         font-size: 1.2em;
     }
-    
+    .sign-up-container form input[type="text"]{
+        display: block;
+        margin: 0.5em auto;
+        width:300px;
+        height: 50px;
+        -webkit-appearance: none;
+        border-radius: 10px;
+        padding-left:10px;
+    }
+
     .sign-up-container form input[type="password"]{
         display: block;
         margin: 0.5em auto;
@@ -790,7 +799,7 @@ footer{
         height: 50px;
         border-radius: 10px;
         font-size: 1.2em;
-        background-color: #8AC6D1;
+        background-color: #e7ea4d;
         color:white;
 
     }
