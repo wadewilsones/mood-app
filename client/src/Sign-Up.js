@@ -10,6 +10,8 @@ function SignUp (){
         password:''
     });
 
+
+
     const changeInput = (event) => {
         const { name, value } = event.target;
         setUserdata(
@@ -28,6 +30,7 @@ function SignUp (){
         if (username != null && password != null)
         {
             sendData();
+            showNotification();
         }
     }
 
@@ -44,8 +47,21 @@ function SignUp (){
 
     }
 
+
+    const [notification, setNotificetion] = useState(false);
+
+    const showNotification = () =>{
+        setNotificetion(true)
+    }
+
+    const hideNotification = () =>{
+        setNotificetion(false)
+    }
+
+
     return(
         <div className="sign-up-container">
+            {notification && <div className={`notification ${notification ? "notification--Shown" : "notification--Hidden"}`}><p>Thank you for registration, {username}!<br></br><a onClick={hideNotification}>Close</a></p></div>}
         <h1>Moodnex</h1>
         <h5>Your personal mood app</h5>
         <p>Sign Up</p>

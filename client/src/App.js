@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
 import Mood from './Mood';
 import {
@@ -8,12 +8,11 @@ import {
 import SignUp from './Sign-Up';
 import Login from './Login';
 
+function App () {
 
-class App extends React.Component {
-
-  render(){
     return (
   <BrowserRouter>
+
     <Routes>
       <Route exact path="/" element={<Login />} />
       <Route path="/login"  element={<Login />}  />
@@ -23,7 +22,6 @@ class App extends React.Component {
   </BrowserRouter>
      
     );
-  }
 }
 
 export default App;

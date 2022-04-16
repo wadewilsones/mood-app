@@ -4,8 +4,6 @@
     padding: 0;
 }
 
-@import url("https://cdn.syncfusion.com/ej2/material.css");
-
 body{
     background-color: #bbded6;
     font-family: Urbanist, Helvetica, sans-serif ;
@@ -25,12 +23,6 @@ footer{
     margin: 2em 0 0 0;
     color:white;
 }
-
-#subBtn{
-    cursor: pointer;
-}
-
-
 @media screen and (min-width: 320px) and (max-width:500px){
 
     header{
@@ -213,17 +205,11 @@ footer{
 
     /*Sign up*/
 
-    #sign-up{
-
-        width:95%;
-        margin: auto;
-    }
     .sign-up-container{   
         display:grid;
-        width:100%;
+        width:95%;
         margin: auto;
         padding-top: 6em;
-        filter:none;
 
     }
     
@@ -259,14 +245,26 @@ footer{
         margin-left:10px;
         font-size: 1.2em;
     }
+    
     .sign-up-container form input[type="text"]{
         display: block;
         margin: 0.5em auto;
-        width:260px;
+        width:300px;
         height: 50px;
         border-radius: 10px;
         padding-left:10px;
     }
+
+    .sign-up-container form input[type="password"]{
+        display: block;
+        margin: 0.5em auto;
+        width:300px;
+        height: 50px;
+        -webkit-appearance: none;
+        border-radius: 10px;
+        padding-left:10px;
+    }
+
 
     .sign-up-container form input[type="submit"]{
         display: block;
@@ -286,30 +284,6 @@ footer{
         text-decoration: none;
     }
 
-    #close-note-btn{
-        display: block;
-        margin: 2em auto 0;
-        width:150px;
-        text-align: center;
-        height: 50px;
-        border-radius: 10px;
-        font-size: 1.2em;
-        background-color: #8AC6D1;
-        color:white;
-    }
-
-    #thanksNote{
-        display: none;
-        width:90%;
-        margin: 3em auto 0;
-        padding: 5% 2% 15%;
-        box-shadow: rgba(45, 45, 45, 0.404) 1px 1px 10px;
-        font-size: 1.3em;
-        background-color: white;
-        color:rgb(90, 90, 90);
-        text-align: center;
-        border-radius: 30px;
-    }
 }
 
 /*Tablets*/
@@ -363,21 +337,6 @@ footer{
         grid-row-start: 1;
     }
 
-    #pop-up-note{
-
-        width:320px;
-        position: absolute;
-        top: 30%;
-        left:22vw;
-        padding: 10%;
-        box-shadow: rgba(45, 45, 45, 0.404) 1px 1px 10px;
-        font-size: 1.3em;
-        background-color: white;
-        color:black;
-        text-align: center;
-        border-radius: 30px;
-    
-    }
         /*Mood Component*/
 
     #mood-section {
@@ -551,7 +510,7 @@ footer{
         margin-left:10px;
         font-size: 1.2em;
     }
-    .sign-up-container form input[type="text"]{
+    .sign-up-container form input[type="text"], .sign-up-container form input[type="password"]{
         display: block;
         margin: 0.5em auto;
         width:300px;
@@ -560,6 +519,15 @@ footer{
         padding-left:10px;
     }
 
+    .sign-up-container form input[type="password"]{
+        display: block;
+        margin: 0.5em auto;
+        width:300px;
+        height: 50px;
+        -webkit-appearance: none;
+        border-radius: 10px;
+        padding-left:10px;
+    }
     .sign-up-container form input[type="submit"]{
         display: block;
         margin: 2em auto 0;
@@ -568,7 +536,7 @@ footer{
         height: 50px;
         border-radius: 10px;
         font-size: 1.2em;
-        background-color: #8AC6D1;
+        background-color:#8AC6D1;
         color:white;
 
     }
@@ -820,6 +788,17 @@ footer{
         margin: 0.5em auto;
         width:300px;
         height: 50px;
+        -webkit-appearance: none;
+        border-radius: 10px;
+        padding-left:10px;
+    }
+
+    .sign-up-container form input[type="password"]{
+        display: block;
+        margin: 0.5em auto;
+        width:300px;
+        height: 50px;
+        -webkit-appearance: none;
         border-radius: 10px;
         padding-left:10px;
     }
@@ -832,8 +811,9 @@ footer{
         height: 50px;
         border-radius: 10px;
         font-size: 1.2em;
-        background-color: #8AC6D1;
+        background-color:#8AC6D1;
         color:white;
+        cursor: pointer;
 
     }
 
@@ -841,5 +821,42 @@ footer{
         color:white;
         text-decoration: none;
     }
+
+    .notification{
+        width:700px;
+        margin: auto;
+        padding: 2em;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: rgba(75, 75, 75, 0.468) 1px 1px 10px;
+        transition: opacity 5s ease-in;
+    }
+
+    
+    .notification--Hidden{
+        opacity: 0;
+        pointer-events: none; 
+    } 
+
+    .notification--Shown{
+        opacity: 1;
+        pointer-events: initial;
+
+    } 
+
+    .notification p{
+        padding-bottom: 2em;
+        line-height: 3;
+        color: rgb(47, 47, 47);
+    }
+    .notification a{
+        color: rgb(255, 255, 255);
+        background-color: #8AC6D1;
+        padding:15px 40px;
+        border-radius: 10px;
+        cursor: pointer;
+
+    }
+
 
 }
