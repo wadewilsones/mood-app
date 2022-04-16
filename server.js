@@ -40,13 +40,16 @@ app.use(express.static(path.join(__dirname, 'client/public')));
 app.post('/signUp', async (req,res) => {
 
     try{
+
         const { username, password } = req.body;
         req.body.password = atob(req.body.password);
-        const addData = await pool.query("INSERT INTO users (username, password) VALUES ($1,$2);", [username,password]);
+        //hash password
+        const hashPassword = bcrypt.hashSync(password, saltRounds);
+        const addData =  await pool.query("INSERT INTO users (username, password) VALUES ($1,$2);", [username, hashPassword]);
         if (addData){
             res.send(addData);
         }
-        }
+    }
       
     catch(err){
         console.error(err.message)
@@ -63,22 +66,34 @@ app.get("/login", (req,res) => {
 })
 
 
-app.post("/login", async (req,res) =>{
+app.post('/login',  (req,res) => {
     try{
-        const {username, password} = req.body;
+        const { username, password } = req.body;
+        //Get data from DB
+        pool.query("SELECT * FROM users WHERE username = $1", [username], (err, result) => {
+            if (err){
+                res.send({err:err.message})
+            }
+            if(result.rows.length > 0){
+                    bcrypt.compare(password, result.rows[0].password).then(function(success){
+                        if(success){
+                        req.session.user = result;
+                        res.send(result.rows);
+                        }
+                        else{
+                            res.send({message:"Wrong password"});
+                        }
+                    })
+            }
+            else{
+                res.send({message:"No user found"})
+            }
+        });
 
-        const loginUser = await pool.query("SELECT * FROM users WHERE username = $1 AND password = $2;", [username, password]);
-        if(loginUser.rows.length > 0){
-            req.session.user = loginUser.rows[0];
-            console.log( req.session.user);
-            res.send(loginUser);
-        }
-        else{
-            res.send({user:"user not found!"});
-        }
+     
     }
     catch(err){
-        console.error(err.message)
+        console.error(message.err)
     }
 })
 

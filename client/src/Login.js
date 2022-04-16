@@ -56,10 +56,6 @@ const [loginStatus, setLoginStatus] = useState("");
 
     
 
-  
-
-
-
     return(
         <div className="sign-up-container">
         <h1>Moodnex</h1>
