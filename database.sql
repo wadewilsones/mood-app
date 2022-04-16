@@ -10,8 +10,8 @@ CREATE DATABASE moodapp;
 /*Create tables*/
 CREATE TABLE users(
     userid SERIAL PRIMARY KEY,
-    username VARCHAR(15),
-    password VARCHAR(20)
+    username VARCHAR(30),
+    password VARCHAR(500)
 );
 
 CREATE TABLE user_mood(
