@@ -3,25 +3,51 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from 'react-dom';
 import Mood from './Mood';
 import {
-  BrowserRouter, Routes, Route 
+  BrowserRouter, Routes, Route, Navigate  
 } from "react-router-dom";
 import SignUp from './Sign-Up';
 import Login from './Login';
 
 function App () {
 
-    return (
-  <BrowserRouter>
+  const [loginStatus, setLoginStatus] = useState(false);
+  const [username, setUsername] = useState("");
+    
+  useEffect(()=>{
+    fetch("/login", {
+      method:"GET",
+      headers:{'Content-Type':'application/json'},
+      credentials:'include'
+    })
+    .then (response => response.json())
+    .then(data => {
+        if(data.loggedIn == true){
+            setLoginStatus(data.loggedIn);
+            setUsername(data.user);
+        }
+        }  
+    )
 
-    <Routes>
-      <Route exact path="/" element={<Login />} />
-      <Route path="/login"  element={<Login />}  />
-      <Route path="/sign-up" element={<SignUp/>} />
-    </Routes>
+},[loginStatus])
 
-  </BrowserRouter>
+
+
+  //Setting up Routes
+
+  return(
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path = "/" element = {loginStatus ? <Mood username = {username}/>  : <Navigate to = "/login" replace />  } />
+          <Route path = "/login" element= {!(loginStatus) ? <Login/> : <Navigate to = "/" replace  />}  />
+          <Route path = "/signup" element= {<SignUp />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+
+
+  )
      
-    );
 }
 
 export default App;

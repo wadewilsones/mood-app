@@ -58,7 +58,12 @@ app.post('/signUp', async (req,res) => {
 
 app.get("/login", (req,res) => {
     if(req.session.user){
-        res.send({loggedIn:true, user: req.session.user})
+        res.send(
+            {loggedIn:true, 
+            user: req.session.user.rows[0].username,
+            userId: req.session.user.rows[0].userid
+            }
+        )
     }
     else{ res.send({loggedIn:false})
     

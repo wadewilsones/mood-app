@@ -1,20 +1,9 @@
 import './App.css';
+import Mood from './Mood';
 import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, Navigate, NavigationType, NavLink, useNavigate } from "react-router-dom";
 
-function Login (){
-
-const [loginStatus, setLoginStatus] = useState("");
-    
-  useEffect(()=>{
-    fetch("/login", {
-      method:"GET",
-      headers:{'Content-Type':'application/json'},
-      credentials:'include'
-    })
-    .then (response => response.json())
-    .then(data => console.log(data))
-},[])
+function Login(){
 
     const [userData, setUserdata] = useState({
         username:'',
@@ -50,16 +39,18 @@ const [loginStatus, setLoginStatus] = useState("");
         })
 
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data);
+            window.location.reload();
+        })
 
     }
 
-    
+
 
     return(
         <div className="sign-up-container">
         <h1>Moodnex</h1>
-        <h2>{loginStatus}</h2>
         <h5>Your personal mood app</h5>
         <p>Login</p>
        <form method="POST" action="/" onSubmit={handleSubmit}> 
@@ -68,10 +59,11 @@ const [loginStatus, setLoginStatus] = useState("");
            <label htmlFor="password">Password</label>
            <input type="password" id="password" name="password" value = {password} onChange = {changeInput} placeholder='Type here..' required />
            <input type="submit" id="subBtn" value="Login"/>
-           <p>Don't have an account? <Link to="/sign-up">Sign Up!</Link></p>
+           <p>Don't have an account? <Link to="/signup">Sign Up!</Link></p>
 
        </form>
     </div>
+
     )
 }
 

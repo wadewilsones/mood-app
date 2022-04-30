@@ -76,30 +76,35 @@ class Mood extends React.Component{
             this.displayMood();
         })
     }
+
+
     
+    //training
+
+
     render() {
         return(
             <div>
-                <Header/>
-                <div id='content-container'>
-                    <section id ="mood-section">
-                    <h3>How do you feel today?</h3>
-                    <div id="mood-container">
-                        <div id ="good">
-                            <button className = "userMood" onClick = {this.changeMoodGood}>Good</button>
-                        </div>
-                        <div id ="neutral">
-                            <button  className = "userMood" onClick={this.changeMoodNeutral}>Neutral</button>
-                        </div>
-                        <div  id ="bad">
-                            <button className = "userMood" onClick={this.changeMoodBad} >Bad</button>
-                        </div>
+            <Header />
+            <div id='content-container'>
+                <section id ="mood-section">
+                <h3>How do you feel today?</h3>
+                <div id="mood-container">
+                    <div id ="good">
+                        <button className = "userMood" onClick = {this.changeMoodGood}>Good</button>
                     </div>
-                    <div id="mood"></div>
-                    </section>
-                <Weather/>
+                    <div id ="neutral">
+                        <button  className = "userMood" onClick={this.changeMoodNeutral}>Neutral</button>
+                    </div>
+                    <div  id ="bad">
+                        <button className = "userMood" onClick={this.changeMoodBad} >Bad</button>
+                    </div>
                 </div>
+                <div id="mood"></div>
+                </section>
+            <Weather/>
             </div>
+        </div>
         )
     }
 }
