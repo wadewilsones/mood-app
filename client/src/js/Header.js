@@ -7,12 +7,12 @@ import Today from './date';
 let todayInfo = Today();
 const date = todayInfo[0];
 
-function Header(){
+function Header(props){
         return (
         <header>
                 <section id='header-container'>
                         <h4>{date}</h4>
-                        <h3>Hello username</h3>
+                        <h3>Hello {props.username}</h3>
                         <h5>Log Out</h5>
                 </section>
         </header>)

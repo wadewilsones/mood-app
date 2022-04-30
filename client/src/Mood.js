@@ -10,6 +10,7 @@ class Mood extends React.Component{
     constructor(props){
         super(props);
         this.state = {mood:''};
+        this.username = props.username;
         this.changeMoodGood = this.changeMoodGood.bind(this);
         this.changeMoodNeutral = this.changeMoodNeutral.bind(this);
         this.changeMoodBad = this.changeMoodBad.bind(this);     
@@ -85,7 +86,7 @@ class Mood extends React.Component{
     render() {
         return(
             <div>
-            <Header />
+            <Header username = {this.username}/>
             <div id='content-container'>
                 <section id ="mood-section">
                 <h3>How do you feel today?</h3>
