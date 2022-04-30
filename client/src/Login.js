@@ -46,8 +46,6 @@ function Login(){
 
     }
 
-
-
     return(
         <div className="sign-up-container">
         <h1>Moodnex</h1>
