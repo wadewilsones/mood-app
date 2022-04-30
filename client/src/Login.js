@@ -10,6 +10,8 @@ function Login(){
         password:''
     });
 
+    const [loginError, setError] = useState('');
+
     const changeInput = (event) => {
         const { name, value } = event.target;
         setUserdata(
@@ -30,6 +32,8 @@ function Login(){
         }
     }
 
+
+
     const sendData = () => {
 
         fetch('/login', {
@@ -41,16 +45,34 @@ function Login(){
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            window.location.reload();
+            if(data.message){
+                if(data.message == "Wrong password"){
+                    setError("Wrong password!");
+                }
+                else if (data.message == "No user found"){
+                    setError("Wrong username!");
+                }
+                else{
+                    alert( 'Wrong credentials. Try again');
+                }
+
+            }
+            else{
+                window.location.reload();
+            }
+            
         })
 
     }
 
     return(
         <div className="sign-up-container">
-        <h1>Moodnex</h1>
-        <h5>Your personal mood app</h5>
-        <p>Login</p>
+        <div className = 'loginScreenHeader'> 
+            <h1>Moodnex</h1>
+            <h5>Your personal mood app</h5>
+            <h3>Login</h3>
+        </div>
+        <div className={ loginError? "loginError-active" : "loginError-none"}>{loginError}</div>
        <form method="POST" action="/" onSubmit={handleSubmit}> 
             <label htmlFor="username">Username</label>
            <input type="text" id="username" name="username"  value = {username} onChange = {changeInput} placeholder='Type here..' required />

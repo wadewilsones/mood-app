@@ -5,9 +5,9 @@
 }
 
 body{
-    background-color: #bbded6;
+    background-color: #f1f1f1;
     font-family: Urbanist, Helvetica, sans-serif ;
-    color:white;
+    color:rgb(75, 75, 75);
 
 }
 #icons-attribution{
@@ -18,7 +18,7 @@ body{
 }
 footer{
     text-align: center;
-    background-color: #8AC6D1; 
+    background-color:#7F95D1;
     padding: 1.2em 1em;
     margin: 2em 0 0 0;
     color:white;
@@ -207,40 +207,57 @@ footer{
 
     .sign-up-container{   
         display:grid;
-        width:95%;
-        margin: auto;
-        padding-top: 6em;
+        width:100%;
 
     }
-    
+
+    .loginScreenHeader{
+
+        color:white;
+        margin-bottom: 2em;
+        background-repeat: no-repeat;
+        background-size: 330px;
+        background-position-x: 0;
+        background-position-y:0;
+        background-image: url('./blot.svg');
+    }
+
     .sign-up-container h1{
       font-family: Allura, Helvetica, sans-serif;
       text-align: center;
       font-weight: 300;
       font-size:3em;
+      margin: 0.4em 0 0;
     }
     .sign-up-container h5{
         text-align: center;
         font-size:1.2em;
         font-weight: 300;
+        margin: 0.5em 0 0;
     }
-    .sign-up-container p:first-of-type {
+    .sign-up-container h3 {
         text-align: center;
-        margin-top: 2em;
-        font-size:1.5em;
+        font-weight: 300;
+        font-size:2em;
+        margin: 1em 0;
     }
 
-  .sign-up-container form p:first-of-type{
+  .sign-up-container form p{
       font-size: 1em;
+      text-align: center;
+      margin-top: 1em;
   }
+
 
     .sign-up-container form {
 
         width:310px;
         margin: auto;
-        margin-top: 2em;
+        margin-top: 1sem;
 
     }
+
+
     .sign-up-container form label{
         margin-left:10px;
         font-size: 1.2em;
@@ -250,6 +267,7 @@ footer{
         display: block;
         margin: 0.5em auto;
         width:300px;
+        box-shadow: rgb(214, 207, 207) 1px 1px 10px;
         height: 50px;
         border-radius: 10px;
         padding-left:10px;
@@ -260,6 +278,7 @@ footer{
         margin: 0.5em auto;
         width:300px;
         height: 50px;
+        box-shadow: rgb(214, 207, 207) 1px 1px 10px;
         -webkit-appearance: none;
         border-radius: 10px;
         padding-left:10px;
@@ -274,15 +293,34 @@ footer{
         height: 50px;
         border-radius: 10px;
         font-size: 1.2em;
-        background-color: #8AC6D1;
+        box-shadow: rgb(214, 207, 207) 1px 1px 10px;
+        background-color: #7F95D1;
         color:white;
 
     }
 
    a{
-        color:white;
+        color:#7F95D1;
+        text-align: center;
         text-decoration: none;
     }
+
+    /*Login*/
+
+    
+    .loginError-active{
+        background-color: #fb807594;
+        padding: 0.6em 0;
+        text-align: center;
+        font-size: 1.4em;
+        margin-top: 1em;
+    }
+
+    .loginError-none{
+        display: none;
+    }
+
+
 
 }
 
@@ -857,6 +895,7 @@ footer{
         cursor: pointer;
 
     }
+
 
 
 }
