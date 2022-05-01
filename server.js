@@ -47,7 +47,10 @@ app.post('/signUp', async (req,res) => {
         const hashPassword = bcrypt.hashSync(password, saltRounds);
         const addData =  await pool.query("INSERT INTO users (username, password) VALUES ($1,$2);", [username, hashPassword]);
         if (addData){
-            res.send(addData);
+            res.send({message:'Registration is successful'});
+        }
+        else{
+            res.send({message:'Error!'});
         }
     }
       

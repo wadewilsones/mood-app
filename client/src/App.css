@@ -29,8 +29,9 @@ footer{
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         box-shadow: #5e055625 2px 5px 6px;
-        background-color: #8ac6d1;
+        background-color: #7F95D1;
         padding-bottom: 1.6em;
+        color:white;
 
     }
 
@@ -303,6 +304,41 @@ footer{
         color:#7F95D1;
         text-align: center;
         text-decoration: none;
+    }
+
+    .notification{
+        position: absolute;
+        width: 90%;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: rgba(75, 75, 75, 0.468) 1px 1px 10px;
+        transition: opacity 5s ease-in;
+        position: absolute;
+        top:5%;
+        left:2%;
+    }
+
+    .notificationHidden{
+        display: none;
+    }
+
+    .notification p{
+        padding: 1em 0;
+        font-size:1.5em;
+        text-align: center;
+        color: rgb(47, 47, 47);
+    }
+    .notification a{
+        color: rgb(255, 255, 255);
+        background-color: #7F95D1;
+        border-radius: 10px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto 2em;
+        width:40%;
+        padding: 10px 0;
+
     }
 
     /*Login*/

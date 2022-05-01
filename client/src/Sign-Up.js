@@ -22,7 +22,7 @@ function SignUp (){
     }
 
     const {username, password} = userData;
-
+    const [notification, setNotificetion] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -30,7 +30,6 @@ function SignUp (){
         if (username != null && password != null)
         {
             sendData();
-            showNotification();
         }
     }
 
@@ -43,25 +42,27 @@ function SignUp (){
         })
 
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            if(data.message == "Registration is successful"){
+            setNotificetion(true)
+            }
+        })
 
-    }
-
-
-    const [notification, setNotificetion] = useState(false);
-
-    const showNotification = () =>{
-        setNotificetion(true)
     }
 
     const hideNotification = () =>{
         setNotificetion(false)
+        setUserdata({
+            username:'',
+            password:''
+        });
     }
 
 
     return(
         <div className="sign-up-container">
-            {notification && <div className={`notification ${notification} ? "notification--Shown" : "notification--Hidden"}`}><p>Thank you for registration, {username}!<br></br><a onClick={hideNotification}>Close</a></p></div>}
+        <div className = {notification? "notification" : "notificationHidden"}><p>Thank you for registration, {username}</p><a onClick={hideNotification}>Close</a></div>
+            
             <div className = 'loginScreenHeader'> 
                 <h1>Moodnex</h1>
                 <h5>Your personal mood app</h5>
