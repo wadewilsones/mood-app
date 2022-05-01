@@ -118,6 +118,52 @@ footer{
         cursor: pointer;
 
     }
+    .TodayMood{
+        font-size: 1.5em;
+        text-align: center;
+        background-color: #FFB6B9;
+        padding: 5px;
+        border-radius: 10px;
+        width:90%;
+        margin: auto;
+        color:white;
+    }
+
+    .TodayMoodHidden{
+        display: none;
+    }
+    #symtomps{
+        border-radius:10px;
+        width:90%;
+        margin: auto;
+        margin-top: 2em;
+        background-color: #7F95D1;
+        box-shadow: #241d2c5e 1px 4px 10px;
+        padding: 1.5em 0;
+        color:white;
+        text-align: center;
+        display: block;
+    }
+
+    #symtomps label{
+        font-size:1.2em;
+    }
+
+    #symtomps textarea{
+        width:80%;
+        margin: 2em auto;
+        border-radius: 5px;
+        padding: 1em 0 6em 0.5em;
+    }
+
+    #symtomps input[type=submit]{
+        color:white;
+        background-color:#FFB6B9;
+        border-radius: 5px;
+        font-size: 1em;
+        font-weight: 500;
+        padding: 10px 20px;
+    }
 
 
     /*Weather Component*/

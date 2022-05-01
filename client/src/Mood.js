@@ -57,6 +57,7 @@ class Mood extends React.Component{
                 <div className='days-div'>g</div>
                 <div className='days-div'>g</div>
             </section>
+            <div className = {this.state.mood? "TodayMood" : "TodayMoodHidden"}>So, today you feel {this.state.mood}</div>
             <div id='content-container'>
                 <section id ="mood-section">
                 <h3>How do you feel today?</h3>
@@ -75,6 +76,14 @@ class Mood extends React.Component{
                     </div>
                 </div>
                 </section>
+            <section id="symtomps">
+                <form>
+                    <label>Got any symptoms?</label><br/>
+                    <textarea placeholder='If there are any concerns you can add them here...'></textarea>
+                    <input type="submit" value = "Add symptoms"></input>
+                </form>
+            </section>
+
             <Weather/>
             </div>
         </div>
