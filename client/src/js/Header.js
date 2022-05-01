@@ -13,7 +13,7 @@ function Header(props){
                 <section id='header-container'>
                         <h4>{date}</h4>
                         <h3>Hello {props.username}</h3>
-                        <h5>Log Out</h5>
+                        <a>Logout</a>
                 </section>
         </header>)
 }

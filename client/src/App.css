@@ -35,15 +35,15 @@ footer{
 
     }
 
+
+    #root{
+        margin-bottom: 2em;
+    }
+
     #header-container{
         display: grid;
-        grid-template-columns: 80% 20%;
+        grid-template-columns: 70% 30%;
     }
-    #root{
-        height:89vh;
-    }
-
-
    header h4{
         text-align: left;
         padding: 1.2em 0 0.2em 1em;
@@ -62,11 +62,15 @@ footer{
     }
 
     
-    header h5{
-        float:right;
+    header a{
+  
+        color:white;
+        background-color:#FFB6B9;
+        border-radius: 5px;
         font-size: 1em;
-        font-weight: 300;
-        padding: 10px 0 0 0.5em;
+        font-weight: 500;
+        padding: 10px 20px;
+        margin: 10px 15px 0 0;
         grid-column-start: 2;
         grid-row-start: 1;
     
@@ -79,9 +83,10 @@ footer{
         width:90%;
         margin: auto;
         margin-top: 2em;
-        background-color: #8ac6d1;
+        background-color: #7F95D1;
         box-shadow: #241d2c5e 1px 4px 10px;
         padding: 1.5em 0;
+        color:white;
     }    
     #mood-container{
         display: flex;
@@ -91,8 +96,9 @@ footer{
     }
     #mood-container div {
         width:30%;
-       margin: 1em 10px 1em 10px;
-
+        box-shadow: rgba(121, 113, 113, 0.225) 1px 1px 10px;
+        margin:10px 4px;
+        border-radius: 10px;
 
     }
 
@@ -105,53 +111,15 @@ footer{
         width:100%;
         color:white;
         font-weight: 500;
-        border-radius: 5px;
+        background-color: transparent;
         text-align: center;
-        padding: 1em 0;
+        padding: 5px 0 10px;
         font-size: 1em;
-        box-shadow: #5e055625 2px 5px 6px;
-        background-color: #FFB6B9;
         cursor: pointer;
 
-
     }
 
 
-    #mood{
-        display: none;
-        width:90%;
-        color: white;
-        text-align: center;
-        margin: 0.1em auto;
-        padding-top: 1em;
-        border-radius: 30px;
-    }
-
-    #mood p{
-        color:rgb(255, 255, 255);
-        width: 100%;
-        margin: 0 auto;
-        padding: 10px 0;
-        border-radius: 10px;
-        box-shadow: #27212f21 1px 0px 10px ;
-        background-color: #FFB6B9;
-
-    }
-    .closeTabBtn{
-        background-color: #ffb6b9;
-        padding: 1em 3em;
-        border-radius: 1em;
-        font-size: 1em;
-        color:white;
-        box-shadow: #27212f21 1px 0px 10px ;
-    }
-
-    .moodPicClass{
-        width:150px;
-        height: 100px;
-        display: block;
-        margin: auto;
-    }
     /*Weather Component*/
     .weather_container{
         width:90%;
@@ -160,7 +128,7 @@ footer{
         color:white;
         padding: 2em 0;
         border-radius:10px;
-        background-color: #8ac6d1;
+        background-color: #7F95D1;
         box-shadow: #241d2c5e 1px 4px 10px;
         display: flex;
         align-items: center;
@@ -204,6 +172,34 @@ footer{
         grid-column-start: 1;
     }
 
+    #mood-days{
+       
+        width:100%;
+        padding: 1.5em 0;
+        color:white;
+        display: flex;
+        overflow-x: scroll;
+        
+    }
+
+    .days-div{
+        background-color: #7F95D1;
+        width:40%;
+        height: 10vh;
+        margin: 0 5px ;
+        padding: 5px 10px;
+        text-align: center;
+        border-radius:10px;
+        box-shadow: #241d2c5e 1px 4px 10px;
+        
+    }
+
+    .days-div img{
+        margin: auto;
+        display: block;
+        width:80%;
+    }
+
     /*Sign up*/
 
     .sign-up-container{   
@@ -220,7 +216,7 @@ footer{
         background-size: 330px;
         background-position-x: 0;
         background-position-y:0;
-        background-image: url('./blot.svg');
+        background-image: url('/media/blot.svg');
     }
 
     .sign-up-container h1{
@@ -402,9 +398,11 @@ footer{
     }
 
     
-    header h5{
+    header a{
         float:right;
+        border:2px solid red;
         font-size: 1em;
+        color:white;
         font-weight: 300;
         padding: 10px 0 0 0.5em;
         grid-column-start: 2;

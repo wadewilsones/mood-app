@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link  } from "react-router-dom";
 
 
 function SignUp (){
@@ -56,6 +56,7 @@ function SignUp (){
             username:'',
             password:''
         });
+        window.location.href = '/login';
     }
 
 

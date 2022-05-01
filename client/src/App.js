@@ -38,7 +38,7 @@ function App () {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path = "/" element = {loginStatus ? <Mood username = {username}/>  : <Navigate to = "/login" replace />  } />
+          <Route path = "/" element = {<Mood />}/>
           <Route path = "/login" element= {!(loginStatus) ? <Login/> : <Navigate to = "/" replace  />}  />
           <Route path = "/signup" element= {<SignUp />} />
         </Routes>

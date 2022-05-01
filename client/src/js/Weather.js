@@ -13,8 +13,6 @@ function Weather(){
 
     function userPosition(location){
         let position = location.coords;
-        console.log("latitude:" + position.latitude)
-        console.log("long:" + position.longitude)
         let lat = position.latitude;
         let lot = position.longitude;
         //Display location
