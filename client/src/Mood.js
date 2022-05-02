@@ -31,11 +31,40 @@ class Mood extends React.Component{
 
     }
     
+    componentDidMount(){
+        fetch("/usersFeeling", {
+            method:"GET",
+            headers:{'Content-Type':'application/json'},
+            credentials:'include'
+          })
+          .then (response => response.json())
+          .then(data => {
+            this.setState({
+                mood:data.mood_descr,
+                symptoms:data.symptoms,
+            })  
+            console.log(this.state)
+          })
+    }
 
     HandleSymptoms(e){
         e.preventDefault();
-        this.setState({symptoms:e.target[0].value}, () => {console.log('This is new symptom state:' + this.state.symptoms)})
-        console.log('work');
+        this.setState({symptoms:e.target[0].value}, () => {
+            let moodData = {
+                userId: this.state.userId, 
+                moodDate:formattedDate.toISOString().slice(0,10),
+                symptoms:this.state.symptoms
+            }
+            fetch('/addSymptoms', {
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body: JSON.stringify(moodData)
+            })
+           .then(response => console.log(response));   
+
+            })
+        
+
     }
 
     changeMoodGood(){
@@ -66,7 +95,6 @@ class Mood extends React.Component{
             mood:this.state.mood
     }   
 
-    console.log(moodData);
 
         fetch('/addMood', {
             method:'POST',
@@ -80,7 +108,7 @@ class Mood extends React.Component{
 
     render() {
         return(
-            <div>
+            <div onClick = {this.displayMood}>
             <Header username = {this.state.username}/>
             <section id='mood-days'>
                 <div className='days-div'>
@@ -121,6 +149,7 @@ class Mood extends React.Component{
                     <textarea placeholder='If there are any concerns you can add them here...'></textarea>
                     <input type="submit" value = "Add symptoms"></input>
                 </form>
+                <p>{this.state.symptoms}</p>
             </section>
             </div>
         </div>

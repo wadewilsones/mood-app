@@ -106,23 +106,20 @@ app.post('/login',  (req,res) => {
 })
 
 //Send data to mood table
-
 app.post('/addMood', async (req,res) =>{
     try{
         const { userId, moodDate, mood } = req.body;
-        //Get userId
+        //Check DB for existing information
         const checkData = await pool.query("SELECT * FROM user_moods WHERE mood_date = $1 AND user_idfk = $2;", [moodDate, userId]);
         if(checkData.rows.length > 0){
-            console.log('Current data for date exists');
             console.log(checkData.rows);
             //Update mood
-            const updateMood = await pool.query("UPDATE user_moods SET mood_descr = $1 WHERE mood_date = $2 AND user_idfk = $3;", [mood, moodDate, userId, ]);
+            const updateMood = await pool.query("UPDATE user_moods SET mood_descr = $1 WHERE mood_date = $2 AND user_idfk = $3;", [mood, moodDate, userId ]);
             if(updateMood){
                 console.log('Mood was updated')
             }
         }
         else if (checkData.rows.length <= 0){
-            console.log('Current data not exists');
             const addMood = await pool.query("INSERT INTO user_moods (user_idfk, mood_date, mood_descr) VALUES ($1,$2,$3);", [userId, moodDate, mood]);
             if(addMood){
                 console.log('New record was added');
@@ -136,8 +133,6 @@ app.post('/addMood', async (req,res) =>{
             }
         }
 
-
-
     }
 
     catch(err){
@@ -145,6 +140,33 @@ app.post('/addMood', async (req,res) =>{
     }
 })
 
+
+app.post ('/addSymptoms', async(req,res) => {
+    try{
+        const {userId, moodDate, symptoms } = req.body;
+        const updateSymptoms = await pool.query("UPDATE user_moods SET symptoms = $1 WHERE mood_date = $2 AND user_idfk = $3;", [symptoms, moodDate, userId]);
+        if(updateSymptoms){
+            console.log('symptoms were updated')
+        }
+    }
+    catch(err){
+        console.error(err.message)
+    }
+})
+
+app.get('/usersFeeling', async (req,res) =>{
+    try{
+        const userId =  req.session.user.rows[0].userid;
+        const getMood = await pool.query ("SELECT * FROM user_moods WHERE user_idfk = $1 AND mood_date = CURRENT_DATE;", [userId])
+        if(getMood.rows.length > 0){
+            console.log(getMood.rows[0])
+            res.send(getMood.rows[0])
+        }    
+    }
+    catch(err){
+        console.error(err.message)
+    }
+})
 
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`)

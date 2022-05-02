@@ -10,13 +10,6 @@ import Login from './Login';
 
 function App () {
 
-  /*
-  const [loginStatus, setLoginStatus] = useState(false);
-  const [username, setUsername] = useState("");
-  const [userId, setUserId] = useState(0);
-
-*/
-
 const [loginData, setLoginData] = useState({
     loginStatus: false,
     username:'',
@@ -42,6 +35,20 @@ const [loginData, setLoginData] = useState({
     })
 },[loginData])
 
+/*
+  useEffect(()=>{
+    fetch("/usersFeeling", {
+      method:"GET",
+      headers:{'Content-Type':'application/json'},
+      credentials:'include'
+    })
+    .then (response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+       
+  },[])*/
+
 
   //Setting up Routes
 
@@ -49,7 +56,7 @@ const [loginData, setLoginData] = useState({
     <div>
       <BrowserRouter>
         <Routes>
-        <Route path = "/" element = {loginData.loginStatus ? <Mood username = {loginData.username} userId = {loginData.userId} />  : <Navigate to = "/login" replace />  } />
+        <Route path = "/" element = {loginData.loginStatus ? <Mood username = {loginData.username} userId = {loginData.userId}/>  : <Navigate to = "/login" replace />  } />
           <Route path = "/login" element= {!(loginData.loginStatus) ? <Login/> : <Navigate to = "/" replace  />}  />
           <Route path = "/signup" element= {<SignUp />} />
 
