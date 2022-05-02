@@ -2,60 +2,99 @@
 import React, { createElement } from 'react';
 import ReactDOM from 'react-dom';
 import Header from './js/Header';
+import Today from './js/date';
 import Weather from './js/Weather';
 import { SendData } from './Sign-Up';
 
+let todayInfo = Today();
+const date = todayInfo[0];
+const formattedDate = todayInfo[2];
+let dayDate = date.split(',')
+console.log(todayInfo[3])
+
 class Mood extends React.Component{
-    
+  
     constructor(props){
         super(props);
-        this.state = {mood:''};
-        this.username = props.username;
+        this.state = {
+            mood:'',
+            symptoms:'',
+            date:dayDate[0],
+            username: props.username,
+            userId: props.userId
+        };
         this.changeMoodGood = this.changeMoodGood.bind(this);
         this.changeMoodNeutral = this.changeMoodNeutral.bind(this);
-        this.changeMoodBad = this.changeMoodBad.bind(this);     
-    }
+        this.changeMoodBad = this.changeMoodBad.bind(this);
+        this.HandleSymptoms = this.HandleSymptoms.bind(this);
+        this.sendMood = this.sendMood.bind(this);
 
-    displayMood(){
-        console.log('Mood is:' + this.state.mood);
+    }
+    
+
+    HandleSymptoms(e){
+        e.preventDefault();
+        this.setState({symptoms:e.target[0].value}, () => {console.log('This is new symptom state:' + this.state.symptoms)})
+        console.log('work');
     }
 
     changeMoodGood(){
         this.setState({mood:"good"}, () => {
-            this.displayMood();
+            this.sendMood();
         })
     }
 
 
     changeMoodNeutral(){
         this.setState({mood:"neutral"}, () => {
-            this.displayMood();
+            this.sendMood();
         })
     }
 
     changeMoodBad(){
         this.setState({mood:"bad"}, () => {
-            this.displayMood();
+            this.sendMood();
         })
     }
 
+    //Sent data to DB
+  sendMood(){
 
-    
-    //training
+        let moodData = {
+            userId: this.state.userId, 
+            moodDate:formattedDate.toISOString().slice(0,10),
+            mood:this.state.mood
+    }   
+
+    console.log(moodData);
+
+        fetch('/addMood', {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(moodData)
+        })
+       .then(response => console.log(response));
+
+    }
 
 
     render() {
         return(
             <div>
-            <Header username = {this.username}/>
+            <Header username = {this.state.username}/>
             <section id='mood-days'>
                 <div className='days-div'>
-                <p>April 26</p>
-                <img src="media/good.svg"></img>
+                <p>{this.state.date}</p>
                 </div>
-                <div className='days-div'>g</div>
-                <div className='days-div'>g</div>
-                <div className='days-div'>g</div>
+                <div className='days-div'>{this.state.date}</div>
+                <div className='days-div'>
+                    {this.state.date}<br/>
+                    <img src = {this.state.mood === 'good' ? "media/good.svg" 
+                                : this.state.mood === 'bad' ? "media/sad.svg"
+                                : "media/neutral.svg" } alt = 'mood'></img>
+                </div>
+                <div className='days-div'>{this.state.date}</div>
+                <div className='days-div'>{this.state.date}</div>
             </section>
             <div className = {this.state.mood? "TodayMood" : "TodayMoodHidden"}>So, today you feel {this.state.mood}</div>
             <div id='content-container'>
@@ -77,14 +116,12 @@ class Mood extends React.Component{
                 </div>
                 </section>
             <section id="symtomps">
-                <form>
+                <form onSubmit = {this.HandleSymptoms}>
                     <label>Got any symptoms?</label><br/>
                     <textarea placeholder='If there are any concerns you can add them here...'></textarea>
                     <input type="submit" value = "Add symptoms"></input>
                 </form>
             </section>
-
-            <Weather/>
             </div>
         </div>
         )

@@ -32,8 +32,6 @@ function Login(){
         }
     }
 
-
-
     const sendData = () => {
 
         fetch('/login', {

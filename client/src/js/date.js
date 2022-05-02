@@ -105,13 +105,20 @@
         return month;
     }
     let today = todayMonth(currentMonth) + " " + currentDay + ", " + todayWeekDay(weekDay);
-
     let hours = FullDate.getHours();
     let minutes = FullDate.getMinutes();
     let time = `${hours}:${minutes}`;
 
-    return [today, time];
+    //Last week dates
+    let yesterday = new Date(FullDate);
+    yesterday = yesterday.setDate(FullDate.getDate() - 1);
+    return [today, time, FullDate,yesterday];
 }
 
 
-export  default Today;
+
+
+
+
+export  default Today
+

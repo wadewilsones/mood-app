@@ -16,13 +16,7 @@ body{
     text-decoration: none;
 
 }
-footer{
-    text-align: center;
-    background-color:#7F95D1;
-    padding: 1.2em 1em;
-    margin: 2em 0 0 0;
-    color:white;
-}
+
 @media screen and (min-width: 320px) and (max-width:500px){
 
     header{
@@ -36,9 +30,6 @@ footer{
     }
 
 
-    #root{
-        margin-bottom: 2em;
-    }
 
     #header-container{
         display: grid;
@@ -118,6 +109,37 @@ footer{
         cursor: pointer;
 
     }
+
+    
+    #mood-days{
+       
+        width:100%;
+        padding: 1.5em 0;
+        color:white;
+        display: flex;
+        overflow-x: scroll;
+        
+    }
+
+    .days-div{
+        white-space: nowrap;
+        flex-shrink: 0;
+        background-color: #7F95D1;
+        width:20%;
+        height: 10vh;
+        margin: 0 5px ;
+        padding: 5px 10px;
+        text-align: center;
+        border-radius:10px;
+        box-shadow: #241d2c5e 1px 4px 10px;
+        
+    }
+
+    .days-div img{
+        margin: 0;
+        width:70%;
+    }
+
     .TodayMood{
         font-size: 1.5em;
         text-align: center;
@@ -218,34 +240,6 @@ footer{
         grid-column-start: 1;
     }
 
-    #mood-days{
-       
-        width:100%;
-        padding: 1.5em 0;
-        color:white;
-        display: flex;
-        overflow-x: scroll;
-        
-    }
-
-    .days-div{
-        background-color: #7F95D1;
-        width:40%;
-        height: 10vh;
-        margin: 0 5px ;
-        padding: 5px 10px;
-        text-align: center;
-        border-radius:10px;
-        box-shadow: #241d2c5e 1px 4px 10px;
-        
-    }
-
-    .days-div img{
-        margin: auto;
-        display: block;
-        width:80%;
-    }
-
     /*Sign up*/
 
     .sign-up-container{   
@@ -295,10 +289,38 @@ footer{
     .sign-up-container form {
 
         width:310px;
-        margin: auto;
-        margin-top: 1sem;
+        margin: 5vh auto;
 
     }
+
+    footer{
+        background-color: #7F95D1;
+        color:white;
+        text-align: center;
+        margin-top: 20vh;
+        padding: 1em 0;
+    }
+
+    
+    @media screen and (max-height: 670px){
+        .sign-up-container form {
+
+            width:310px;
+            margin:auto;
+    
+        }
+
+        
+    footer{
+        background-color: #7F95D1;
+        color:white;
+        text-align: center;
+        margin-top: 10vh;
+    }
+
+
+    }    
+
 
 
     .sign-up-container form label{
@@ -397,8 +419,6 @@ footer{
     .loginError-none{
         display: none;
     }
-
-
 
 }
 

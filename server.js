@@ -105,6 +105,46 @@ app.post('/login',  (req,res) => {
     }
 })
 
+//Send data to mood table
+
+app.post('/addMood', async (req,res) =>{
+    try{
+        const { userId, moodDate, mood } = req.body;
+        //Get userId
+        const checkData = await pool.query("SELECT * FROM user_moods WHERE mood_date = $1 AND user_idfk = $2;", [moodDate, userId]);
+        if(checkData.rows.length > 0){
+            console.log('Current data for date exists');
+            console.log(checkData.rows);
+            //Update mood
+            const updateMood = await pool.query("UPDATE user_moods SET mood_descr = $1 WHERE mood_date = $2 AND user_idfk = $3;", [mood, moodDate, userId, ]);
+            if(updateMood){
+                console.log('Mood was updated')
+            }
+        }
+        else if (checkData.rows.length <= 0){
+            console.log('Current data not exists');
+            const addMood = await pool.query("INSERT INTO user_moods (user_idfk, mood_date, mood_descr) VALUES ($1,$2,$3);", [userId, moodDate, mood]);
+            if(addMood){
+                console.log('New record was added');
+                res.send(
+                    {message:'Mood was added to'+ userId});
+            }
+            else{
+                res.send(
+                    {message:'Mood was not added'}
+                )
+            }
+        }
+
+
+
+    }
+
+    catch(err){
+        console.error(err.message)
+    }
+})
+
 
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`)

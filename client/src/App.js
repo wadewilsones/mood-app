@@ -10,8 +10,18 @@ import Login from './Login';
 
 function App () {
 
+  /*
   const [loginStatus, setLoginStatus] = useState(false);
   const [username, setUsername] = useState("");
+  const [userId, setUserId] = useState(0);
+
+*/
+
+const [loginData, setLoginData] = useState({
+    loginStatus: false,
+    username:'',
+    userId: 0
+})
     
   useEffect(()=>{
     fetch("/login", {
@@ -21,15 +31,16 @@ function App () {
     })
     .then (response => response.json())
     .then(data => {
-        if(data.loggedIn == true){
-            setLoginStatus(data.loggedIn);
-            setUsername(data.user);
+        if(data.loggedIn){
+          
+          setLoginData(
+            {loginStatus: data.loggedIn,
+              username: data.user,
+              userId: data.userId
+          }) 
         }
-        }  
-    )
-
-},[loginStatus])
-
+    })
+},[loginData])
 
 
   //Setting up Routes
@@ -38,9 +49,10 @@ function App () {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path = "/" element = {<Mood />}/>
-          <Route path = "/login" element= {!(loginStatus) ? <Login/> : <Navigate to = "/" replace  />}  />
+        <Route path = "/" element = {loginData.loginStatus ? <Mood username = {loginData.username} userId = {loginData.userId} />  : <Navigate to = "/login" replace />  } />
+          <Route path = "/login" element= {!(loginData.loginStatus) ? <Login/> : <Navigate to = "/" replace  />}  />
           <Route path = "/signup" element= {<SignUp />} />
+
         </Routes>
       </BrowserRouter>
     </div>
