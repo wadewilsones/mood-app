@@ -10,7 +10,14 @@ let todayInfo = Today();
 const date = todayInfo[0];
 const formattedDate = todayInfo[2];
 let dayDate = date.split(',')
-console.log(todayInfo[3])
+let otherDays = todayInfo[3];
+let monthChange = todayInfo[4];
+
+for (const day in otherDays){
+    otherDays[day] = otherDays[day].getDate() + " " + monthChange(otherDays[day].getMonth() + 1);
+}
+console.log(otherDays);
+
 
 class Mood extends React.Component{
   
@@ -23,6 +30,8 @@ class Mood extends React.Component{
             username: props.username,
             userId: props.userId
         };
+
+        this.week = otherDays;
         this.changeMoodGood = this.changeMoodGood.bind(this);
         this.changeMoodNeutral = this.changeMoodNeutral.bind(this);
         this.changeMoodBad = this.changeMoodBad.bind(this);
@@ -112,17 +121,18 @@ class Mood extends React.Component{
             <Header username = {this.state.username}/>
             <section id='mood-days'>
                 <div className='days-div'>
-                <p>{this.state.date}</p>
+                <p>{this.week.fourDaysAgo}</p>
                 </div>
-                <div className='days-div'>{this.state.date}</div>
+                <div className='days-div'>{this.week.threeDaysAgo}</div>
                 <div className='days-div'>
-                    {this.state.date}<br/>
-                    <img src = {this.state.mood === 'good' ? "media/good.svg" 
+                {this.week.twoDaysAgo}<br/>
+                </div>
+                <div className='days-div'>{this.week.yersterday}</div>
+                <div className='days-div'>{this.state.date}<br/>
+                <img src = {this.state.mood === 'good' ? "media/good.svg" 
                                 : this.state.mood === 'bad' ? "media/sad.svg"
                                 : "media/neutral.svg" } alt = 'mood'></img>
                 </div>
-                <div className='days-div'>{this.state.date}</div>
-                <div className='days-div'>{this.state.date}</div>
             </section>
             <div className = {this.state.mood? "TodayMood" : "TodayMoodHidden"}>So, today you feel {this.state.mood}</div>
             <div id='content-container'>

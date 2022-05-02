@@ -108,16 +108,24 @@
     let hours = FullDate.getHours();
     let minutes = FullDate.getMinutes();
     let time = `${hours}:${minutes}`;
+    
+    //Get previous 4 days before today's date
+    let week = {
+        yersterday: new Date(FullDate),
+        twoDaysAgo: new Date(FullDate),
+        threeDaysAgo: new Date(FullDate),
+        fourDaysAgo: new Date(FullDate)
+    }
 
-    //Last week dates
-    let yesterday = new Date(FullDate);
-    yesterday = yesterday.setDate(FullDate.getDate() - 1);
-    return [today, time, FullDate,yesterday];
+    //for loop for week dates
+    let i = 1;
+    for (const day in week){
+        week[day].setDate(week[day].getDate() - i);
+        i++;
+    }
+
+    return [today, time, FullDate, week, todayMonth];
 }
-
-
-
-
 
 
 export  default Today
