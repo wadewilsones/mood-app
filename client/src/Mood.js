@@ -65,16 +65,22 @@ class Mood extends React.Component{
           .then (response => response.json())
           .then(data => {
               console.log(data);
+              //Set up loop for assigning returned data to previous mood
+
+              for(let i = 0; i < data.length; i++){
+                this.weekMood[i].mood = data[i].mood_descr;
+                console.log(this.weekMood[i].mood);
+              }
+              //this.weekMood[0].mood =  data[data.length - 2].mood_descr;
               this.setState({
                 mood: data[data.length - 1].mood_descr,
                 symptoms:data[data.length - 1].symptoms
               })
+            
 
-            //New weekMood here   
-           // console.log(this.weekMood);
-           // console.log('This is updated mood for yersterday '+ this.weekMood[0].mood);
            
-          })
+                }
+            )
     }
 
 
@@ -156,7 +162,6 @@ class Mood extends React.Component{
                 </div>
                 <div className='days-div'>
                     {this.weekMood[0].date}<br/>
-                    {this.weekMood[0].mood}
                     <img alt ='mood' src = {this.weekMood[0].mood === 'good' ? "media/good.svg" 
                     :this.weekMood[0].mood === 'bad' ? "media/sad.svg"
                     : "media/neutral.svg" }></img>
