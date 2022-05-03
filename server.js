@@ -108,7 +108,7 @@ app.post('/addMood', async (req,res) =>{
     try{
         const { userId, mood } = req.body;
         //Check DB for existing information
-        const checkData = await pool.query("SELECT * FROM user_moods WHERE mood_date = CURRENT_DATE AND user_idfk = $1;", [userId]);
+        const checkData = await pool.query("SELECT * FROM user_moods WHERE mood_date = CURRENT_DATE AND user_idfk = $1 ORDER BY mood_id;", [userId]);
         if(checkData.rows.length > 0){
             console.log(checkData.rows);
             //Update mood
@@ -155,7 +155,7 @@ app.post ('/addSymptoms', async(req,res) => {
 app.get('/usersFeeling', async (req,res) =>{
     try{
         const userId =  req.session.user.rows[0].userid;
-        const getMood = await pool.query ("SELECT * FROM user_moods WHERE user_idfk = $1 AND mood_date BETWEEN CURRENT_DATE - 4 AND CURRENT_DATE;", [userId])
+        const getMood = await pool.query ("SELECT * FROM user_moods WHERE user_idfk = $1 AND mood_date BETWEEN CURRENT_DATE - 4 AND CURRENT_DATE ORDER BY mood_id;", [userId])
         if(getMood.rows.length > 0){
             console.log(getMood.rows)
             res.send(getMood.rows)

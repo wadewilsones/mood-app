@@ -114,7 +114,6 @@
         yersterday: new Date(FullDate),
         twoDaysAgo: new Date(FullDate),
         threeDaysAgo: new Date(FullDate),
-        fourDaysAgo: new Date(FullDate)
     }
 
     //for loop for week dates

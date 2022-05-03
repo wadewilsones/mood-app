@@ -30,7 +30,7 @@ class Mood extends React.Component{
         this.weekMood = {
             0: {
                 date:otherDays.yersterday,
-                mood:'none'
+                mood:''
             },
             1: {
                 date:otherDays.twoDaysAgo,
@@ -39,11 +39,7 @@ class Mood extends React.Component{
             2: {
                 date:otherDays.threeDaysAgo,
                 mood:''
-            },
-            3: {
-                date:otherDays.fourDaysAgo,
-                mood:''
-            },
+            }
         };
 
         //Binding functions
@@ -64,14 +60,12 @@ class Mood extends React.Component{
           })
           .then (response => response.json())
           .then(data => {
-              console.log(data);
               //Set up loop for assigning returned data to previous mood
 
-              for(let i = 0; i < data.length; i++){
-                this.weekMood[i].mood = data[i].mood_descr;
-                console.log(this.weekMood[i].mood);
+              for(let i = 0; i <= data.length - 2; i++){
+                this.weekMood[i].mood = data[data.length - (i+2)].mood_descr;
               }
-              //this.weekMood[0].mood =  data[data.length - 2].mood_descr;
+               // should be good
               this.setState({
                 mood: data[data.length - 1].mood_descr,
                 symptoms:data[data.length - 1].symptoms
