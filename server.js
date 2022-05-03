@@ -73,6 +73,17 @@ app.get("/login", (req,res) => {
 })
 
 
+//Set up logout
+
+app.get('/logout',  (req, res) =>{
+        req.session.destroy();
+        res.send({
+            loggedIn:false, 
+            message:'You are logged out'}
+        )
+    })
+
+
 app.post('/login',  (req,res) => {
     try{
         const { username, password } = req.body;
