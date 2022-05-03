@@ -65,11 +65,11 @@ class Mood extends React.Component{
           .then (response => response.json())
           .then(data => {
               console.log(data);
-              /*
-            this.setState({
-                mood:data[data.length - 1].mood_descr,
-                symptoms:data[data.length - 1].symptoms,
-            });*/
+              this.setState({
+                mood: data[data.length - 1].mood_descr,
+                symptoms:data[data.length - 1].symptoms
+              })
+
             //New weekMood here   
            // console.log(this.weekMood);
            // console.log('This is updated mood for yersterday '+ this.weekMood[0].mood);
