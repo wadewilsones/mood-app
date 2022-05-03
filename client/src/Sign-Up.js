@@ -43,7 +43,7 @@ function SignUp (){
 
         .then(response => response.json())
         .then(data => {
-            if(data.message == "Registration is successful"){
+            if(data.message === "Registration is successful"){
             setNotificetion(true)
             }
         })

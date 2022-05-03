@@ -1,6 +1,5 @@
-import React, { createElement } from 'react'
+import React from 'react'
 import Today from './date';
-import ReactDOM from 'react-dom';
 import DetectLocation from './weatherAPI';
 
 //Call weather API

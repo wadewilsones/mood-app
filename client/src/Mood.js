@@ -1,14 +1,11 @@
 //set up class
-import React, { createElement } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import Header from './js/Header';
 import Today from './js/date';
-import Weather from './js/Weather';
-import { SendData } from './Sign-Up';
+//import Weather from './js/Weather';
 
 let todayInfo = Today();
 const date = todayInfo[0];
-const formattedDate = todayInfo[2];
 let dayDate = date.split(',')
 let otherDays = todayInfo[3];
 let monthChange = todayInfo[4];
@@ -16,13 +13,12 @@ let monthChange = todayInfo[4];
 for (const day in otherDays){
     otherDays[day] = otherDays[day].getDate() + " " + monthChange(otherDays[day].getMonth() + 1);
 }
-console.log(otherDays);
-
 
 class Mood extends React.Component{
   
     constructor(props){
         super(props);
+        //Setting up state
         this.state = {
             mood:'',
             symptoms:'',
@@ -30,8 +26,27 @@ class Mood extends React.Component{
             username: props.username,
             userId: props.userId
         };
+        
+        this.weekMood = {
+            0: {
+                date:otherDays.yersterday,
+                mood:'none'
+            },
+            1: {
+                date:otherDays.twoDaysAgo,
+                mood:''
+            },
+            2: {
+                date:otherDays.threeDaysAgo,
+                mood:''
+            },
+            3: {
+                date:otherDays.fourDaysAgo,
+                mood:''
+            },
+        };
 
-        this.week = otherDays;
+        //Binding functions
         this.changeMoodGood = this.changeMoodGood.bind(this);
         this.changeMoodNeutral = this.changeMoodNeutral.bind(this);
         this.changeMoodBad = this.changeMoodBad.bind(this);
@@ -40,6 +55,8 @@ class Mood extends React.Component{
 
     }
     
+    /*
+
     componentDidMount(){
         fetch("/usersFeeling", {
             method:"GET",
@@ -48,20 +65,25 @@ class Mood extends React.Component{
           })
           .then (response => response.json())
           .then(data => {
+
             this.setState({
-                mood:data.mood_descr,
-                symptoms:data.symptoms,
-            })  
-            console.log(this.state)
+                mood:data[data.length - 1].mood_descr,
+                symptoms:data[data.length - 1].symptoms,
+            });
+            //New weekMood here   
+            console.log(this.weekMood);
+            console.log('This is updated mood for yersterday '+ this.weekMood[0].mood);
+           
           })
     }
+
+    */
 
     HandleSymptoms(e){
         e.preventDefault();
         this.setState({symptoms:e.target[0].value}, () => {
             let moodData = {
                 userId: this.state.userId, 
-                moodDate:formattedDate.toISOString().slice(0,10),
                 symptoms:this.state.symptoms
             }
             fetch('/addSymptoms', {
@@ -72,7 +94,6 @@ class Mood extends React.Component{
            .then(response => console.log(response));   
 
             })
-        
 
     }
 
@@ -100,10 +121,9 @@ class Mood extends React.Component{
 
         let moodData = {
             userId: this.state.userId, 
-            moodDate:formattedDate.toISOString().slice(0,10),
             mood:this.state.mood
     }   
-
+    console.log( 'What we are sending',moodData)
 
         fetch('/addMood', {
             method:'POST',
@@ -120,18 +140,33 @@ class Mood extends React.Component{
             <div onClick = {this.displayMood}>
             <Header username = {this.state.username}/>
             <section id='mood-days'>
+
                 <div className='days-div'>
-                <p>{this.week.fourDaysAgo}</p>
+                    {this.weekMood[2].date}<br/>
+                    <img alt ='mood' src = {this.weekMood[2].mood === 'good' ? "media/good.svg" 
+                    : this.weekMood[2].mood === 'bad' ? "media/sad.svg"
+                    : "media/neutral.svg"  }></img>
                 </div>
-                <div className='days-div'>{this.week.threeDaysAgo}</div>
+
                 <div className='days-div'>
-                {this.week.twoDaysAgo}<br/>
+                {this.weekMood[1].date}<br/>
+                    <img alt ='mood' src = {this.weekMood[1].mood === 'good' ? "media/good.svg" 
+                    : this.weekMood[1].mood === 'bad' ? "media/sad.svg"
+                    : "media/neutral.svg" } ></img>
+
                 </div>
-                <div className='days-div'>{this.week.yersterday}</div>
-                <div className='days-div'>{this.state.date}<br/>
+                <div className='days-div'>
+                    {this.weekMood[0].date}<br/>
+                    {this.weekMood[0].mood}
+                    <img alt ='mood' src = {this.weekMood[0].mood === 'good' ? "media/good.svg" 
+                    :this.weekMood[0].mood === 'bad' ? "media/sad.svg"
+                    : "media/neutral.svg" }></img>
+                </div>
+
+                <div className='days-div'>Today<br/>
                 <img src = {this.state.mood === 'good' ? "media/good.svg" 
-                                : this.state.mood === 'bad' ? "media/sad.svg"
-                                : "media/neutral.svg" } alt = 'mood'></img>
+                 : this.state.mood === 'bad' ? "media/sad.svg"
+                 : "media/neutral.svg" } alt = 'mood'></img>
                 </div>
             </section>
             <div className = {this.state.mood? "TodayMood" : "TodayMoodHidden"}>So, today you feel {this.state.mood}</div>
@@ -140,15 +175,15 @@ class Mood extends React.Component{
                 <h3>How do you feel today?</h3>
                 <div id="mood-container">
                     <div id ="good" onClick = {this.changeMoodGood}>
-                        <img src="media/good.svg"></img>
+                        <img src="media/good.svg" alt ='Good Mood'></img>
                         <button className = "userMood" >Good</button>
                     </div>
                     <div id ="neutral">
-                    <img src="media/neutral.svg" onClick={this.changeMoodNeutral}></img>
+                    <img src="media/neutral.svg" onClick={this.changeMoodNeutral} alt ='neural Mood'></img>
                         <button  className = "userMood" >Neutral</button>
                     </div>
                     <div  id ="bad">
-                    <img src="media/sad.svg" onClick={this.changeMoodBad} ></img>
+                    <img src="media/sad.svg" onClick={this.changeMoodBad} alt ='sad Mood'></img>
                         <button className = "userMood" >Horrible</button>
                     </div>
                 </div>

@@ -37,6 +37,7 @@ function Login(){
         fetch('/login', {
             method:'POST',
             headers:{'Content-Type':'application/json'},
+            credential:true,
             body: JSON.stringify(userData)
         })
 
@@ -60,7 +61,6 @@ function Login(){
             }
             
         })
-
     }
 
     return(

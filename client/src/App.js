@@ -32,22 +32,11 @@ const [loginData, setLoginData] = useState({
               userId: data.userId
           }) 
         }
+        else{
+          console.log (data)
+        }
     })
-},[loginData])
-
-/*
-  useEffect(()=>{
-    fetch("/usersFeeling", {
-      method:"GET",
-      headers:{'Content-Type':'application/json'},
-      credentials:'include'
-    })
-    .then (response => response.json())
-    .then(data => {
-      console.log(data)
-    })
-       
-  },[])*/
+},[])
 
 
   //Setting up Routes

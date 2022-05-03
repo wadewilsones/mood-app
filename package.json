@@ -30,6 +30,7 @@
     "express-session": "^1.17.2",
     "pg-promise": "^10.11.1"
   },
+  "proxy": "http://localhost:3000",
   "devDependencies": {
     "nodemon": "^2.0.15"
   }

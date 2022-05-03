@@ -1,4 +1,3 @@
-
 // Set up a server with Express
 const express = require("express");
 const PORT = process.env.PORT || 5000; // global variable that represent the state of the system environment when it starts
@@ -97,8 +96,7 @@ app.post('/login',  (req,res) => {
                 res.send({message:"No user found"})
             }
         });
-
-     
+    
     }
     catch(err){
         console.error(message.err)
@@ -168,9 +166,7 @@ app.get('/usersFeeling', async (req,res) =>{
     }
 })
 
+
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`)
 })
-
-
-
