@@ -10,9 +10,6 @@ let dayDate = date.split(',')
 let otherDays = todayInfo[3];
 let monthChange = todayInfo[4];
 
-for (const day in otherDays){
-    otherDays[day] = otherDays[day].getDate() + " " + monthChange(otherDays[day].getMonth() + 1);
-}
 
 class Mood extends React.Component{
   
@@ -29,7 +26,7 @@ class Mood extends React.Component{
         
         this.weekMood = {
             0: {
-                date:otherDays.yersterday,
+                date:otherDays.threeDaysAgo,
                 mood:''
             },
             1: {
@@ -37,7 +34,7 @@ class Mood extends React.Component{
                 mood:''
             },
             2: {
-                date:otherDays.threeDaysAgo,
+                date:otherDays.yersterday,
                 mood:''
             }
         };
@@ -48,9 +45,13 @@ class Mood extends React.Component{
         this.changeMoodBad = this.changeMoodBad.bind(this);
         this.HandleSymptoms = this.HandleSymptoms.bind(this);
         this.sendMood = this.sendMood.bind(this);
-
+        this.formatDates = this.formatDates.bind(this);
     }
     
+    formatDates(rowDate){
+        rowDate = monthChange(rowDate.getMonth()+ 1) +  ' ' + rowDate.getDate();
+        return rowDate;
+    }
 
     componentDidMount(){
         fetch("/usersFeeling", {
@@ -60,12 +61,22 @@ class Mood extends React.Component{
           })
           .then (response => response.json())
           .then(data => {
-              //Set up loop for assigning returned data to previous mood
-
+              //Compare dates from API and week dates
+            console.log(data);
               for(let i = 0; i <= data.length - 2; i++){
-                this.weekMood[i].mood = data[data.length - (i+2)].mood_descr;
+                let dateToCompare = data[i].mood_date.split('T');
+                let frontDate = this.weekMood[i].date.toLocaleDateString('en-CA').split('T');
+                if(dateToCompare[0] == frontDate){
+                    console.log(`DB: ${dateToCompare[0]}, front-end ${frontDate}`);
+                   this.weekMood[i].mood = data[i].mood_descr;
+                    console.log(this.weekMood[i]);
+                }
+                else{
+                    console.log(`Dates are different:DB: ${dateToCompare[0]}, front-end ${frontDate}`)
+                }
+
               }
-               // should be good
+
               this.setState({
                 mood: data[data.length - 1].mood_descr,
                 symptoms:data[data.length - 1].symptoms
@@ -75,6 +86,7 @@ class Mood extends React.Component{
            
                 }
             )
+
     }
 
 
@@ -141,21 +153,21 @@ class Mood extends React.Component{
             <section id='mood-days'>
 
                 <div className='days-div'>
-                    {this.weekMood[2].date}<br/>
+                    {this.formatDates(this.weekMood[0].date)}<br/>
                     <img alt ='mood' src = {this.weekMood[2].mood === 'good' ? "media/good.svg" 
                     : this.weekMood[2].mood === 'bad' ? "media/sad.svg"
                     : "media/neutral.svg"  }></img>
                 </div>
 
                 <div className='days-div'>
-                {this.weekMood[1].date}<br/>
+                {this.formatDates(this.weekMood[1].date)}<br/>
                     <img alt ='mood' src = {this.weekMood[1].mood === 'good' ? "media/good.svg" 
                     : this.weekMood[1].mood === 'bad' ? "media/sad.svg"
                     : "media/neutral.svg" } ></img>
 
                 </div>
                 <div className='days-div'>
-                    {this.weekMood[0].date}<br/>
+                    {this.formatDates(this.weekMood[2].date)}<br/>
                     <img alt ='mood' src = {this.weekMood[0].mood === 'good' ? "media/good.svg" 
                     :this.weekMood[0].mood === 'bad' ? "media/sad.svg"
                     : "media/neutral.svg" }></img>
