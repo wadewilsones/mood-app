@@ -59,37 +59,29 @@ class Mood extends React.Component{
         .then(data => {
               //Compare dates from API and week dates
             console.log(data);
-
             for(let i = 0; i < Object.keys(this.weekMood).length; i++){
-                console.log('We will itterate this date: ' + this.weekMood[i].date);
-                if(data[i]){
+                console.log(`This is comparison for ${this.weekMood[i].date}`);
                     //Check each week day for concurrence
-                        for(let index = 0; index < data.length; index++){
-                            let dateToCompare = data[index].mood_date.split('T');
-                            let frontDate = this.weekMood[i].date.toLocaleDateString('en-CA').split('T');
-                            console.log(`Inner loop. Dates DB: ${dateToCompare[0]} and FRONT ${frontDate[0]}`)
-                            if(dateToCompare[0] == frontDate[0]){
-                                this.weekMood[i].mood = data[index].mood_descr;
-                                console.log(this.weekMood[i]);
-                                console.log(`Dates DB ${dateToCompare[0]} and  FRONT ${frontDate[0]} are equal. State mood: ${this.weekMood[i]} `)
-                            }
-                            else{
-                                console.log(`Dates DB ${dateToCompare[0]} and FRONT ${frontDate[0]} are NOT equal `)
-                            }
+                    for(let index = 0; index < data.length; index++){
+                        let frontDate = this.weekMood[i].date.toLocaleDateString('en-CA').split('T');
+                        let dateToCompare = data[index].mood_date.split('T');
 
+                        if(dateToCompare[0] == frontDate[0]){
+                            this.weekMood[i].mood = data[index].mood_descr                    
                         }
+                    }
                 }
-            }
-              //Compare today's date and DB dates
+                //Compare today's date and DB dates
             let databaseDate = data[data.length - 1].mood_date.split('T');
             let sessionDate = this.state.date.toLocaleDateString('en-CA').split('T');
-            if(databaseDate[0] === sessionDate[0]){
+            if(databaseDate[0] == sessionDate[0]){
                 this.setState({
                     mood: data[data.length - 1].mood_descr,
                     symptoms:data[data.length - 1].symptoms
                 })
             }
-        })
+              
+            })
     }
 
 
