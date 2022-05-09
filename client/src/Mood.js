@@ -1,11 +1,10 @@
 //set up class
 import React from 'react';
 import Header from './js/Header';
-import Today from './js/date';
+import WeekMood from './js/WeekMood';
+
 //import Weather from './js/Weather';
 
-let todayInfo = Today();
-let formateMonth = todayInfo[3];
 
 class Mood extends React.Component{
   
@@ -15,25 +14,12 @@ class Mood extends React.Component{
         this.state = {
             mood:'',
             symptoms:'',
-            date:todayInfo[0],
+            date:new Date(),
             username: props.username,
             userId: props.userId
         };
         
-        this.weekMood = {
-            0: {
-                date:todayInfo[2].threeDaysAgo,
-                mood:''
-            },
-            1: {
-                date:todayInfo[2].twoDaysAgo,
-                mood:''
-            },
-            2: {
-                date:todayInfo[2].yersterday,
-                mood:''
-            }
-        };
+
 
         //Binding functions
         this.changeMoodGood = this.changeMoodGood.bind(this);
@@ -41,15 +27,11 @@ class Mood extends React.Component{
         this.changeMoodBad = this.changeMoodBad.bind(this);
         this.HandleSymptoms = this.HandleSymptoms.bind(this);
         this.sendMood = this.sendMood.bind(this);
-        this.formatDates = this.formatDates.bind(this);
     }
     
-    formatDates(rowDate){
-        rowDate = formateMonth(rowDate.getMonth()+ 1) +  ' ' + rowDate.getDate();
-        return rowDate;
-    }
 
-    componentDidMount(){
+    
+    componentDidMount(){// send to weekMoods
         fetch("/usersFeeling", {
             method:"GET",
             headers:{'Content-Type':'application/json'},
@@ -57,20 +39,6 @@ class Mood extends React.Component{
         })
         .then (response => response.json())
         .then(data => {
-              //Compare dates from API and week dates
-            console.log(data);
-            for(let i = 0; i < Object.keys(this.weekMood).length; i++){
-                console.log(`This is comparison for ${this.weekMood[i].date}`);
-                    //Check each week day for concurrence
-                    for(let index = 0; index < data.length; index++){
-                        let frontDate = this.weekMood[i].date.toLocaleDateString('en-CA').split('T');
-                        let dateToCompare = data[index].mood_date.split('T');
-
-                        if(dateToCompare[0] == frontDate[0]){
-                            this.weekMood[i].mood = data[index].mood_descr                    
-                        }
-                    }
-                }
                 //Compare today's date and DB dates
             let databaseDate = data[data.length - 1].mood_date.split('T');
             let sessionDate = this.state.date.toLocaleDateString('en-CA').split('T');
@@ -83,7 +51,7 @@ class Mood extends React.Component{
               
             })
     }
-
+    
 
     HandleSymptoms(e){
         e.preventDefault();
@@ -145,35 +113,7 @@ class Mood extends React.Component{
         return(
             <div onClick = {this.displayMood}>
             <Header username = {this.state.username}/>
-            <section id='mood-days'>
-
-                <div className='days-div'>
-                    {this.formatDates(this.weekMood[0].date)}<br/>
-                    <img alt ='mood' src = {this.weekMood[2].mood === 'good' ? "media/good.svg" 
-                    : this.weekMood[2].mood === 'bad' ? "media/sad.svg"
-                    : "media/neutral.svg"  }></img>
-                </div>
-
-                <div className='days-div'>
-                {this.formatDates(this.weekMood[1].date)}<br/>
-                    <img alt ='mood' src = {this.weekMood[1].mood === 'good' ? "media/good.svg" 
-                    : this.weekMood[1].mood === 'bad' ? "media/sad.svg"
-                    : "media/neutral.svg" } ></img>
-
-                </div>
-                <div className='days-div'>
-                    {this.formatDates(this.weekMood[2].date)}<br/>
-                    <img alt ='mood' src = {this.weekMood[0].mood === 'good' ? "media/good.svg" 
-                    :this.weekMood[0].mood === 'bad' ? "media/sad.svg"
-                    : "media/neutral.svg" }></img>
-                </div>
-
-                <div className='days-div'>Today<br/>
-                <img src = {this.state.mood === 'good' ? "media/good.svg" 
-                 : this.state.mood === 'bad' ? "media/sad.svg"
-                 : "media/neutral.svg" } alt = 'mood'></img>
-                </div>
-            </section>
+            <WeekMood mood = {this.state.mood}/>
             <div className = {this.state.mood? "TodayMood" : "TodayMoodHidden"}>So, today you feel {this.state.mood}</div>
             <div id='content-container'>
                 <section id ="mood-section">
