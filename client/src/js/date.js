@@ -1,56 +1,9 @@
 //Set up current date
 
  let Today = function setDate(){
-    let FullDate = new Date();
-    let currentDay = FullDate.getDate();
-    //Get week day
-    let weekDay = FullDate.getDay();
-
-    let todayWeekDay = function (weekDayN){
-        switch(weekDayN){
-            case 0: {
-                weekDayN = "Sunday";
-                break;
-
-            }
-            case 1: {
-                weekDayN = "Monday";
-                break;
-
-            }
-            case 2: {
-                weekDayN = "Tuesday";
-                break;
-
-            }
-            case 3: {
-                weekDayN = "Wednesday";
-                break;
-
-            }
-            case 4: {
-                weekDayN = "Thursday";
-                break;
-
-            }
-            case 5: {
-                weekDayN = "Friday";
-                break;
-
-            }
-            case 6: {
-                weekDayN = "Saturday";
-                break;
-
-            }
-
-            default: {
-                weekDayN = "Sunday"
-            }
-        }
-        return weekDayN;
-    }
-    let currentMonth =FullDate.getMonth()+1;// get month number
+    // full date of today
+    let today = new Date();
+    // what day of week is it
     let todayMonth = function(month){
         switch(month){
             case 1: {
@@ -103,17 +56,18 @@
             }
         }
         return month;
+    } //what month is it
+
+    let time = {
+        hours: today.getHours(),
+        minutes: today.getMinutes()
     }
-    let today = todayMonth(currentMonth) + " " + currentDay + ", " + todayWeekDay(weekDay);
-    let hours = FullDate.getHours();
-    let minutes = FullDate.getMinutes();
-    let time = `${hours}:${minutes}`;
     
     //Get previous 4 days before today's date
     let week = {
-        yersterday: new Date(FullDate),
-        twoDaysAgo: new Date(FullDate),
-        threeDaysAgo: new Date(FullDate),
+        yersterday: new Date(today),
+        twoDaysAgo: new Date(today),
+        threeDaysAgo: new Date(today),
     }
 
     //for loop for week dates
@@ -123,7 +77,7 @@
         i++;
     }
 
-    return [today, time, FullDate, week, todayMonth];
+    return [today, time, week, todayMonth];
 }
 
 

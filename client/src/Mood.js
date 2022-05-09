@@ -5,11 +5,7 @@ import Today from './js/date';
 //import Weather from './js/Weather';
 
 let todayInfo = Today();
-const date = todayInfo[0];
-let dayDate = date.split(',')
-let otherDays = todayInfo[3];
-let monthChange = todayInfo[4];
-
+let formateMonth = todayInfo[3];
 
 class Mood extends React.Component{
   
@@ -19,22 +15,22 @@ class Mood extends React.Component{
         this.state = {
             mood:'',
             symptoms:'',
-            date:dayDate[0],
+            date:todayInfo[0],
             username: props.username,
             userId: props.userId
         };
         
         this.weekMood = {
             0: {
-                date:otherDays.threeDaysAgo,
+                date:todayInfo[2].threeDaysAgo,
                 mood:''
             },
             1: {
-                date:otherDays.twoDaysAgo,
+                date:todayInfo[2].twoDaysAgo,
                 mood:''
             },
             2: {
-                date:otherDays.yersterday,
+                date:todayInfo[2].yersterday,
                 mood:''
             }
         };
@@ -49,7 +45,7 @@ class Mood extends React.Component{
     }
     
     formatDates(rowDate){
-        rowDate = monthChange(rowDate.getMonth()+ 1) +  ' ' + rowDate.getDate();
+        rowDate = formateMonth(rowDate.getMonth()+ 1) +  ' ' + rowDate.getDate();
         return rowDate;
     }
 
@@ -58,35 +54,36 @@ class Mood extends React.Component{
             method:"GET",
             headers:{'Content-Type':'application/json'},
             credentials:'include'
-          })
-          .then (response => response.json())
-          .then(data => {
+        })
+        .then (response => response.json())
+        .then(data => {
               //Compare dates from API and week dates
             console.log(data);
-              for(let i = 0; i <= data.length - 2; i++){
+            for(let i = 0; i <= data.length - 2; i++){
                 let dateToCompare = data[i].mood_date.split('T');
                 let frontDate = this.weekMood[i].date.toLocaleDateString('en-CA').split('T');
-                if(dateToCompare[0] == frontDate){
+                console.log(`DB ${dateToCompare} FE ${frontDate}`)
+                /*
+                if(dateToCompare[0] === frontDate){
                     console.log(`DB: ${dateToCompare[0]}, front-end ${frontDate}`);
-                   this.weekMood[i].mood = data[i].mood_descr;
+                    this.weekMood[i].mood = data[i].mood_descr;
                     console.log(this.weekMood[i]);
                 }
                 else{
-                    console.log(`Dates are different:DB: ${dateToCompare[0]}, front-end ${frontDate}`)
-                }
-
-              }
-
-              this.setState({
-                mood: data[data.length - 1].mood_descr,
-                symptoms:data[data.length - 1].symptoms
-              })
-            
-
-           
-                }
-            )
-
+                    console.log(`NOT EQUAL! DB: ${dateToCompare[0]}, front-end ${frontDate}`);
+                }*/
+            }
+              //Compare today's date and DB dates
+            let databaseDate = data[data.length - 1].mood_date.split('T');
+            let sessionDate = this.state.date.toLocaleDateString('en-CA').split('T');
+            if(databaseDate[0] === sessionDate[0]){
+                console.log(`EQUAL DB: ${databaseDate[0]} sessionDate ${sessionDate[0]}`);
+                this.setState({
+                    mood: data[data.length - 1].mood_descr,
+                    symptoms:data[data.length - 1].symptoms
+                })
+            }
+        })
     }
 
 

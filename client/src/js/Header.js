@@ -3,7 +3,8 @@ import React from "react";
 import Today from './date';
 
 let todayInfo = Today();
-const date = todayInfo[0];
+let today = todayInfo[0].toString().split(' ');
+
 
 function Header(props){
 
@@ -25,7 +26,7 @@ function Logout(){
         return (
         <header>
                 <section id='header-container'>
-                        <h4>{date}</h4>
+                        <h4>{today[0] + ", " + today[1] + " " + today[3]}</h4>
                         <h3>Hello {props.username}</h3>
                         <a onClick = {Logout}>Logout</a>
                 </section>
