@@ -40,8 +40,7 @@ let  WeekMood = (props) =>{
         })
         .then (response => response.json())
         .then(data => {
-            console.log(data);
-            console.log(weekMood);
+
             for(let i = 0; i < Object.keys(weekMood).length; i++){
                 //Check each week day for concurrence
                 for(let index = 0; index < data.length; index++){
@@ -67,8 +66,6 @@ let  WeekMood = (props) =>{
         
 
     },[])
-
-    console.log('This is week mood: ', weekMood);
 
    let formatDates = (rowDate) => {
         rowDate = formateMonth(rowDate.getMonth() + 1) +  ' ' + rowDate.getDate();
