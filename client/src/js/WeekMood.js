@@ -28,9 +28,6 @@ let  WeekMood = (props) =>{
             }
         }
     )
-
-    console.log(mood);
-
     //Display week's moods
 
     useEffect(() => {
