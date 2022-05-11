@@ -6,6 +6,7 @@ import DetectLocation from './weatherAPI';
 
 function Weather(){
     //Get user location
+    /*
     function GeoObject(){
         navigator.geolocation.getCurrentPosition(userPosition);
     }
@@ -19,15 +20,14 @@ function Weather(){
     }
 
     let todayInfo = Today();
-    const time = todayInfo[1];
+    const time = todayInfo[1];*/
     
-    GeoObject();
+    //GeoObject();
     return(   
         <div className="weather_container">
-        <p id="Location"></p> 
-        <p id="temperature"></p>
-        <p id="weather-decrs"></p>
-        <p id="time">{time}</p>
+        <p id="Location">Pittsboro</p> 
+        <p id="temperature">20C</p>
+        <p id="weather-decrs">Sunny</p>
         </div>
     )
 }

@@ -17,99 +17,73 @@ body{
 
 }
 
+
+/*Smartphones*/
+
 @media screen and (min-width: 320px) and (max-width:500px){
 
+    #moodContainer{
+       background-image: url('/media/background.svg');
+       background-size: cover;
+       min-height: 100vh;
+
+    }
+
     header{
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        box-shadow: #5e055625 2px 5px 6px;
-        background-color: #7F95D1;
+
         padding-bottom: 1.6em;
         color:white;
 
     }
 
 
-
     #header-container{
         display: grid;
         grid-template-columns: 70% 30%;
-    }
-   header h4{
-        text-align: left;
-        padding: 1.2em 0 0.2em 1em;
-        font-size: 1em;
-        color: rgb(255, 255, 255);
-        font-weight: 200;
-        grid-column-start: 1;
     }
 
     header h3{
         text-align:left;
         font-size: 2em;
-        font-weight: 300;
+        font-weight: 400;
         padding: 0 0 0 0.5em;
         grid-column-start: 1;
     }
 
     
+   header h4{
+    text-align: left;
+    padding: 1.2em 0 0.2em 1em;
+    font-size: 1em;
+    color: rgb(255, 255, 255);
+    font-weight: 200;
+    grid-column-start: 1;
+    align-self: flex-end;
+}
+
     header a{
   
-        color:white;
-        background-color:#FFB6B9;
+        color:#6A6A6A;
+        background-color:#FEE18C;
         border-radius: 5px;
+        padding: 5px 10px;
         font-size: 1em;
         font-weight: 500;
-        padding: 10px 20px;
-        margin: 10px 15px 0 0;
         grid-column-start: 2;
         grid-row-start: 1;
-    
+        margin: 20px 10px 0px;
+        align-self: flex-end;
+
     }
 
-        /*Mood Component*/
 
-    #mood-section {
-        border-radius:10px;
-        width:90%;
-        margin: auto;
-        margin-top: 2em;
-        background-color: #7F95D1;
-        box-shadow: #241d2c5e 1px 4px 10px;
-        padding: 1.5em 0;
+    /*Week data*/
+
+    #checkinSection h3, #weatherSection h3{
         color:white;
-    }    
-    #mood-container{
-        display: flex;
-        align-items: center;
-        justify-content: center;
- 
-    }
-    #mood-container div {
-        width:30%;
-        box-shadow: rgba(121, 113, 113, 0.225) 1px 1px 10px;
-        margin:10px 4px;
-        border-radius: 10px;
-
-    }
-
-    #mood-section h3{
         font-weight: 200;
-        text-align: center;
-        font-size: 1.2em;
+        margin-left: 5%;
     }
-    .userMood{
-        width:100%;
-        color:white;
-        font-weight: 500;
-        background-color: transparent;
-        text-align: center;
-        padding: 5px 0 10px;
-        font-size: 1em;
-        cursor: pointer;
-
-    }
-
     
     #mood-days{
        
@@ -118,7 +92,12 @@ body{
         color:white;
         display: flex;
         overflow-x: scroll;
+        margin: 0em 0 0;
         
+    }
+
+   .days-div:first-child{
+        margin: 0 10px 0 20px;
     }
 
     .days-div{
@@ -126,8 +105,8 @@ body{
         flex-shrink: 0;
         background-color: #7F95D1;
         width:20%;
-        height: 10vh;
-        margin: 0 5px ;
+        height: 70px;
+        margin: 0 10px;
         padding: 5px 10px;
         text-align: center;
         border-radius:10px;
@@ -135,56 +114,60 @@ body{
         
     }
 
-    .days-div img{
-        margin: 0;
-        width:70%;
+    .days-div p{
+        margin-top: 1.2em;
     }
 
-    .TodayMood{
-        font-size: 1.5em;
-        text-align: center;
-        background-color: #FFB6B9;
-        padding: 5px;
-        border-radius: 10px;
-        width:90%;
-        margin: auto;
+
+    @media screen and (min-height: 700px){
+        #moodEdit {
+            margin-top: 5em;
+        }
+    }
+
+    #moodEdit h3{
         color:white;
+        font-weight: 300;
+        text-align: center;
+        font-size: 2em;
+        margin: 0.5em 0 0;
     }
 
-    .TodayMoodHidden{
-        display: none;
-    }
-    #symtomps{
-        border-radius:10px;
-        width:90%;
-        margin: auto;
-        margin-top: 2em;
+    #ChangeMoodSection{
         background-color: #7F95D1;
+        color:white;
+        padding: 1.5em;
+        position: fixed;
+        width: 70%;
+        bottom: 2%;
+        left:0;
+        right:0;
+        margin:20% auto 0;
+        border-radius: 12px;
         box-shadow: #241d2c5e 1px 4px 10px;
-        padding: 1.5em 0;
-        color:white;
+    }
+    
+    #ChangeMoodSection h4{
+        font-weight: 400;
         text-align: center;
-        display: block;
-    }
-
-    #symtomps label{
-        font-size:1.2em;
-    }
-
-    #symtomps textarea{
-        width:80%;
-        margin: 2em auto;
-        border-radius: 5px;
-        padding: 1em 0 6em 0.5em;
-    }
-
-    #symtomps input[type=submit]{
-        color:white;
-        background-color:#FFB6B9;
-        border-radius: 5px;
         font-size: 1em;
-        font-weight: 500;
-        padding: 10px 20px;
+        padding-top: 15px
+    }
+
+    #ChangeMoodSection a {
+        background-color: #FEE18C;
+        color: #6A6A6A;
+        display: block;
+        width:60px;
+        height: 60px;
+        font-size: 48px;
+        border-radius: 60px;
+        margin: 0 auto;
+        position: absolute;
+        top:-40%;
+        right: 0;
+        left: 0;
+        box-shadow: #241d2c5e 1px 4px 10px;
     }
 
 
@@ -192,7 +175,7 @@ body{
     .weather_container{
         width:90%;
         text-align: center;
-        margin: 2em auto;
+        margin: 1em auto;
         color:white;
         padding: 2em 0;
         border-radius:10px;
@@ -211,7 +194,7 @@ body{
 
     #Location{
         text-align: left;
-        font-size: 2.5em;
+        font-size: 1.5em;
         font-weight: 400;
         margin-left:10px;
     }
@@ -221,7 +204,7 @@ body{
 
         grid-row-start:1;
         grid-row-end: 4;
-        font-size: 4em;
+        font-size: 2em;
         grid-column-start: 2;
     }
 

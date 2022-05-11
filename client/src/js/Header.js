@@ -28,7 +28,7 @@ function Logout(){
                 <section id='header-container'>
                         <h4>{today[0] + ", " + today[1] + " " + today[3]}</h4>
                         <h3>Hello {props.username}</h3>
-                        <a onClick = {Logout}>Logout</a>
+                        <a onClick = {Logout}>Log out</a>
                 </section>
         </header>)
 }

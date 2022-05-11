@@ -29,6 +29,7 @@ let  WeekMood = (props) =>{
         }
     )
 
+    console.log(mood);
 
     //Display week's moods
 
@@ -72,35 +73,28 @@ let  WeekMood = (props) =>{
         return rowDate;
     }
 
+    let noData = "No entry";
 
     return(
         <section id='mood-days'>
 
                 <div className='days-div'>
                     {formatDates(weekMood[0].date)}<br/>
-                    <img alt ='mood' src = {weekMood[2].mood === 'good' ? "media/good.svg" 
-                    : weekMood[2].mood === 'bad' ? "media/sad.svg"
-                    : "media/neutral.svg"  }></img>
+                    <p>{weekMood[0].mood? weekMood[0].mood : noData}</p>
                 </div>
 
                 <div className='days-div'>
                 {formatDates(weekMood[1].date)}<br/>
-                    <img alt ='mood' src = {weekMood[1].mood === 'good' ? "media/good.svg" 
-                    : weekMood[1].mood === 'bad' ? "media/sad.svg"
-                    : "media/neutral.svg" } ></img>
+                <p>{weekMood[1].mood? weekMood[1].mood : noData}</p>
 
                 </div>
                 <div className='days-div'>
                     {formatDates(weekMood[2].date)}<br/>
-                    <img alt ='mood' src = {weekMood[0].mood === 'good' ? "media/good.svg" 
-                    :weekMood[0].mood === 'bad' ? "media/sad.svg"
-                    : "media/neutral.svg" }></img>
+                    <p>{weekMood[2].mood? weekMood[2].mood : noData}</p>
                 </div>
 
                 <div className='days-div'>Today<br/>
-                <img src = {mood === 'good' ? "media/good.svg" 
-                 : mood === 'bad' ? "media/sad.svg"
-                 : "media/neutral.svg" } alt = 'mood'></img>
+                <p>{mood? mood: 'No entry'}</p>
                 </div>
             </section>
     )

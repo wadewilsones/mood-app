@@ -2,6 +2,8 @@
 import React from 'react';
 import Header from './js/Header';
 import WeekMood from './js/WeekMood';
+import AddMood from './js/AddMood';
+import Weather from './js/Weather';
 
 //import Weather from './js/Weather';
 
@@ -111,38 +113,33 @@ class Mood extends React.Component{
 
     render() {
         return(
-            <div onClick = {this.displayMood}>
-            <Header username = {this.state.username}/>
-            <WeekMood mood = {this.state.mood}/>
-            <div className = {this.state.mood? "TodayMood" : "TodayMoodHidden"}>So, today you feel {this.state.mood}</div>
-            <div id='content-container'>
-                <section id ="mood-section">
-                <h3>How do you feel today?</h3>
-                <div id="mood-container">
-                    <div id ="good" onClick = {this.changeMoodGood}>
-                        <img src="media/good.svg" alt ='Good Mood'></img>
-                        <button className = "userMood" >Good</button>
-                    </div>
-                    <div id ="neutral">
-                    <img src="media/neutral.svg" onClick={this.changeMoodNeutral} alt ='neural Mood'></img>
-                        <button  className = "userMood" >Neutral</button>
-                    </div>
-                    <div  id ="bad">
-                    <img src="media/sad.svg" onClick={this.changeMoodBad} alt ='sad Mood'></img>
-                        <button className = "userMood" >Horrible</button>
-                    </div>
-                </div>
-                </section>
-            <section id="symtomps">
-                <form onSubmit = {this.HandleSymptoms}>
-                    <label>Got any symptoms?</label><br/>
-                    <textarea placeholder='If there are any concerns you can add them here...'></textarea>
-                    <input type="submit" value = "Add symptoms"></input>
-                </form>
-                <p>{this.state.symptoms}</p>
-            </section>
-            </div>
-        </div>
+            <div id='moodContainer'>
+                    <div onClick = {this.displayMood}>
+                        <Header username = {this.state.username}/>
+
+                        <section id = 'weatherSection'>
+                            <h3>Today’s weather</h3>
+                            <Weather />
+                        </section>
+
+                        <section id = "checkinSection">
+                            <h3>These are your last check-ins</h3>
+                            <WeekMood mood = {this.state.mood}/>
+                        </section>
+
+                        <section id='moodEdit'>
+                        <h3> {this.state.mood?this.state.mood : "No entries for today"}</h3>
+                        </section>
+
+                        <section id='ChangeMoodSection'>
+                            <div>
+                                <a>+</a>
+                                <h4>Add mood</h4>
+                            </div>
+                        </section>
+
+                        </div> 
+            </div> 
         )
     }
 }
