@@ -8,6 +8,8 @@ let today = todayInfo[0].toString().split(' ');
 
 function Header(props){
 
+let { location }  = props.location;      
+
 function Logout(){
         fetch('/logout', {
                 method: "GET",

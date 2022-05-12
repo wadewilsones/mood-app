@@ -399,6 +399,93 @@ body{
         display: none;
     }
 
+    /*Add mood screen*/
+
+    #addModd-container{
+        background-image: url('/media/background.svg');
+        padding: 20px 0;
+    }
+
+    #addModd-container button{
+        width:80%;
+        background-color: #7F95D1;
+        color:white;
+        margin:auto;
+        margin-bottom: 30px;
+        display: block;
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 1.4em;
+        box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
+    }
+
+
+    #moodHolder{
+
+        display: grid;
+        grid-template-columns: 33.3% 33.3% 33.3%;
+        grid-template-rows: 15% 28.3% 28.3% 28.3%;
+        width:90%;
+        margin: auto;
+    }
+
+    #moodHolder h3 {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        text-align: center;
+        color:white;
+        font-size:1.4em;
+        font-weight: 200;
+        align-self: center;
+
+    }
+
+    #moodHolder div {
+        border-radius: 12px;
+        width:90%;
+        margin: 0 auto 10%;
+
+    }
+
+    #moodHolder img{
+        background-color: #7F95D1;
+        border-radius: 10px;
+        padding: 10px;
+        width: 70%;
+        margin: auto;
+        display: block;
+        box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
+    }
+
+    #moodHolder div h4{
+
+        color:white;
+        font-weight: 200;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    #symptoms{
+        width:90%;
+        margin: auto;
+    }
+    #symptoms h3{
+        text-align: left;
+        color:white;
+        font-weight: 400;
+        margin: 2em 1em 0 1em;
+    }
+
+
+    #symptoms textarea {
+        margin: 2em 0 2em 1em;
+        min-height:100px;
+        border-radius: 5px;
+        width:80%;
+        padding: 20px 10px 0 30px;
+    }
+
+
 }
 
 /*Tablets*/

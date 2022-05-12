@@ -2,8 +2,9 @@
 import React from 'react';
 import Header from './js/Header';
 import WeekMood from './js/WeekMood';
-import AddMood from './js/AddMood';
+import AddMood from './AddMood';
 import Weather from './js/Weather';
+import { Link }  from "react-router-dom";
 
 //import Weather from './js/Weather';
 
@@ -21,14 +22,10 @@ class Mood extends React.Component{
             userId: props.userId
         };
         
-
-
         //Binding functions
-        this.changeMoodGood = this.changeMoodGood.bind(this);
-        this.changeMoodNeutral = this.changeMoodNeutral.bind(this);
-        this.changeMoodBad = this.changeMoodBad.bind(this);
         this.HandleSymptoms = this.HandleSymptoms.bind(this);
         this.sendMood = this.sendMood.bind(this);
+        this.changeMood = this.changeMood.bind(this);
     }
     
 
@@ -73,23 +70,8 @@ class Mood extends React.Component{
 
     }
 
-    changeMoodGood(){
-        this.setState({mood:"good"}, () => {
-            this.sendMood();
-        })
-    }
+    changeMood(){
 
-
-    changeMoodNeutral(){
-        this.setState({mood:"neutral"}, () => {
-            this.sendMood();
-        })
-    }
-
-    changeMoodBad(){
-        this.setState({mood:"bad"}, () => {
-            this.sendMood();
-        })
     }
 
     //Sent data to DB
@@ -115,7 +97,7 @@ class Mood extends React.Component{
         return(
             <div id='moodContainer'>
                     <div onClick = {this.displayMood}>
-                        <Header username = {this.state.username}/>
+                        <Header username = {this.state.username} location = '/test' />
 
                         <section id = 'weatherSection'>
                             <h3>Today’s weather</h3>
@@ -133,7 +115,7 @@ class Mood extends React.Component{
 
                         <section id='ChangeMoodSection'>
                             <div>
-                                <a>+</a>
+                                <Link to ="/addMood">+</Link>
                                 <h4>Add mood</h4>
                             </div>
                         </section>
