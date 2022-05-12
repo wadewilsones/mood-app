@@ -1,6 +1,7 @@
 
 import React from "react";
 import Today from './date';
+import { Link }  from "react-router-dom";
 
 let todayInfo = Today();
 let today = todayInfo[0].toString().split(' ');
@@ -34,8 +35,8 @@ function Logout(){
                                 <h3>Hello {props.username}</h3>
                         </div>  
                         : <div id = 'goBackHeader'>
-                                <img src="/media/goBack.svg" alt="goBack"></img>
-                                <span>Go back</span>
+                        <Link to = '/test'><img src="/media/goBack.svg" alt="goBack"></img></Link>
+                        <Link to = '/test'><span>Go back</span></Link>
                         </div>
                         }
                         <a onClick = {Logout} id={location == 'test'? 'headerLogoutMain' : 'headerLogoutSecondary'}>Log out</a>
