@@ -19,36 +19,41 @@ function Weather(){
         description: 'none'
     })
 
+
+    //Time and geolocation
     useEffect(() => {
-        setInterval(() => {setTime(new Date())}, 20000);
-        //Run the position locator
-        GeoObject();
-        if(location.latitude != ''){
-            getWeather(location.latitude, location.longitude);
-        }
+        setInterval(() => {setTime(new Date())}, 10000);
+        //Get user position
+        navigator.geolocation.getCurrentPosition(userPosition); // should run once        
+    },[])
+
+
+    //Set up weather
+    useEffect(()=> {
       
-    },[location]) 
+        if(location.latitude != ''){
+            //getWeather(location.latitude, location.longitude);
+            //console.log(weather.location)
+            console.log(location)
+        }
+        else{
+            console.log('Location is the same')
+        }
+    },[location])
     
 
-
-    //Get user location
-    function GeoObject(){
-        navigator.geolocation.watchPosition(userPosition);
-        
-    }
 
     function userPosition(data){
         let position = data.coords;
         let lat = position.latitude;
         let lot = position.longitude;
-        setLocation(prevState => ({
+            setLocation(prevState => ({
                     latitude:lat,
                     longitude:lot
-        }))
-        return[lat, lot]
+            }))
     }
 
-
+    
 
     function getWeather(lat,lon){
         const API_KEY = process.env.REACT_APP_API_KEY;
@@ -70,13 +75,12 @@ function Weather(){
     })
     }
 
-    
-    GeoObject();
     return(   
         <div className="weather_container">
         <p id="Location">{weather.location}</p> 
-        <p id="temperature">{weather.temperature}</p>
-        <p id="weather-decrs">{time.getHours() + ":" + time.getMinutes()}</p>
+        <p id="temperature">{weather.temperature}°</p>
+        <p id="time">{time.getHours() + ":" + time.getMinutes()}</p>
+        <p id="descr">{weather.description}</p>
         </div>
     )
 }
