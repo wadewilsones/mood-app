@@ -39,6 +39,7 @@ body{
     #header-container{
         display: grid;
         grid-template-columns: 70% 30%;
+
     }
 
     header h3{
@@ -60,7 +61,7 @@ body{
     align-self: flex-end;
 }
 
-    header a{
+#headerLogoutMain{
   
         color:#6A6A6A;
         background-color:#FEE18C;
@@ -73,6 +74,33 @@ body{
         margin: 20px 10px 0px;
         align-self: flex-end;
 
+    }
+
+    #headerLogoutSecondary{
+  
+        color:#6A6A6A;
+        background-color:#FEE18C;
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-size: 1em;
+        font-weight: 500;
+        grid-column-start: 2;
+        grid-row-start: 1;
+        margin: 20px 10px 20px;
+        align-self: flex-start;
+
+    }    
+
+    #goBackHeader{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    #goBackHeader span{
+        margin-right: 4em;
+        margin-left: 1em;
     }
 
 
@@ -443,7 +471,7 @@ body{
     #moodHolder div {
         border-radius: 12px;
         width:90%;
-        margin: 0 auto 10%;
+        margin: 0 auto 30%;
 
     }
 
@@ -483,6 +511,7 @@ body{
         border-radius: 5px;
         width:80%;
         padding: 20px 10px 0 30px;
+        font-family: Urbanist, Helvetica, sans-serif;
     }
 
 

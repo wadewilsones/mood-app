@@ -97,7 +97,7 @@ class Mood extends React.Component{
         return(
             <div id='moodContainer'>
                     <div onClick = {this.displayMood}>
-                        <Header username = {this.state.username} location = '/test' />
+                        <Header username = {this.state.username} location = 'test' />
 
                         <section id = 'weatherSection'>
                             <h3>Today’s weather</h3>

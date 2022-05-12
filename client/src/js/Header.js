@@ -8,7 +8,7 @@ let today = todayInfo[0].toString().split(' ');
 
 function Header(props){
 
-let { location }  = props.location;      
+let location  = props.location;
 
 function Logout(){
         fetch('/logout', {
@@ -28,9 +28,17 @@ function Logout(){
         return (
         <header>
                 <section id='header-container'>
-                        <h4>{today[0] + ", " + today[1] + " " + today[3]}</h4>
-                        <h3>Hello {props.username}</h3>
-                        <a onClick = {Logout}>Log out</a>
+                        {location == 'test'?
+                        <div>
+                                <h4>{today[0] + ", " + today[1] + " " + today[3]}</h4>
+                                <h3>Hello {props.username}</h3>
+                        </div>  
+                        : <div id = 'goBackHeader'>
+                                <img src="/media/goBack.svg" alt="goBack"></img>
+                                <span>Go back</span>
+                        </div>
+                        }
+                        <a onClick = {Logout} id={location == 'test'? 'headerLogoutMain' : 'headerLogoutSecondary'}>Log out</a>
                 </section>
         </header>)
 }
