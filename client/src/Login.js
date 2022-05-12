@@ -1,7 +1,7 @@
 import './App.css';
 import Mood from './Mood';
-import React, { useState, useEffect } from "react";
-import { Link, Navigate, NavigationType, NavLink, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Login(){
 
@@ -45,10 +45,10 @@ function Login(){
         .then(data => {
             console.log(data);
             if(data.message){
-                if(data.message == "Wrong password"){
+                if(data.message === "Wrong password"){
                     setError("Wrong password!");
                 }
-                else if (data.message == "No user found"){
+                else if (data.message === "No user found"){
                     setError("Wrong username!");
                 }
                 else{

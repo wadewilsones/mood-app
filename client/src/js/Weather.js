@@ -15,7 +15,7 @@ function Weather(){
     // Set weather description to fill in after weather API call
     let [weather, setWeather] = useState({
         location: 'Not selected',
-        temperature: '20C',
+        temperature: '20',
         description: 'none'
     })
 
@@ -31,7 +31,7 @@ function Weather(){
     //Set up weather
     useEffect(()=> {
       
-        if(location.latitude != ''){
+        if(location.latitude !== ''){
             //getWeather(location.latitude, location.longitude);
             //console.log(weather.location)
             console.log(location)
@@ -80,7 +80,7 @@ function Weather(){
         <p id="Location">{weather.location}</p> 
         <p id="temperature">{weather.temperature}°</p>
         <p id="time">{time.getHours() + ":" + time.getMinutes()}</p>
-        <p id="descr">{weather.description}</p>
+        <p id="weather-decrs">{weather.description}</p>
         </div>
     )
 }
