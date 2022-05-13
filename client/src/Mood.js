@@ -71,7 +71,17 @@ class Mood extends React.Component{
                         </section>
 
                         <section id='moodEdit'>
-                        <h3> {this.state.mood? this.state.mood : "No entries for today"}</h3>
+                        {this.state.mood? 
+                            <div id='current-mood-container'>
+                                <h3>Today I feel: </h3>
+                                <div>
+                                    <h2>{this.state.mood}</h2>
+                                    <p>Notes: {this.state.symptoms}</p>
+                                    <img src = {'/media/' + this.state.mood +'.svg'} alt = {this.state.mood + 'mood'}></img>
+                                </div>
+                              
+                            </div> 
+                            :  <h2>"No entries for today"</h2>}
                         </section>
 
                         <section id='ChangeMoodSection'>

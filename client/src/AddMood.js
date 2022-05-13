@@ -63,7 +63,7 @@ let MoodContainer = {
                 <h4>{MoodContainer[0]}</h4>
             </div>
             <div onClick = {handleMood} id = {MoodContainer[1]} >
-                <img src = 'media/joyful-2.svg' alt ='Joyful'  className = {mood == MoodContainer[1]? 'mood-selected' :'mood-img'}/>
+                <img src = 'media/joyful.svg' alt ='Joyful'  className = {mood == MoodContainer[1]? 'mood-selected' :'mood-img'}/>
                 <h4>{MoodContainer[1]}</h4>
             </div>
             <div  onClick = {handleMood} id = {MoodContainer[2]} >

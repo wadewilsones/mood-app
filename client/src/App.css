@@ -28,6 +28,7 @@ body{
 
     }
 
+
     header{
 
         padding-bottom: 1.6em;
@@ -107,7 +108,7 @@ body{
 
     /*Week data*/
 
-    #checkinSection h3, #weatherSection h3{
+    #checkinSection h3, #weatherSection h3, #current-mood-container h3{
         color:white;
         font-weight: 200;
         margin-left: 5%;
@@ -154,7 +155,7 @@ body{
     }
 
 
-    #moodEdit h3{
+    #moodEdit h2{
         color:white;
         font-weight: 300;
         text-align: center;
@@ -254,6 +255,58 @@ body{
         margin-left:10px;
         font-weight: 200;
     }
+
+    /*Current mood displaying*/
+
+    #current-mood-container{
+     
+        color:white;
+    }
+
+
+    #current-mood-container div{
+        display: grid;
+        width:90%;
+        padding: 1.6em 0;
+        margin: 1em auto 2em;
+        background-color: #7F95D1;
+        border-radius: 20px;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 40% 60%;
+    }
+
+    #current-mood-container div h2{
+        font-size:2em;
+        color:white;
+        font-weight: 300;
+        text-align:left;
+        margin-left: 20px;
+        grid-column-start: 1;
+
+    }
+
+    #current-mood-container div p{
+        font-size:1em;
+        justify-content: flex-start;
+        color:white;
+        margin-left: 20px;
+        margin-top: 10px;
+        font-weight: 300;
+        grid-column-start: 1;
+        grid-row-start: 2;
+    }
+
+    #current-mood-container img{
+        width:80%;
+        grid-column-start: 2;
+        align-self: center;
+        justify-self: center;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
+
+
 
     /*Sign up*/
 
@@ -413,6 +466,8 @@ body{
 
     }
 
+
+
     /*Login*/
 
     
@@ -427,6 +482,7 @@ body{
     .loginError-none{
         display: none;
     }
+
 
     /*Add mood screen*/
 
