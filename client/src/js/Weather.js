@@ -33,11 +33,8 @@ function Weather(){
       
         if(location.latitude !== ''){
             getWeather(location.latitude, location.longitude);
-            console.log(weather.location)
         }
-        else{
-            console.log('Location is the same')
-        }
+
     },[location])
     
 

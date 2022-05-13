@@ -81,7 +81,7 @@ class Mood extends React.Component{
                                 </div>
                               
                             </div> 
-                            :  <h2>"No entries for today"</h2>}
+                            :  <h2>No entries for today</h2>}
                         </section>
 
                         <section id={this.state.mood? 'MoodOn' : 'ChangeMoodSection'}>
