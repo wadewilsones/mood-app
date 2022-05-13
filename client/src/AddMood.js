@@ -22,7 +22,7 @@ function handleMood(e){
 }
 function sendData(){
   
-   let data =  fetch('/addMood', {
+   fetch('/addMood', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify(userData)
@@ -30,14 +30,11 @@ function sendData(){
    .then(response => {
        console.log(response);
     })
-    if(data){
         window.scrollTo(0,0); 
         setConfirmation(true);
         console.log(confirmation);
-        setTimeout(() => { setConfirmation(confirmation = false)}, 4000);
-    }
+        setTimeout(() => { setConfirmation(confirmation = false)}, 3000);
        
- 
 }
 
 let MoodContainer = {
