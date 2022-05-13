@@ -32,9 +32,8 @@ function Weather(){
     useEffect(()=> {
       
         if(location.latitude !== ''){
-            //getWeather(location.latitude, location.longitude);
-            //console.log(weather.location)
-            console.log(location)
+            getWeather(location.latitude, location.longitude);
+            console.log(weather.location)
         }
         else{
             console.log('Location is the same')
@@ -52,8 +51,6 @@ function Weather(){
                     longitude:lot
             }))
     }
-
-    
 
     function getWeather(lat,lon){
         const API_KEY = process.env.REACT_APP_API_KEY;
