@@ -77,7 +77,7 @@ class Mood extends React.Component{
                         <section id='ChangeMoodSection'>
                             <div>
                                 <Link to ="/addMood">+</Link>
-                                <h4>Add mood</h4>
+                                <h4>{this.state.mood? 'Edit Mood' : 'Add mood'}</h4>
                             </div>
                         </section>
 
