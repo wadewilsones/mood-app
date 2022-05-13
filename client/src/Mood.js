@@ -22,13 +22,8 @@ class Mood extends React.Component{
             userId: props.userId
         };
         
-        //Binding functions
-        this.HandleSymptoms = this.HandleSymptoms.bind(this);
-        this.sendMood = this.sendMood.bind(this);
-        this.changeMood = this.changeMood.bind(this);
     }
     
-
     
     componentDidMount(){// send to weekMoods
         fetch("/usersFeeling", {
@@ -52,51 +47,10 @@ class Mood extends React.Component{
     }
     
 
-    HandleSymptoms(e){
-        e.preventDefault();
-        this.setState({symptoms:e.target[0].value}, () => {
-            let moodData = {
-                userId: this.state.userId, 
-                symptoms:this.state.symptoms
-            }
-            fetch('/addSymptoms', {
-                method:'POST',
-                headers:{'Content-Type':'application/json'},
-                body: JSON.stringify(moodData)
-            })
-           .then(response => console.log(response));   
-
-            })
-
-    }
-
-    changeMood(){
-
-    }
-
-    //Sent data to DB
-  sendMood(){
-
-        let moodData = {
-            userId: this.state.userId, 
-            mood:this.state.mood
-    }   
-    console.log( 'What we are sending',moodData)
-
-        fetch('/addMood', {
-            method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body: JSON.stringify(moodData)
-        })
-       .then(response => console.log(response));
-
-    }
-
-
     render() {
         return(
             <div id='moodContainer'>
-                    <div onClick = {this.displayMood}>
+                    <div>
                         <Header username = {this.state.username} location = 'test' />
 
                         <section id = 'weatherSection'>
@@ -110,7 +64,7 @@ class Mood extends React.Component{
                         </section>
 
                         <section id='moodEdit'>
-                        <h3> {this.state.mood?this.state.mood : "No entries for today"}</h3>
+                        <h3> {this.state.mood? this.state.mood : "No entries for today"}</h3>
                         </section>
 
                         <section id='ChangeMoodSection'>

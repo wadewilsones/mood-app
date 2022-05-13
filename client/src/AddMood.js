@@ -6,10 +6,31 @@ import Header from './js/Header';
 
 let AddMood = (props) =>{
 
-let [ mood, setMood ] = useState(''); 
+let [ mood, setMood ] = useState('');
+let [ symptoms, setSymptoms ] = useState('');
+let [ confirmation, setConfirmation] = useState(false);
 
 function handleMood(e){
     setMood(mood = e.currentTarget.id);
+}
+function sendData(){
+    let userData = {
+        mood: mood,
+        symptoms: symptoms
+    }
+
+    fetch('/addMood', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(userData)
+    })
+   .then(response => {
+       console.log(response);
+       setConfirmation(confirmation = true)
+       setTimeout(() => { setConfirmation(confirmation = false)}, 1600) 
+      
+    });
+
 }
 
 let MoodContainer = {
@@ -29,6 +50,9 @@ console.log(mood);
         
       <div id='addModd-container'>
         <Header location = 'testMood' />
+        <section id="confirmation">
+            {confirmation? <div id="Mood-update-note"><h4>A new entry was added</h4></div> : <div></div>}
+        </section>
         <section id='moodHolder'>
             <h3>Today I feel: </h3>
             <div onClick = {handleMood} id = {MoodContainer[0]} >
@@ -71,9 +95,9 @@ console.log(mood);
         </section>
         <section id = "symptoms">
             <h3>Is there anything else you want to mention?</h3>
-            <textarea placeholder='Type here..'></textarea>
+            <textarea placeholder='Type here..' onChange = { (e) => {setSymptoms(symptoms = e.target.value)}}></textarea>
         </section>
-        <button>Confirm</button>
+        <button onClick = {sendData}>Confirm</button>
       </div>
       
 

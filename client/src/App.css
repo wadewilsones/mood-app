@@ -491,7 +491,7 @@ body{
     }
 
     .mood-selected{
-        background-color: #6ab1d5;
+        background-color: #6879a9;
         border-radius: 10px;
         padding: 10px;
         width: 70%;
@@ -529,6 +529,21 @@ body{
         font-family: Urbanist, Helvetica, sans-serif;
     }
 
+
+    #Mood-update-note {
+        text-align: center;
+        color:#6A6A6A;
+        width:80%;
+        margin: auto;
+        border-radius: 10px;
+        background-color: #FEE18C;
+
+    }
+
+    #Mood-update-note h4{
+        font-weight: 200;
+        font-size:1.5em;
+    }
 
 }
 
