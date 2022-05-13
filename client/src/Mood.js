@@ -70,7 +70,7 @@ class Mood extends React.Component{
                             <WeekMood mood = {this.state.mood}/>
                         </section>
 
-                        <section id='moodEdit'>
+                        <section id='moodEdit' className = {this.state.mood? 'MoodEditOn' : 'MoodEditOff'}>
                         {this.state.mood? 
                             <div id='current-mood-container'>
                                 <h3>Today I feel: </h3>
@@ -84,7 +84,7 @@ class Mood extends React.Component{
                             :  <h2>"No entries for today"</h2>}
                         </section>
 
-                        <section id='ChangeMoodSection'>
+                        <section id={this.state.mood? 'MoodOn' : 'ChangeMoodSection'}>
                             <div>
                                 <Link to ="/addMood">+</Link>
                                 <h4>{this.state.mood? 'Edit Mood' : 'Add mood'}</h4>
