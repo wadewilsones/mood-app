@@ -47,11 +47,9 @@ const [loginData, setLoginData] = useState({
       <BrowserRouter>
         <Routes>
         <Route path = "/" element = {loginData.loginStatus ? <Mood username = {loginData.username} userId = {loginData.userId}/>  : <Navigate to = "/login" replace />  } />
-        <Route path = "/addMood" element= {loginData.loginStatus ? <AddMood/> : <Navigate to = "/login" replace />} />
+        <Route path = "/addMood" element= {loginData.loginStatus ? <AddMood userId = {loginData.userId}/> : <Navigate to = "/login" replace />} />
           <Route path = "/login" element= {!(loginData.loginStatus) ? <Login/> : <Navigate to = "/" replace  />}  />
           <Route path = "/signup" element= {<SignUp />} />
-          <Route path = "/test" element= {<Mood username = 'Suzanna' />} />
-          <Route path = "/testMood" element= {<AddMood/>} />
 
         </Routes>
       </BrowserRouter>

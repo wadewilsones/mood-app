@@ -11,6 +11,8 @@ import { Link }  from "react-router-dom";
 
 class Mood extends React.Component{
   
+    _isMounted = false;
+
     constructor(props){
         super(props);
         //Setting up state
@@ -26,6 +28,7 @@ class Mood extends React.Component{
     
     
     componentDidMount(){// send to weekMoods
+        this._isMounted = true;
         fetch("/usersFeeling", {
             method:"GET",
             headers:{'Content-Type':'application/json'},
@@ -45,13 +48,17 @@ class Mood extends React.Component{
               
             })
     }
+
+    componentWillUnmount(){
+        this._isMounted = false;
+    }
     
 
     render() {
         return(
             <div id='moodContainer'>
                     <div>
-                        <Header username = {this.state.username} location = 'test' />
+                        <Header username = {this.state.username} location = '/' />
 
                         <section id = 'weatherSection'>
                             <h3>Today’s weather</h3>

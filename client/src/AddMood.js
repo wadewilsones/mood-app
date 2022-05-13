@@ -6,19 +6,22 @@ import Header from './js/Header';
 
 let AddMood = (props) =>{
 
+
 let [ mood, setMood ] = useState('');
 let [ symptoms, setSymptoms ] = useState('');
 let [ confirmation, setConfirmation] = useState(false);
+
+let userData = {
+    userId:props.userId,
+    mood: mood,
+    symptoms: symptoms
+}
 
 function handleMood(e){
     setMood(mood = e.currentTarget.id);
 }
 function sendData(){
-    let userData = {
-        mood: mood,
-        symptoms: symptoms
-    }
-
+  
     fetch('/addMood', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
@@ -29,7 +32,7 @@ function sendData(){
        setConfirmation(confirmation = true)
        setTimeout(() => { setConfirmation(confirmation = false)}, 1600) 
       
-    });
+    })
 
 }
 
@@ -44,12 +47,11 @@ let MoodContainer = {
     7: 'Frustrated',
     8: 'Grumpy'
 }
-console.log(mood);
 
     return(
         
       <div id='addModd-container'>
-        <Header location = 'testMood' />
+        <Header location = 'addMood' />
         <section id="confirmation">
             {confirmation? <div id="Mood-update-note"><h4>A new entry was added</h4></div> : <div></div>}
         </section>

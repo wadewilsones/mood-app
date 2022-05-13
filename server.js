@@ -117,19 +117,20 @@ app.post('/login',  (req,res) => {
 //Send data to mood table
 app.post('/addMood', async (req,res) =>{
     try{
-        const { userId, mood } = req.body;
+        const { userId, mood, symptoms } = req.body;
         //Check DB for existing information
         const checkData = await pool.query("SELECT * FROM user_moods WHERE mood_date = CURRENT_DATE AND user_idfk = $1 ORDER BY mood_id;", [userId]);
         if(checkData.rows.length > 0){
             console.log(checkData.rows);
             //Update mood
-            const updateMood = await pool.query("UPDATE user_moods SET mood_descr = $1 WHERE mood_date = CURRENT_DATE AND user_idfk = $2;", [mood, userId]);
+            const updateMood = await pool.query("UPDATE user_moods SET mood_descr = $1, symptoms = $2 WHERE mood_date = CURRENT_DATE AND user_idfk = $3;", [mood, symptoms, userId]);
             if(updateMood){
                 console.log('Mood was updated')
             }
+
         }
         else if (checkData.rows.length <= 0){
-            const addMood = await pool.query("INSERT INTO user_moods (user_idfk, mood_date, mood_descr) VALUES ($1,CURRENT_DATE,$2);", [userId, mood]);
+            const addMood = await pool.query("INSERT INTO user_moods (user_idfk, mood_date, mood_descr, symptoms) VALUES ($1,CURRENT_DATE,$2,$3);", [userId, mood, symptoms]);
             if(addMood){
                 console.log('New record was added');
                 res.send(
@@ -152,7 +153,7 @@ app.post('/addMood', async (req,res) =>{
 
 app.post ('/addSymptoms', async(req,res) => {
     try{
-        const {userId, symptoms } = req.body;
+        const {userId, mood, symptoms } = req.body;
         const updateSymptoms = await pool.query("UPDATE user_moods SET symptoms = $1 WHERE mood_date = CURRENT_DATE AND user_idfk = $2;", [symptoms, userId]);
         if(updateSymptoms){
             console.log('symptoms were updated')
