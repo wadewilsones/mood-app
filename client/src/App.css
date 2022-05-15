@@ -1395,7 +1395,7 @@ body{
         margin: auto;
         display: grid;
         height: 65vh;
-        padding-bottom: 20% ;
+        padding-bottom: 25% ;
          grid-template-rows: 20% 40% 25% 15%;
         grid-template-columns: 40% 60%;
  

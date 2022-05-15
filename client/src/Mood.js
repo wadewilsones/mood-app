@@ -11,7 +11,7 @@ import { Link }  from "react-router-dom";
 
 class Mood extends React.Component{
   
-    _isMounted = false;
+
 
     constructor(props){
         super(props);
@@ -28,7 +28,7 @@ class Mood extends React.Component{
     
     
     componentDidMount(){// send to weekMoods
-        this._isMounted = true;
+   
         fetch("/usersFeeling", {
             method:"GET",
             headers:{'Content-Type':'application/json'},
@@ -49,10 +49,6 @@ class Mood extends React.Component{
             })
     }
 
-    componentWillUnmount(){
-        this._isMounted = false;
-    }
-    
 
     render() {
         return(
