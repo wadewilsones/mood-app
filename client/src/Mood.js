@@ -57,7 +57,7 @@ class Mood extends React.Component{
     render() {
         return(
             <div id='moodContainer'>
-                    <div>
+                    <div id = 'Grid-holder-mood'>
                         <Header username = {this.state.username} location = '/' />
 
                         <section id = 'weatherSection'>
