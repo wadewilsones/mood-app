@@ -1,8 +1,6 @@
 import '../App.css';
 import React, { useState, useEffect } from "react";
-import ReactDOM from 'react-dom';
 import Today from './date';
-import { set } from 'express/lib/application';
 
 
 let todayInfo = Today();
@@ -44,7 +42,7 @@ let  WeekMood = (props) =>{
                 for(let index = 0; index < data.length; index++){
                     let frontDate = weekMood[i].date.toLocaleDateString('en-CA').split('T');
                     let dateToCompare = data[index].mood_date.split('T');
-                    if(dateToCompare[0] == frontDate[0]){
+                    if(dateToCompare[0] === frontDate[0]){
                         setWeekMood(
                             (prevState) => ({...prevState, 
                                 [i]:{ 

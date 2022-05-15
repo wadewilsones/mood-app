@@ -2,7 +2,6 @@
 import React from 'react';
 import Header from './js/Header';
 import WeekMood from './js/WeekMood';
-import AddMood from './AddMood';
 import Weather from './js/Weather';
 import { Link }  from "react-router-dom";
 
@@ -11,8 +10,6 @@ import { Link }  from "react-router-dom";
 
 class Mood extends React.Component{
   
-
-
     constructor(props){
         super(props);
         //Setting up state
@@ -39,7 +36,7 @@ class Mood extends React.Component{
                 //Compare today's date and DB dates
             let databaseDate = data[data.length - 1].mood_date.split('T');
             let sessionDate = this.state.date.toLocaleDateString('en-CA').split('T');
-            if(databaseDate[0] == sessionDate[0]){
+            if(databaseDate[0] === sessionDate[0]){
                 this.setState({
                     mood: data[data.length - 1].mood_descr,
                     symptoms:data[data.length - 1].symptoms

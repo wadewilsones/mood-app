@@ -54,6 +54,10 @@
                 month = "Decemeber";
                 break;
             }
+
+            default: {
+                month = "Undefined";
+            }
         }
         return month;
     } //what month is it

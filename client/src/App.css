@@ -697,14 +697,17 @@ body{
     #moodContainer{
         background-image: url('/media/background.svg');
         background-size: cover;
+        background-repeat: no-repeat;
         height:100vh;
+        padding-bottom: 4em;
      }
 
      #Grid-holder-mood{
         display: grid;
         grid-template-columns: 50% 50%;
-        grid-template-rows: 15% 35% 35% 15%;
-        height:70vh;
+        grid-template-rows: 10% 25% 25% 25% 15%;
+        height:100vh;
+  
 
      }
  
@@ -802,7 +805,7 @@ body{
          grid-column-start: 1;
          grid-column-end: 3;
          grid-row-start:2;
-         align-self: center;
+         align-self: flex-end;
 
      }
 
@@ -865,7 +868,7 @@ body{
         font-weight: 200;
         font-size: 1.6em;
         text-align: center;
-        margin: 1em 0;
+        margin: 0.5em 0;
     }
     
      .weather_container{
@@ -891,7 +894,7 @@ body{
    
      #Location{
          text-align: left;
-         font-size: 3em;
+         font-size: 2em;
          font-weight: 400;
          margin-left:20px;
      }
@@ -901,13 +904,13 @@ body{
  
          grid-row-start:1;
          grid-row-end: 4;
-         font-size: 5em;
+         font-size: 4em;
          grid-column-start: 2;
      }
  
  
      #time{
-         font-size: 2em;
+         font-size: 1.5em;
          text-align: left;
          margin:0 0 0 20px;
          grid-column-start: 1;
@@ -925,72 +928,134 @@ body{
      }
  
 
-     /*CHECKIN TABLET*/
+    /*MOOD DISPLAY ON TABLET*/
 
-     #moodEdit{
+     /*If entry exists*/
+
+     .MoodEditOn{
+
          width:80%;
-         margin: auto;
-
+        grid-column-start:1;
+        grid-column-end: 3;
+        align-self:flex-start;
+        justify-content: center;
+        margin: auto;
      }
- 
-     #current-mood-container{
-      
+
+
+     .MoodEditOn div{
+
          width:500px;
-         margin: auto;
+         margin: 0 auto 0; 
+         border-radius: 10px;
      }
 
-     #current-mood-container h3{
+     .MoodEditOn div h3{
+
         color:white;
         font-weight: 200;
         font-size: 1.6em;
         text-align: center;
-        margin: 1em 0;
+        margin: 0.5em 0;
      }
- 
- 
-     #current-mood-container div{
-         display: grid;
-         padding: 1.6em 0;
-         margin: 1em 0 2em 0;
-         background-color: #7F95D1;
-         border-radius: 10px;
-         grid-template-columns: 50% 50%;
-         grid-template-rows: 40% 60%;
-         box-shadow: #241d2c5e 1px 4px 10px;
+
+     .MoodEditOn div div{
+        background-color: #7F95D1;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-template-rows: 50% 50%;
+        padding: 0.8em 0;
      }
- 
-     #current-mood-container div h2{
-         font-size:2.5em;
+
+     .MoodEditOn div div h2{
+
          color:white;
-         font-weight: 300;
-         text-align:left;
-         margin-left: 20px;
-         grid-column-start: 1;
- 
-     }
- 
-     #current-mood-container div p{
-         font-size:1.5em;
-         justify-content: flex-start;
-         color:white;
-         margin-left: 20px;
-         margin-top: 10px;
-         font-weight: 300;
-         grid-column-start: 1;
-         grid-row-start: 2;
-     }
- 
-     #current-mood-container img{
-         width:60%;
-         grid-column-start: 2;
          align-self: center;
-         justify-self: center;
+         font-size: 2.4em;
+         font-weight: 300;
+         text-align: left;
+         margin-left: 0.7em;
+
+     }
+
+     .MoodEditOn div div p{
+         color:white;
+         align-self: flex-start;
+         font-size: 1.3em;
+         text-align: left;
+         margin-left: 1.2em;
+     }
+
+     .MoodEditOn div div img{
+         width:130px;
+         grid-column-start: 2;
          grid-row-start: 1;
          grid-row-end: 3;
+        margin: auto;
+        align-self: center;
      }
- 
 
+    
+    /*If entry doesn't exist*/
+
+    .MoodEditOff {
+
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-top:1em;
+
+    }
+
+    .MoodEditOff h2{
+        color:white;
+        font-weight: 300;
+        text-align: center;
+        font-size: 2.2em;
+        margin: 1.5em 0;
+    }
+
+    .MoodEditOff div{
+        background-color: #7F95D1;
+        color:white;
+        padding: 1.5em;
+        position: fixed;
+        width: 70%;
+        bottom: 5%;
+        left:0;
+        right:0;
+        margin: 0 auto 0;
+        border-radius: 12px;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+
+    
+    .MoodEditOff div h4{
+        font-weight: 400;
+        text-align: center;
+        font-size: 2em;
+        padding-top: 15px
+    }
+
+    .MoodEditOff div a {
+        background-color: #FEE18C;
+        color: #6A6A6A;
+        display: block;
+        width:80px;
+        height: 80px;
+        font-size: 60px;
+        border-radius: 60px;
+        margin: 0 auto;
+        position: absolute;
+        top:-50%;
+        right: 0;
+        left: 0;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+
+ 
       /*EDIT BTN TABLET*/
+
+        /*If entry doesn't exist 'Add Mood' text is applied*/
 
       #MoodOn{
         grid-column-start: 1;
@@ -998,12 +1063,12 @@ body{
         background-color: #7F95D1;
         color:white;
         padding: 1.5em;
-        width: 70%;
+        width: 400px;
         position: relative;
-        bottom: 2%;
+        bottom: 4%;
         left:0;
         right:0;
-        margin:4em auto 0;
+        margin:2em auto 0;
         border-radius: 12px;
         box-shadow: #241d2c5e 1px 4px 10px;
     }
@@ -1031,39 +1096,23 @@ body{
         box-shadow: #241d2c5e 1px 4px 10px;
     }
 
+     /*If entry exists 'Edit Mood' text is applied (ChangeMoodSection)*/
 
-    #moodEdit {
-
+     #ChangeMoodSection{
         grid-column-start: 1;
         grid-column-end: 3;
-        margin-top:3em;
-
-    }
-
-    #moodEdit h2{
-        color:white;
-        font-weight: 300;
-        text-align: center;
-        font-size: 2.2em;
-        margin: 1.5em 0;
-    }
-
-    #ChangeMoodSection{
         background-color: #7F95D1;
         color:white;
         padding: 1.5em;
-        position: fixed;
-        width: 70%;
-        bottom: 5%;
+        width: 400px;
+        position: relative;
+        bottom: 4%;
         left:0;
         right:0;
-        margin: 0 auto 0;
+        margin:2em auto 0;
         border-radius: 12px;
         box-shadow: #241d2c5e 1px 4px 10px;
     }
-
-    
-    /*MOOD DISPLAY ON TABLET*/
 
     #ChangeMoodSection h4{
         font-weight: 400;
@@ -1076,19 +1125,17 @@ body{
         background-color: #FEE18C;
         color: #6A6A6A;
         display: block;
-        width:80px;
-        height: 80px;
-        font-size: 60px;
+        width:60px;
+        height: 60px;
+        font-size: 48px;
         border-radius: 60px;
         margin: 0 auto;
         position: absolute;
-        top:-50%;
+        bottom:60%;
         right: 0;
         left: 0;
         box-shadow: #241d2c5e 1px 4px 10px;
     }
-
-
  
      /*ADD MOOD SCREEN TABLET*/
  

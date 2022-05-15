@@ -33,9 +33,6 @@ const [loginData, setLoginData] = useState({
               userId: data.userId
           }) 
         }
-        else{
-          console.log (data)
-        }
     })
 },[])
 

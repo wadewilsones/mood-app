@@ -1,5 +1,4 @@
 import './App.css';
-import Mood from './Mood';
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -73,9 +72,9 @@ function Login(){
         <div className={ loginError? "loginError-active" : "loginError-none"}>{loginError}</div>
        <form method="POST" action="/" onSubmit={handleSubmit}> 
             <label htmlFor="username">Username</label>
-           <input type="text" id="username" name="username"  value = {username} onChange = {changeInput} placeholder='Type here..' required />
+           <input type="text" id="username" name="username"  autoComplete='on' value = {username} onChange = {changeInput} placeholder='Type here..' required />
            <label htmlFor="password">Password</label>
-           <input type="password" id="password" name="password" value = {password} onChange = {changeInput} placeholder='Type here..' required />
+           <input type="password" id="password" name="password" autoComplete='on' value = {password} onChange = {changeInput} placeholder='Type here..' required />
            <input type="submit" id="subBtn" value="Login"/>
            <p>Don't have an account? <Link to="/signup">Sign Up!</Link></p>
 

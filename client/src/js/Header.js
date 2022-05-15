@@ -29,7 +29,7 @@ function Logout(){
         return (
         <header>
                 <section id='header-container'>
-                        {location == '/'?
+                        {location === '/'?
                         <div>
                                 <h4>{today[0] + ", " + today[1] + " " + today[3]}</h4>
                                 <h3>Hello {props.username}</h3>
@@ -39,7 +39,7 @@ function Logout(){
                         <Link to = '/'><span>Go back</span></Link>
                         </div>
                         }
-                        <a onClick = {Logout} id={location == 'test'? 'headerLogoutMain' : 'headerLogoutSecondary'}>Log out</a>
+                        <a onClick = {Logout} id={location === 'test'? 'headerLogoutMain' : 'headerLogoutSecondary'}>Log out</a>
                 </section>
         </header>)
 }
