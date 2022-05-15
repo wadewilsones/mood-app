@@ -32,7 +32,6 @@ function sendData(){
     })
         window.scrollTo(0,0); 
         setConfirmation(true);
-        console.log(confirmation);
         setTimeout(() => { setConfirmation(confirmation = false)}, 3000);
        
 }
