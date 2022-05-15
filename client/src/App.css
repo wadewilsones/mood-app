@@ -399,19 +399,17 @@ body{
 
     .sign-up-container{   
         display:grid;
+        grid-template-rows: 30% 70%;
         width:100%;
-
-    }
+        background-repeat: no-repeat;
+        background-image: url('/media/background.svg');
+        height: 100vh;
+     }
 
     .loginScreenHeader{
 
-        color:white;
-        margin-bottom: 2em;
-        background-repeat: no-repeat;
-        background-size: 380px;
-        background-position-x: 0;
-        background-position-y:80%;
-        background-image: url('/media/blot.svg');
+     align-self: center;
+     color:white;
     }
 
     .sign-up-container h1{
@@ -431,13 +429,14 @@ body{
         text-align: center;
         font-weight: 300;
         font-size:2em;
-        margin: 1em 0;
+        margin: 0.5em 0;
     }
 
   .sign-up-container form p{
       font-size: 1em;
       text-align: center;
       margin-top: 1em;
+      color:white;
   }
 
 
@@ -474,6 +473,7 @@ body{
     .sign-up-container form label{
         margin-left:10px;
         font-size: 1.2em;
+        color:white;
     }
     
     .sign-up-container form input[type="text"]{
@@ -1277,26 +1277,25 @@ body{
  
      .sign-up-container{   
         display:grid;
+        grid-template-rows: 30% 70%;
         width:100%;
+        background-repeat: no-repeat;
+        background-image: url('/media/background.svg');
+        height: 100vh;
+     }
 
-    }
 
     .loginScreenHeader{
 
         color:white;
-        margin-bottom: 2em;
-        background-repeat: no-repeat;
-        background-size: 380px;
-        background-position-x: 0;
-        background-position-y:80%;
-        background-image: url('/media/blot.svg');
+        align-self: center;
     }
 
     .sign-up-container h1{
       font-family: Allura, Helvetica, sans-serif;
       text-align: center;
       font-weight: 300;
-      font-size:3em;
+      font-size:4em;
       margin: 0.4em 0 0;
     }
     .sign-up-container h5{
@@ -1316,6 +1315,7 @@ body{
       font-size: 1em;
       text-align: center;
       margin-top: 1em;
+      color:white;
   }
 
 
@@ -1330,6 +1330,7 @@ body{
     .sign-up-container form label{
         margin-left:10px;
         font-size: 1.2em;
+        color:white;
     }
     
     .sign-up-container form input[type="text"]{
@@ -1950,69 +1951,60 @@ body{
  
      .sign-up-container{   
         display:grid;
+        grid-template-rows: 30% 70%;
         width:100%;
-
-    }
-
-    .loginScreenHeader{
-
-        color:white;
-        margin-bottom: 2em;
         background-repeat: no-repeat;
-        background-size: 380px;
-        background-position-x: 0;
-        background-position-y:80%;
-        background-image: url('/media/blot.svg');
-    }
+        background-image: url('/media/background.svg');
+        height: 100vh;
+     }
+
+     .loginScreenHeader{
+         align-self: center;
+         color:white;
+     }
 
     .sign-up-container h1{
       font-family: Allura, Helvetica, sans-serif;
       text-align: center;
       font-weight: 300;
-      font-size:3em;
+      font-size:5em;
       margin: 0.4em 0 0;
     }
     .sign-up-container h5{
         text-align: center;
-        font-size:1.2em;
+        font-size:1.5em;
         font-weight: 300;
         margin: 0.5em 0 0;
     }
     .sign-up-container h3 {
         text-align: center;
         font-weight: 300;
-        font-size:2em;
-        margin: 1em 0;
+        font-size:2.5em;
+        margin: 0.5em 0;
     }
+
+    .sign-up-container form {
+
+        width:350px;
+        margin: 20px auto;
+
+    }
+
 
   .sign-up-container form p{
       font-size: 1em;
       text-align: center;
       margin-top: 1em;
+      color: white;
   }
 
 
-    .sign-up-container form {
-
-        width:310px;
-        margin: 5vh auto;
-
-    }
-
-    footer{
-        background-color: #7F95D1;
-        color:white;
-        text-align: center;
-        position: absolute;
-        bottom: 0;
-        width:100%;
-        padding: 1em 0;
-    }
 
 
     .sign-up-container form label{
         margin-left:10px;
         font-size: 1.2em;
+        color:white;
     }
     
     .sign-up-container form input[type="text"]{
@@ -2048,6 +2040,7 @@ body{
         box-shadow: rgb(214, 207, 207) 1px 1px 10px;
         background-color: #7F95D1;
         color:white;
+        cursor: pointer;
 
     }
 
@@ -2055,6 +2048,7 @@ body{
         color:#7F95D1;
         text-align: center;
         text-decoration: none;
+        cursor: pointer;
     }
 
     .notification{
@@ -2088,6 +2082,7 @@ body{
         display: block;
         margin: 0 auto 2em;
         width:40%;
+        cursor: pointer;
         padding: 10px 0;
 
     }
