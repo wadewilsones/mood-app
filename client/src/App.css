@@ -22,7 +22,7 @@ body{
 @media screen and (min-width: 300px) and (max-width:580px){
 
     #moodContainer{
-       background-image: url('/media/background.svg');
+       background-image: url('/media/background.jpg');
        background-size: cover;
        height: 100vh;
        padding-bottom: 2em;
@@ -30,11 +30,10 @@ body{
 
          /*HEADER PHONE*/
 
-
     header{
 
         padding-bottom: 1.6em;
-        color:white;
+        color:#455173;
 
     }
 
@@ -42,6 +41,7 @@ body{
     #header-container{
         display: grid;
         grid-template-columns: 70% 30%;
+
 
     }
 
@@ -51,6 +51,7 @@ body{
         font-weight: 400;
         padding: 0 0 0 0.5em;
         grid-column-start: 1;
+        color:#455173;
     }
 
     
@@ -58,20 +59,20 @@ body{
     text-align: left;
     padding: 1.2em 0 0.2em 1em;
     font-size: 1em;
-    color: rgb(255, 255, 255);
-    font-weight: 200;
+    color: #455173;
+    font-weight: 400;
     grid-column-start: 1;
     align-self: flex-end;
 }
 
 #headerLogoutMain{
   
-        color:#6A6A6A;
-        background-color:#FEE18C;
+        color:white;
+        background-color:#E79686;
         border-radius: 5px;
         padding: 5px 10px;
         font-size: 1em;
-        font-weight: 500;
+        font-weight: 300;
         grid-column-start: 2;
         grid-row-start: 1;
         margin: 20px 10px 0px;
@@ -81,12 +82,12 @@ body{
 
     #headerLogoutSecondary{
   
-        color:#6A6A6A;
-        background-color:#FEE18C;
+        color:white;
+        background-color:#E79686;
         border-radius: 5px;
         padding: 5px 10px;
         font-size: 1em;
-        font-weight: 500;
+        font-weight: 300;
         grid-column-start: 2;
         grid-row-start: 1;
         margin: 20px 10px 20px;
@@ -95,25 +96,35 @@ body{
     }    
 
     #goBackHeader{
+      
+        border:2px solid red;
         display: flex;
-        justify-content: flex-start;
         align-items: center;
-        margin-left: 3em;
+        justify-content: center;
+        margin: 0;
 
     }
 
-    #goBackHeader span{
-        margin-right: 4em;
-        margin-left: 1em;
-        color: white;
+
+    #goBackHeader a span{
+
+        color: #455173;
+        display: block;
+        border:2px solid red;
+    }
+
+    #goBackHeader img{
+        border:2px solid red;
+        width:30%;
+        margin: 0;
     }
 
 
     /*WEEK DATA PHONE*/
 
     #checkinSection h3, #weatherSection h3, #current-mood-container h3{
-        color:white;
-        font-weight: 200;
+        color:#455173;
+        font-weight: 400;
         margin-left: 5%;
     }
     
@@ -135,7 +146,7 @@ body{
     .days-div{
         white-space: nowrap;
         flex-shrink: 0;
-        background-color: #7F95D1;
+        background-color: #716E77;
         width:20%;
         height: 70px;
         margin: 0 10px;
@@ -199,7 +210,7 @@ body{
     /*For smaller height*/
 
     #MoodOn{
-        background-color: #7F95D1;
+        background-color: #6A6A6A;
         color:white;
         padding: 1.5em;
         width: 70%;
@@ -220,8 +231,8 @@ body{
     }
 
     #MoodOn a {
-        background-color: #FEE18C;
-        color: #6A6A6A;
+        background-color: #E79686;
+        color: white;
         display: block;
         width:60px;
         height: 60px;
@@ -237,7 +248,7 @@ body{
 
 
     #moodEdit h2{
-        color:white;
+        color:#455173;
         font-weight: 300;
         text-align: center;
         font-size: 2em;
@@ -255,7 +266,7 @@ body{
         color:white;
         padding: 2em 0;
         border-radius:10px;
-        background-color: #7F95D1;
+        background-color: #E79686;
         box-shadow: #241d2c5e 1px 4px 10px;
         display: flex;
         align-items: center;
@@ -316,7 +327,7 @@ body{
         width:90%;
         padding: 1.6em 0;
         margin: 1em auto 2em;
-        background-color: #7F95D1;
+        background-color: #E79686;
         border-radius: 20px;
         grid-template-columns: 50% 50%;
         grid-template-rows: 40% 60%;
@@ -356,7 +367,7 @@ body{
   /*MOOD CHANGE BUTTON PHONE*/
 
   #ChangeMoodSection{
-    background-color: #7F95D1;
+    background-color: #716E77;
     color:white;
     padding: 1.5em;
     position: fixed;
@@ -376,11 +387,12 @@ body{
     text-align: center;
     font-size: 1em;
     padding-top: 15px
+    
 }
 
 #ChangeMoodSection a {
-    background-color: #FEE18C;
-    color: #6A6A6A;
+    background-color: #E79686;
+    color: #ffffff;
     display: block;
     width:60px;
     height: 60px;
@@ -395,6 +407,122 @@ body{
 }
 
 
+    /*Add mood screen PHONE*/
+
+    #addModd-container{
+        background-image: url('/media/background.jpg');
+        padding: 20px 0;
+    }
+
+    #addModd-container button{
+        width:80%;
+        background-color: #716E77;
+        color:white;
+        margin:auto;
+        margin-bottom: 30px;
+        display: block;
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 1.4em;
+        box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
+    }
+
+
+    #moodHolder{
+
+        display: grid;
+        grid-template-columns: 33.3% 33.3% 33.3%;
+        grid-template-rows: 15% 28.3% 28.3% 28.3%;
+        width:90%;
+        margin: auto;
+    }
+
+    #moodHolder h3 {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        text-align: center;
+        color:#455173;
+        font-size:1.4em;
+        font-weight: 200;
+        align-self: center;
+
+    }
+
+    #moodHolder div {
+        border-radius: 12px;
+        width:90%;
+        margin: 0 auto 30%;
+
+    }
+
+    .mood-img{
+        background-color: #E79686;
+        border-radius: 10px;
+        padding: 10px;
+        width: 70%;
+        margin: auto;
+        display: block;
+        box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
+    }
+
+    .mood-selected{
+        background-color: #C57F71;
+        border-radius: 10px;
+        padding: 10px;
+        width: 70%;
+        margin: auto;
+        display: block;
+        box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
+    }
+
+    #moodHolder div h4{
+
+        color:white;
+        font-weight: 200;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    #symptoms{
+        width:90%;
+        margin: auto;
+    }
+    #symptoms h3{
+        text-align: left;
+        color:#455173;
+        font-weight: 400;
+        margin:0.5em 1em 0 1em;
+    }
+
+
+    #symptoms textarea {
+        margin: 2em 0 2em 1em;
+        min-height:100px;
+        border-radius: 5px;
+        width:80%;
+        padding: 20px 10px 0 30px;
+        border:2px solid #455173 ;
+        font-family: Urbanist, Helvetica, sans-serif;
+    }
+
+
+    #Mood-update-note {
+        text-align: center;
+        color:#455173;
+        width:80%;
+        margin: auto;
+        border-radius: 10px;
+        background-color: #FEE18C;
+
+    }
+
+    #Mood-update-note h4{
+        font-weight: 200;
+        font-size:1.5em;
+    }
+
+
+
     /*LOGIN PHONE*/
 
     .sign-up-container{   
@@ -402,7 +530,7 @@ body{
         grid-template-rows: 30% 70%;
         width:100%;
         background-repeat: no-repeat;
-        background-image: url('/media/background.svg');
+        background-image: url('/media/background.jpg');
         height: 100vh;
      }
 
@@ -569,123 +697,6 @@ body{
         display: none;
     }
 
-
-    /*Add mood screen PHONE*/
-
-    #addModd-container{
-        background-image: url('/media/background.svg');
-        padding: 20px 0;
-    }
-
-    #mood-selected{
-        background-color: #8ac6d1;
-    }
-
-    #addModd-container button{
-        width:80%;
-        background-color: #7F95D1;
-        color:white;
-        margin:auto;
-        margin-bottom: 30px;
-        display: block;
-        padding: 20px;
-        border-radius: 10px;
-        font-size: 1.4em;
-        box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
-    }
-
-
-    #moodHolder{
-
-        display: grid;
-        grid-template-columns: 33.3% 33.3% 33.3%;
-        grid-template-rows: 15% 28.3% 28.3% 28.3%;
-        width:90%;
-        margin: auto;
-    }
-
-    #moodHolder h3 {
-        grid-column-start: 1;
-        grid-column-end: 4;
-        text-align: center;
-        color:white;
-        font-size:1.4em;
-        font-weight: 200;
-        align-self: center;
-
-    }
-
-    #moodHolder div {
-        border-radius: 12px;
-        width:90%;
-        margin: 0 auto 30%;
-
-    }
-
-    .mood-img{
-        background-color: #7F95D1;
-        border-radius: 10px;
-        padding: 10px;
-        width: 70%;
-        margin: auto;
-        display: block;
-        box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
-    }
-
-    .mood-selected{
-        background-color: #6879a9;
-        border-radius: 10px;
-        padding: 10px;
-        width: 70%;
-        margin: auto;
-        display: block;
-        box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
-    }
-
-    #moodHolder div h4{
-
-        color:white;
-        font-weight: 200;
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    #symptoms{
-        width:90%;
-        margin: auto;
-    }
-    #symptoms h3{
-        text-align: left;
-        color:white;
-        font-weight: 400;
-        margin: 2em 1em 0 1em;
-    }
-
-
-    #symptoms textarea {
-        margin: 2em 0 2em 1em;
-        min-height:100px;
-        border-radius: 5px;
-        width:80%;
-        padding: 20px 10px 0 30px;
-        font-family: Urbanist, Helvetica, sans-serif;
-    }
-
-
-    #Mood-update-note {
-        text-align: center;
-        color:#6A6A6A;
-        width:80%;
-        margin: auto;
-        border-radius: 10px;
-        background-color: #FEE18C;
-
-    }
-
-    #Mood-update-note h4{
-        font-weight: 200;
-        font-size:1.5em;
-    }
 
 }
 
@@ -1992,7 +2003,7 @@ body{
 
 
   .sign-up-container form p{
-      font-size: 1em;
+      font-size: 1.3em;
       text-align: center;
       margin-top: 1em;
       color: white;
@@ -2049,6 +2060,7 @@ body{
         text-align: center;
         text-decoration: none;
         cursor: pointer;
+
     }
 
     .notification{
