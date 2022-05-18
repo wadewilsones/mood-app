@@ -17,6 +17,14 @@ body{
 
 }
 
+.pic-contribution{
+    color:rgb(184, 175, 175);
+    font-size: 0.8em;
+    display: block;
+    margin-top: 2em;
+    text-align: center!important;
+}
+
 /*
 Primary color:#E79686
 Secondary color:#716E77

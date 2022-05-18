@@ -84,7 +84,8 @@ class Mood extends React.Component{
                             </div>
                         </section>
 
-                        </div> 
+                        </div>
+                <a href='https://www.freepik.com/vectors/like-emoji' class = "pic-contribution">Like emoji vector created by rawpixel.com - www.freepik.com</a>        
             </div> 
         )
     }
