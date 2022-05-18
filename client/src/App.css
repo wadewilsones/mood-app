@@ -659,7 +659,9 @@ body{
         transition: opacity 5s ease-in;
         position: absolute;
         top:5%;
-        left:2%;
+        left:0;
+        right:0;
+        margin: auto;
     }
 
     .notificationHidden{
@@ -674,26 +676,24 @@ body{
     }
     .notification a{
         color: rgb(255, 255, 255);
-        background-color: #7F95D1;
+        background-color: #455173;
         border-radius: 10px;
         cursor: pointer;
         display: block;
         margin: 0 auto 2em;
         width:40%;
         padding: 10px 0;
-
+        font-weight: 300;
     }
 
 
     /*Login PHONE*/
 
-    
+
     .loginError-active{
-        background-color: #fb807594;
-        padding: 0.6em 0;
-        text-align: center;
-        font-size: 1.4em;
-        margin-top: 1em;
+        color:#455173;
+        font-weight: bold;
+        margin-bottom: 1em;
     }
 
     .loginError-none{
@@ -1394,15 +1394,17 @@ body{
 
     .notification{
         position: absolute;
-        width: 90%;
+        width: 450px;
         padding: 10px;
         border-radius: 10px;
         background-color: white;
         box-shadow: rgba(75, 75, 75, 0.468) 1px 1px 10px;
         transition: opacity 5s ease-in;
         position: absolute;
-        top:5%;
-        left:2%;
+        top:2%;
+        right:0;
+        left:0;
+        margin: auto;
     }
 
     .notificationHidden{
@@ -1417,23 +1419,22 @@ body{
     }
     .notification a{
         color: rgb(255, 255, 255);
-        background-color: #7F95D1;
+        background-color: #455173;
         border-radius: 10px;
         cursor: pointer;
         display: block;
         margin: 0 auto 2em;
         width:40%;
         padding: 10px 0;
+        font-weight: 300;
 
     }
 
     
     .loginError-active{
-        background-color: #fb807594;
-        padding: 0.6em 0;
-        text-align: center;
-        font-size: 1.4em;
-        margin-top: 1em;
+        color:#455173;
+        font-weight: bold;
+        margin-bottom: 1em;
     }
 
     .loginError-none{
@@ -2070,7 +2071,7 @@ body{
 
     .notification{
         position: absolute;
-        width: 90%;
+        width: 400px;
         padding: 10px;
         border-radius: 10px;
         background-color: white;
@@ -2078,7 +2079,9 @@ body{
         transition: opacity 5s ease-in;
         position: absolute;
         top:5%;
-        left:2%;
+        left:0;
+        right:0;
+        margin: auto;
     }
 
     .notificationHidden{
@@ -2093,7 +2096,7 @@ body{
     }
     .notification a{
         color: rgb(255, 255, 255);
-        background-color: #7F95D1;
+        background-color: #455173;
         border-radius: 10px;
         cursor: pointer;
         display: block;
@@ -2101,19 +2104,18 @@ body{
         width:40%;
         cursor: pointer;
         padding: 10px 0;
+        font-weight: 300;
 
     }
 
 
-    /*Login*/
+    /*Login Errors DESKTOP*/
+ 
 
-    
     .loginError-active{
-        background-color: #fb807594;
-        padding: 0.6em 0;
-        text-align: center;
-        font-size: 1.4em;
-        margin-top: 1em;
+        color:#455173;
+        font-weight: bold;
+        margin-bottom: 1em;
     }
 
     .loginError-none{

@@ -69,15 +69,14 @@ function Login(){
             <h5>Your personal mood app</h5>
             <h3>Login</h3>
         </div>
-        <div className={ loginError? "loginError-active" : "loginError-none"}>{loginError}</div>
-       <form method="POST" action="/" onSubmit={handleSubmit}> 
+       <form method="POST" action="/" onSubmit={handleSubmit}>
+       <p className={ loginError? "loginError-active" : "loginError-none"}>{loginError}</p> 
             <label htmlFor="username">Username</label>
            <input type="text" id="username" name="username"  autoComplete='on' value = {username} onChange = {changeInput} placeholder='Type here..' required />
            <label htmlFor="password">Password</label>
            <input type="password" id="password" name="password" autoComplete='on' value = {password} onChange = {changeInput} placeholder='Type here..' required />
            <input type="submit" id="subBtn" value="Login"/>
            <p>Don't have an account? <Link to="/signup">Sign Up!</Link></p>
-
        </form>
     </div>
 
