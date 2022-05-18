@@ -8,7 +8,7 @@ let AddMood = (props) =>{
 
 let [ mood, setMood ] = useState('');
 let [ symptoms, setSymptoms ] = useState('');
-let [ confirmation, setConfirmation] = useState(false);
+let [ confirmation, setConfirmation] = useState(true);
 
 let userData = {
     userId:props.userId,
@@ -46,6 +46,7 @@ let MoodContainer = {
     7: 'Frustrated',
     8: 'Grumpy'
 }
+
 
     return(
         
