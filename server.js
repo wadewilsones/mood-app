@@ -47,19 +47,7 @@ app.get('/', (req,res) => {
 app.get('/*', (req,res) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 })
-/*
-app.get('/login', (req,res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
-})
 
-app.get('/signup', (req,res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
-})
-
-app.get('/addMood', (req,res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
-})
-*/
 
 app.post('/signUpUser', async (req,res) => {
 
