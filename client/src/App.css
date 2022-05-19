@@ -21,8 +21,13 @@ body{
     color:rgb(184, 175, 175);
     font-size: 0.8em;
     display: block;
-    margin-top: 2em;
     text-align: center!important;
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 1%;
+    margin: auto;
+    margin-top: 2em;
 }
 
 /*
