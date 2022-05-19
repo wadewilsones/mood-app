@@ -34,9 +34,21 @@ app.use(session({
         expires:60 * 60 * 24
     }
 }))
-app.use(express.static(path.join(__dirname, 'client/public')));
 
-app.post('/signUp', async (req,res) => {
+app.use(express.static(path.join(__dirname, 'client/public/index.html')));
+
+//For deployment
+app.use(express.static(path.join(__dirname, 'client/build')))
+
+app.get('/', (req,res) => {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+})
+app.get('/login', (req,res) => {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+})
+
+
+app.post('/signUpUser', async (req,res) => {
 
     try{
 
@@ -58,7 +70,7 @@ app.post('/signUp', async (req,res) => {
     }
 })
 
-app.get("/login", (req,res) => {
+app.get("/loginUser", (req,res) => {
     if(req.session.user){
         res.send(
             {loggedIn:true, 
@@ -75,7 +87,7 @@ app.get("/login", (req,res) => {
 
 //Set up logout
 
-app.get('/logout',  (req, res) =>{
+app.get('/logoutUser',  (req, res) =>{
         req.session.destroy();
         res.send({
             loggedIn:false, 
@@ -84,7 +96,7 @@ app.get('/logout',  (req, res) =>{
     })
 
 
-app.post('/login',  (req,res) => {
+app.post('/loginUser',  (req,res) => {
     try{
         const { username, password } = req.body;
         //Get data from DB
@@ -115,7 +127,7 @@ app.post('/login',  (req,res) => {
 })
 
 //Send data to mood table
-app.post('/addMood', async (req,res) =>{
+app.post('/addTodaysMood', async (req,res) =>{
     try{
         const { userId, mood, symptoms } = req.body;
         //Check DB for existing information
