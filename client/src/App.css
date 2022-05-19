@@ -636,6 +636,7 @@ Third color: #455173
         height: 50px;
         border-radius: 10px;
         padding-left:10px;
+        -webkit-appearance: none
         
     }
 
