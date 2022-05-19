@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "react",
   "version": "1.0.0",
@@ -36,3 +37,46 @@
     "nodemon": "^2.0.15"
   }
 }
+=======
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "mood app",
+  "main": "server.js",
+  "engines": {
+    "node":"v16.13.2"
+  },
+  "scripts": {
+    "test": "test",
+    "start": "node server.js",
+    "serve": "nodemon server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wadewilsones/mood-app.git"
+  },
+  "keywords": [
+    "mood"
+  ],
+  "author": "ulada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wadewilsones/mood-app/issues"
+  },
+  "homepage": "https://github.com/wadewilsones/mood-app#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "pg-promise": "^10.11.1"
+  },
+  "proxy": "http://localhost:3000",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
+>>>>>>> deployment
