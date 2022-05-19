@@ -57,7 +57,6 @@ function Weather(){
             const API_KEY = data.WeatherAPI;
             //Get weather
             const API_link = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
-            console.log(API_link);
              //Make a call
             fetch(API_link)
             .then(function(response){
