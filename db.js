@@ -1,10 +1,10 @@
 const Pool = require("pg").Pool;
 
 const pool = new Pool({
-    user:'user_public',
-    password:'mood',
-    database:'moodapp',
-    host:'localhost',
+    user: process.env.PG_HOST || 'user_public',
+    password:process.env.PG_PSW ||'mood',
+    database:process.env.PG_DB ||'moodapp',
+    host:process.env.PG_HOST || 'localhost',
     port:5432
 })
 
