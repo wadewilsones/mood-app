@@ -50,23 +50,34 @@ function Weather(){
     }
 
     function getWeather(lat,lon){
-        const API_KEY = process.env.REACT_APP_API_KEY;
-        const API_link = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
-         //Make a call
-        fetch(API_link)
-        .then(function(response){
-        return response.json();
-    })
-    .then(data => {
-        let city = data.name;
-        let temp = (data.main.temp - 273.15).toFixed(0);
-        let descr = (data.weather[0].description)
-        setWeather(prevState => ({
-            location: city,
-            temperature: temp,
-            description: descr
-        }))
-    })
+
+        fetch('/APIkey')
+        .then(response => response.json())
+        .then (data => {
+            const API_KEY = data.WeatherAPI;
+            //Get weather
+            const API_link = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+            console.log(API_link);
+             //Make a call
+            fetch(API_link)
+            .then(function(response){
+            return response.json();
+        })
+        .then(data => {
+            let city = data.name;
+            let temp = (data.main.temp - 273.15).toFixed(0);
+            let descr = (data.weather[0].description)
+            setWeather(prevState => ({
+                location: city,
+                temperature: temp,
+                description: descr
+            }))
+        })
+        })
+        
+
+ 
+
     }
 
     return(   

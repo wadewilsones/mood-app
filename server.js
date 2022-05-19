@@ -38,7 +38,7 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'client/public')));
 
 //For deployment
-/*
+
 app.use(express.static(path.join(__dirname, 'client/build')))
 
 app.get('/', (req,res) => {
@@ -56,7 +56,6 @@ app.get('/addMood', (req,res) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 })
 
-*/
 
 app.post('/signUpUser', async (req,res) => {
 
@@ -92,6 +91,13 @@ app.get("/loginUser", (req,res) => {
     else{ res.send({loggedIn:false})
     
     }
+})
+
+app.get ("/APIkey", (req,res) => {
+    res.send ( 
+        {WeatherAPI: '6c6a4a356c2d25e5b8bc8b4736458bc4'}
+        )
+    
 })
 
 
