@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/wadewilsones/mood-app/issues"
   },
-  "homepage": "https://github.com/wadewilsones/mood-app#readme",
+  "homepage": "",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
