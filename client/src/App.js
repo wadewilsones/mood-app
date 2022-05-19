@@ -18,7 +18,7 @@ const [loginData, setLoginData] = useState({
 })
     
   useEffect(()=>{
-    fetch("/login", {
+    fetch("/loginUser", {
       method:"GET",
       headers:{'Content-Type':'application/json'},
       credentials:'include'

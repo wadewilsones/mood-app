@@ -12,7 +12,7 @@ function Header(props){
 let location  = props.location;
 
 function Logout(){
-        fetch('/logout', {
+        fetch('/logoutUser', {
                 method: "GET",
                 headers:{
                         'Content-Type':'application/json'

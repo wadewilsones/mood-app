@@ -33,7 +33,7 @@ function Login(){
 
     const sendData = () => {
 
-        fetch('/login', {
+        fetch('/loginUser', {
             method:'POST',
             headers:{'Content-Type':'application/json'},
             credential:true,
