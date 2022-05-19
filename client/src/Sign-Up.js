@@ -18,7 +18,6 @@ function SignUp (){
             (prevState) => ({...prevState, [name]: value}),
             userData.password = btoa(userData.password)
             )
-            console.log(userData.password);
     }
 
     const {username, password} = userData;
