@@ -163,18 +163,6 @@ app.post('/addTodaysMood', async (req,res) =>{
 })
 
 
-app.post ('/addSymptoms', async(req,res) => {
-    try{
-        const {userId, mood, symptoms } = req.body;
-        const updateSymptoms = await pool.query("UPDATE user_moods SET symptoms = $1 WHERE mood_date = CURRENT_DATE AND user_idfk = $2;", [symptoms, userId]);
-        if(updateSymptoms){
-            console.log('symptoms were updated')
-        }
-    }
-    catch(err){
-        console.error(err.message)
-    }
-})
 
 app.get('/usersFeeling', async (req,res) =>{
     try{
