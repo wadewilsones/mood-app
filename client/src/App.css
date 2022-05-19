@@ -22,6 +22,8 @@ body{
     font-size: 0.8em;
     display: block;
     margin: auto;
+    display: absolute;
+    bottom:0;
     margin-top: 2em;
 }
 
@@ -363,9 +365,9 @@ Third color: #455173
     background-color: #716E77;
     color:white;
     padding: 1.5em;
-    position: fixed;
+    position: relative;
     width: 70%;
-    bottom: 10px;
+    bottom: 20px;
     left:0;
     right:0;
     margin: 0 auto;
