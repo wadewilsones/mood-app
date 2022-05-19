@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "mood app",
   "main": "server.js",
+  "engines": {
+    "node":"v16.13.2"
+  },
   "scripts": {
     "test": "test",
     "start": "node server.js",
