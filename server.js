@@ -35,11 +35,11 @@ app.use(session({
     }
 }))
 
-app.use(express.static(path.join(__dirname, 'client/public')));
+//app.use(express.static(path.join(__dirname, 'client/public')));
 
 //For deployment
 
-app.use(express.static(path.join(__dirname, 'client/build')))
+app.use(express.static(path.join(__dirname, 'client/public')))
 
 app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
