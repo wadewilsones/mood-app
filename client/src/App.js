@@ -27,7 +27,12 @@ const [loginData, setLoginData] = useState({
         'Accept': 'application/json'
       },
     })
-    .then (response => console.log(response))
+    .then (response => {
+      console.log(response);
+      console.log(typeof(response));
+      })
+    
+    /*
     .then(data => {
       console.log('This is response from server after useUffect: '+ data);
         if(data.loggedIn){
@@ -38,7 +43,7 @@ const [loginData, setLoginData] = useState({
               userId: data.userId
           }) 
         }
-    })
+    })*/
 },[])
 
 
