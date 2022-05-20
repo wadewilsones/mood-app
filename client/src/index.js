@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 
 const [loginData, setLoginData] = useState({
