@@ -23,14 +23,14 @@ const [loginData, setLoginData] = useState({
     fetch("/IsUserLoggedIn", {
       method:"GET",
       headers:{
-        'Content-Type':'application/json',
-        'Accept': 'application/json'
+        'Content-Type':'application/json'
       },
+      credentials: 'include'
     })
     .then (response => {
       console.log(response);
       console.log(typeof(response));
-      response.text();
+      response.json();
       })
     .then (data => {
       console.log('Data of response' + data)
