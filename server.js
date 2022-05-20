@@ -190,11 +190,11 @@ app.get('/api/usersFeeling',  (req,res) =>{
     try{
         const userId =  req.session.user.rows[0].userid;
         const getMood =  pool.query ("SELECT * FROM user_moods WHERE user_idfk = $1 AND mood_date BETWEEN CURRENT_DATE - 3 AND CURRENT_DATE ORDER BY mood_id;", [userId])
-
-        if(getMood.rows.length > 0){
+        res.send(getMood);
+        /*if(getMood.rows.length > 0){
             console.log(getMood.rows)
             res.send(getMood.rows)
-        }    
+        }  */  
     }
     catch(err){
         console.error(err.message)

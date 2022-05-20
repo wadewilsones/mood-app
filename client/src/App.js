@@ -19,7 +19,6 @@ const [loginData, setLoginData] = useState({
     
 
   useEffect(()=>{
-    console.log('This is useEFfect');
     fetch('/api/login', {
       method:"GET",
       headers:{

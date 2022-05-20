@@ -32,6 +32,8 @@ class Mood extends React.Component{
             credentials:'include'
         })
         .then (response => response.json())
+        .then (data => console.log('This is userFeeling data: ',data))
+        /*
         .then(data => {
                 //Compare today's date and DB dates
             let databaseDate = data[data.length - 1].mood_date.split('T');
@@ -43,7 +45,7 @@ class Mood extends React.Component{
                 })
             }
               
-            })
+            })*/
     }
 
 
