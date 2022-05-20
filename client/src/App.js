@@ -9,14 +9,18 @@ import Login from './Login';
 import AddMood from './AddMood'
 
 
-function App () {
+function App (props) {
+
+
 
 const [loginData, setLoginData] = useState({
-    loginStatus: false,
-    username:'',
-    userId: 0
+    loginStatus: props.status,
+    username:props.username,
+    userId: props.userId
 })
     
+  /*
+
   useEffect(()=>{
     console.log('This is useEFfect');
     fetch("/IsUserLoggedIn", {
@@ -39,8 +43,8 @@ const [loginData, setLoginData] = useState({
               userId: data.userId
           }) 
         }
-    })*/
-},[])
+    })
+},[])*/
 
 
   //Setting up Routes
