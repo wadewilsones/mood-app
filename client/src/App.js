@@ -11,12 +11,10 @@ import AddMood from './AddMood'
 
 function App (props) {
 
-
-
 const [loginData, setLoginData] = useState({
-    loginStatus: props.status,
-    username:props.username,
-    userId: props.userId
+    loginStatus: false,
+    username:'',
+    userId: 0
 })
     
 
