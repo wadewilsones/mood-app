@@ -26,7 +26,7 @@ class Mood extends React.Component{
     
     componentDidMount(){// send to weekMoods
    
-        fetch("/usersFeeling", {
+        fetch("/api/usersFeeling", {
             method:"GET",
             headers:{'Content-Type':'application/json'},
             credentials:'include'

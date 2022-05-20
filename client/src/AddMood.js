@@ -21,7 +21,7 @@ function handleMood(e){
 }
 function sendData(){
   
-   fetch('/addTodaysMood', {
+   fetch('/api/addMood', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify(userData)
@@ -31,7 +31,7 @@ function sendData(){
     })
         window.scrollTo(0,0); 
         setConfirmation(true);
-        setTimeout(() => { setConfirmation(confirmation = false)}, 3000);
+        setTimeout(() => { setConfirmation(confirmation = false)}, 2000);
        
 }
 

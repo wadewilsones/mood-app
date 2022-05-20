@@ -150,7 +150,7 @@ app.get('/api/login', (req,res) => {
 
 
 //Send data to mood table
-app.post('/addTodaysMood', (req,res) =>{
+app.post('/api/addMood', (req,res) =>{
     try{
         const { userId, mood, symptoms } = req.body;
         //Check DB for existing information
@@ -162,7 +162,6 @@ app.post('/addTodaysMood', (req,res) =>{
             if(updateMood){
                 console.log('Mood was updated')
             }
-
         }
         else if (checkData.rows.length <= 0){
             const addMood = pool.query("INSERT INTO user_moods (user_idfk, mood_date, mood_descr, symptoms) VALUES ($1,CURRENT_DATE,$2,$3);", [userId, mood, symptoms]);
@@ -187,7 +186,7 @@ app.post('/addTodaysMood', (req,res) =>{
 
 
 
-app.get('/usersFeeling',  (req,res) =>{
+app.get('/api/usersFeeling',  (req,res) =>{
     try{
         const userId =  req.session.user.rows[0].userid;
         const getMood =  pool.query ("SELECT * FROM user_moods WHERE user_idfk = $1 AND mood_date BETWEEN CURRENT_DATE - 3 AND CURRENT_DATE ORDER BY mood_id;", [userId])
