@@ -190,11 +190,10 @@ app.get('/api/usersFeeling',  async (req,res) =>{
     try{
         const userId =  req.session.user.rows[0].userid;
         const getMood =  await pool.query ("SELECT * FROM user_moods WHERE user_idfk = $1 AND mood_date BETWEEN CURRENT_DATE - 3 AND CURRENT_DATE ORDER BY mood_id;", [userId])
-        res.send('This is userFeeling ' + getMood);
-        /*if(getMood.rows.length > 0){
+        if(getMood.rows.length > 0){
             console.log(getMood.rows)
             res.send(getMood.rows)
-        }  */  
+        }  
     }
     catch(err){
         console.error(err.message)

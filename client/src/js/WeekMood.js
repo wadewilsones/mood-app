@@ -29,7 +29,7 @@ let  WeekMood = (props) =>{
     //Display week's moods
 
     useEffect(() => {
-        fetch("/usersFeeling", {
+        fetch("/api/usersFeeling", {
             method:"GET",
             headers:{'Content-Type':'application/json'},
             credentials:'include'
