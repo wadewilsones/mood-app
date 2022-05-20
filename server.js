@@ -202,8 +202,6 @@ app.get('/api/usersFeeling',  async (req,res) =>{
     }
 })
 
-console.log(process.env.API_KEY)
-
 app.post('/api/getWeather', (req, res) => {
     try{
         const { lat, lon } = req.body;
@@ -216,7 +214,6 @@ app.post('/api/getWeather', (req, res) => {
             res.send(response.data)
         })
         .catch(error => console.log(error))
-        //res.send('check')
 
     }
     catch(err){
