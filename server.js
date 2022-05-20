@@ -72,22 +72,6 @@ app.post('/signUpUser', async (req,res) => {
     }
 })
 
-app.get("/IsUserLoggedIn", (req,res) => {
-    if(req.session.user){
-        res.send(
-            {loggedIn:true, 
-            user: req.session.user.rows[0].username,
-            userId: req.session.user.rows[0].userid
-            }
-        )
-    }
-    else{ 
-        res.send({loggedIn:false}
-        )
-    
-    }
-})
-
 app.get ("/APIkey", (req,res) => {
     res.send ( 
         {WeatherAPI: '6c6a4a356c2d25e5b8bc8b4736458bc4'}
@@ -136,6 +120,24 @@ app.post('/loginUser',  (req,res) => {
         console.error(message.err)
     }
 })
+
+
+app.get("/IsUserLoggedIn", (req,res) => {
+    if(req.session.user){
+        res.send(
+            {loggedIn:true, 
+            user: req.session.user.rows[0].username,
+            userId: req.session.user.rows[0].userid
+            }
+        )
+    }
+    else{ 
+        res.send({loggedIn:false}
+        )
+    
+    }
+})
+
 
 //Send data to mood table
 app.post('/addTodaysMood', async (req,res) =>{
