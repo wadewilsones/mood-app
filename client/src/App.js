@@ -25,6 +25,7 @@ const [loginData, setLoginData] = useState({
     })
     .then (response => response.json())
     .then(data => {
+      console.log('This is response from server after useUffect: '+ data)
         if(data.loggedIn){
           console.log('State:' + loginData) // remove later
           setLoginData(
