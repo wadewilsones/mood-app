@@ -22,7 +22,6 @@ const [loginData, setLoginData] = useState({
     fetch("/IsUserLoggedIn", {
       method:"GET",
       headers:{'Content-Type':'application/json'},
-      credentials:'include'
     })
     .then (response => response.json())
     .then(data => {
@@ -38,7 +37,7 @@ const [loginData, setLoginData] = useState({
           }) 
         }
     })*/
-},[loginData])
+},[])
 
 
   //Setting up Routes
