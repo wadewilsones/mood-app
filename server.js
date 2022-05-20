@@ -137,7 +137,6 @@ app.post('/loginUser',  (req,res) => {
 app.get('/api/login', (req,res) => {
 
     res.send('Fetch was successful')
-    /*
     if(req.session.user){
         res.send(
             {loggedIn:true, 
@@ -151,7 +150,7 @@ app.get('/api/login', (req,res) => {
         )
     
     }
-    */
+
 })
 
 
