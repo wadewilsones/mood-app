@@ -68,7 +68,7 @@ class Mood extends React.Component{
                             <div id='current-mood-container'>
                                 <h3>Today I feel: </h3>
                                 <div>
-                                    <h2>{this.state.mood.charAt(0).toUpperCase()}</h2>
+                                    <h2>{this.state.mood}</h2>
                                     <p>Notes: {this.state.symptoms}</p>
                                     <img src = {'/media/' + this.state.mood +'.svg'} alt = {this.state.mood + 'mood'}></img>
                                 </div>

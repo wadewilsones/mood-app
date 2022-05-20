@@ -17,6 +17,12 @@ body{
 
 }
 
+/*Display Mood Text */
+
+#mood-days .days-div p, #moodHolder div h4, #current-mood-container h2{
+    text-transform: capitalize;
+}
+
 
 /*
 Primary color:#E79686
