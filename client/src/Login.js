@@ -42,7 +42,7 @@ function Login(){
 
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            console.log(data); // remove later
             if(data.message){
                 if(data.message === "Wrong password"){
                     setError("Wrong password!");

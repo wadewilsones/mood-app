@@ -26,7 +26,7 @@ const [loginData, setLoginData] = useState({
     .then (response => response.json())
     .then(data => {
         if(data.loggedIn){
-          
+          console.log('State:' + loginData) // remove later
           setLoginData(
             {loginStatus: data.loggedIn,
               username: data.user,
