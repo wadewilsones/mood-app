@@ -57,7 +57,7 @@ function Login(){
             }
             else{
 
-                console.log('You are logg3ed in')
+                console.log('You are logged in');
             }
             
         })
