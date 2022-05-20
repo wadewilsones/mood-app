@@ -57,7 +57,7 @@ function Login(){
             }
             else{
 
-                window.location.reload();
+                console.log('You are logg3ed in')
             }
             
         })
