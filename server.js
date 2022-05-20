@@ -125,7 +125,7 @@ app.post('/loginUser',  (req,res) => {
 
 app.get("/IsUserLoggedIn", (req,res) => {
 
-    res.send('This is IsuserLogin response')
+    res.send({message:'Fetch was successful'})
     /*
     if(req.session.user){
         res.send(
