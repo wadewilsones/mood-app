@@ -33,8 +33,9 @@ module.exports = pool;
 5. To get Weather API you will need your own API key from https://openweathermap.org/api. After you had obtained it, you can change Weather.js.
 
 ```javascript
+.env file
 
-const API_KEY = 'type ypur API here'
+API_KEY = 'yourAPIkey';
 
 ```
 
