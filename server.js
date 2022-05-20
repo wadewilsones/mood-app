@@ -1,3 +1,6 @@
+require('dotenv').config();
+console.log(process.env);
+
 // Set up a server with Express
 const express = require("express");
 const PORT = process.env.PORT || 5000; // global variable that represent the state of the system environment when it starts
@@ -80,13 +83,6 @@ app.post('/signUpUser', async (req,res) => {
     catch(err){
         console.error(err.message)
     }
-})
-
-app.get ("/APIkey", (req,res) => {
-    res.send ( 
-        {WeatherAPI: '6c6a4a356c2d25e5b8bc8b4736458bc4'}
-        )
-    
 })
 
 

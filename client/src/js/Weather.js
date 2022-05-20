@@ -51,10 +51,7 @@ function Weather(){
 
     function getWeather(lat,lon){
 
-        fetch('/APIkey')
-        .then(response => response.json())
-        .then (data => {
-            const API_KEY = data.WeatherAPI;
+            const API_KEY = process.env.REACT_APP_API_KEY;
             //Get weather
             const API_link = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
              //Make a call
@@ -72,10 +69,7 @@ function Weather(){
                 description: descr
             }))
         })
-        })
         
-
- 
 
     }
 
