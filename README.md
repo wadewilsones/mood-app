@@ -18,12 +18,16 @@ npm install
 Create DB with your credentials in db.js
 
 ```
+const Pool = require("pg").Pool;
+
+const pool = new Pool({
     user: 'yourusername', 
     password:'yourpassword',
     database:'yourdbname',
     host:'localhost',
     port:5432,
-    
+})
+module.exports = pool;
 ```
 4. Create a role and add tables from database.sql to your previously created database.
 5. To get Weather API you will need your own API key from https://openweathermap.org/api. After you had obtained it, you can change Weather.js.
