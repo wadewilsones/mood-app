@@ -207,8 +207,8 @@ app.post('/api/getWeather', (req, res) => {
     try{
         const { lat, lon } = req.body;
         console.log('Lat:' + lat +' lon ' + lon)
-        const API_KEY = '6c6a4a356c2d25e5b8bc8b4736458bc4';
-        API_link = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+        const API_KEY = process.env.API_KEI;
+        API_link =  `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
         console.log(API_link);
         axios.get(API_link)
         .then((response) => {
