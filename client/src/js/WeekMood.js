@@ -36,7 +36,6 @@ let  WeekMood = (props) =>{
         })
         .then (response => response.json())
         .then(data => {
-
             for(let i = 0; i < Object.keys(weekMood).length; i++){
                 //Check each week day for concurrence
                 for(let index = 0; index < data.length; index++){
@@ -57,7 +56,6 @@ let  WeekMood = (props) =>{
                 }
             }
 
-
         })
         
 
@@ -75,17 +73,17 @@ let  WeekMood = (props) =>{
 
                 <div className='days-div'>
                     {formatDates(weekMood[0].date)}<br/>
-                    <p>{weekMood[0].mood? weekMood[0] : noData}</p>
+                    <p>{weekMood[0].mood? weekMood[0].mood : noData}</p>
                 </div>
 
                 <div className='days-div'>
                 {formatDates(weekMood[1].date)}<br/>
-                <p>{weekMood[1].mood? weekMood[1] : noData}</p>
+                <p>{weekMood[1].mood? weekMood[1].mood : noData}</p>
 
                 </div>
                 <div className='days-div'>
                     {formatDates(weekMood[2].date)}<br/>
-                    <p>{weekMood[2].mood? weekMood[2] : noData}</p>
+                    <p>{weekMood[2].mood? weekMood[2].mood : noData}</p>
                 </div>
 
                 <div className='days-div'>Today<br/>

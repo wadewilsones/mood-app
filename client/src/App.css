@@ -1159,7 +1159,8 @@ Third color: #455173
         grid-column-end: 3;
         background-color: #6A6A6A;;
         color:white;
-        padding: 1.5em;
+        height: 50px;
+        padding: 1.5em 1.5em 0;
         width: 400px;
         position: relative;
         bottom: 4%;
@@ -1173,21 +1174,20 @@ Third color: #455173
     #ChangeMoodSection h4{
         font-weight: 400;
         text-align: center;
-        font-size: 2em;
-        padding-top: 30px
+        font-size: 1.6em;
     }
 
     #ChangeMoodSection a {
         background-color: #E79686;
         color: white;
         display: block;
-        width:60px;
-        height: 60px;
-        font-size: 48px;
+        width:70px;
+        height: 70px;
+        font-size:56px;
         border-radius: 60px;
         margin: 0 auto;
         position: absolute;
-        bottom:60%;
+        bottom: 75%;
         right: 0;
         left: 0;
         box-shadow: #241d2c5e 1px 4px 10px;
@@ -1920,6 +1920,7 @@ Third color: #455173
         color:white;
         padding: 1.5em;
         width: 400px;
+        height: 50px;
         position: relative;
         bottom: 4%;
         left:0;
@@ -1932,21 +1933,21 @@ Third color: #455173
     #ChangeMoodSection h4{
         font-weight: 400;
         text-align: center;
-        font-size: 2em;
-        padding-top: 30px
+        font-size: 1.6em;
+        padding-top: 15px
     }
 
     #ChangeMoodSection a {
         background-color: #E79686;
         color: white;
         display: block;
-        width:60px;
-        height: 60px;
-        font-size: 48px;
+        width:90px;
+        height: 90px;
+        font-size: 72px;
         border-radius: 60px;
         margin: 0 auto;
         position: absolute;
-        bottom:60%;
+        bottom:70%;
         right: 0;
         left: 0;
         box-shadow: #241d2c5e 1px 4px 10px;

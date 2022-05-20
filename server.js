@@ -14,7 +14,7 @@ const saltRounds = 10; // how much time is needed to calculate a single has
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
 const session = require("express-session"); //for deployment
-const { ok } = require("assert");
+
 
 
 //set up middleware
@@ -55,7 +55,6 @@ app.get('/addMood', (req,res) => {
 app.get('/signup', (req,res) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 })
-
 
 
 app.post('/signUpUser', async (req,res) => {
@@ -187,12 +186,16 @@ app.post('/api/addMood', async (req,res) =>{
 
 
 app.get('/api/usersFeeling',  async (req,res) =>{
+
     try{
         const userId =  req.session.user.rows[0].userid;
-        const getMood =  await pool.query ("SELECT * FROM user_moods WHERE user_idfk = $1 AND mood_date BETWEEN CURRENT_DATE - 3 AND CURRENT_DATE ORDER BY mood_id;", [userId])
+        const getMood = await pool.query ("SELECT * FROM user_moods WHERE user_idfk = $1 AND mood_date BETWEEN CURRENT_DATE - 3 AND CURRENT_DATE ORDER BY mood_id;", [userId])
         if(getMood.rows.length > 0){
             console.log(getMood.rows)
             res.send(getMood.rows)
+        }
+        else{
+            res.send({message:'No entry found'})
         }  
     }
     catch(err){

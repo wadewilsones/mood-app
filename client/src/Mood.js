@@ -32,18 +32,19 @@ class Mood extends React.Component{
             credentials:'include'
         })
         .then (response => response.json())
-        .then(data => {
-                //Compare today's date and DB dates
-            let databaseDate = data[data.length - 1].mood_date.split('T');
-            let sessionDate = this.state.date.toLocaleDateString('en-CA').split('T');
-            if(databaseDate[0] === sessionDate[0]){
-                this.setState({
-                    mood: data[data.length - 1].mood_descr,
-                    symptoms:data[data.length - 1].symptoms
-                })
-            }
+        .then(data => { 
+            //Compare today's date and DB dates
+                let databaseDate = data[data.length - 1].mood_date.split('T');
+                let sessionDate = this.state.date.toLocaleDateString('en-CA').split('T');
+                if(databaseDate[0] === sessionDate[0]){
+
+                    this.setState({
+                        mood: data[data.length - 1].mood_descr,
+                        symptoms:data[data.length - 1].symptoms
+                    })
+                }
+            })    
               
-            })
     }
 
 
