@@ -1,5 +1,4 @@
 require('dotenv').config();
-console.log(process.env);
 
 // Set up a server with Express
 const express = require("express");
@@ -7,6 +6,7 @@ const PORT = process.env.PORT || 5000; // global variable that represent the sta
 const app = express();
 const path = require("path");
 const pool = require("./db");
+const axios = require('axios');
 //const session = require('cookie-session'); // for production
 
 const cors = require('cors');
@@ -196,6 +196,27 @@ app.get('/api/usersFeeling',  async (req,res) =>{
         else{
             res.send({message:'No entry found'})
         }  
+    }
+    catch(err){
+        console.error(err.message)
+    }
+})
+
+
+app.post('/api/getWeather', (req, res) => {
+    try{
+        const { lat, lon } = req.body;
+        console.log('Lat:' + lat +' lon ' + lon)
+        const API_KEY = '6c6a4a356c2d25e5b8bc8b4736458bc4';
+        API_link = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+        console.log(API_link);
+        axios.get(API_link)
+        .then((response) => {
+            res.send(response.data)
+        })
+        .catch(error => console.log(error))
+        //res.send('check')
+
     }
     catch(err){
         console.error(err.message)
