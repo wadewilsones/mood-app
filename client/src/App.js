@@ -30,7 +30,7 @@ const [loginData, setLoginData] = useState({
     .then (response => {
       console.log(response);
       console.log(typeof(response));
-      response.json();
+      response.text();
       })
     .then (data => {
       console.log('Data of response' + data)
