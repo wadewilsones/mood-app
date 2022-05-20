@@ -14,7 +14,7 @@ CREATE TABLE users(
     password VARCHAR(500)
 );
 
-CREATE TABLE user_mood(
+CREATE TABLE user_moods(
     mood_id SERIAL PRIMARY KEY,
     user_idfk integer REFERENCES users (userid),
     mood_date DATE,
