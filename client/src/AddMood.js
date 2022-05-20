@@ -41,7 +41,7 @@ let MoodContainer = {
     2: 'peaceful',
     3: 'loving',
     4: 'stressed',
-    5: 'sad',
+    5: 'upset',
     6: 'angry',
     7: 'frustrated',
     8: 'grumpy'
@@ -71,7 +71,7 @@ let MoodContainer = {
                     <h4>{MoodContainer[2]}</h4>
                 </div>
                 <div onClick = {handleMood} id = {MoodContainer[3]}>
-                    <img src = 'media/Loving.svg' alt ='Loving'  className = {mood === MoodContainer[3]? 'mood-selected' :'mood-img'}/>
+                    <img src = 'media/loving.svg' alt ='Loving'  className = {mood === MoodContainer[3]? 'mood-selected' :'mood-img'}/>
                     <h4>{MoodContainer[3]}</h4>
                 </div>
                 <div onClick = {handleMood} id = {MoodContainer[4]}>

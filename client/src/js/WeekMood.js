@@ -89,7 +89,7 @@ let  WeekMood = (props) =>{
                 </div>
 
                 <div className='days-div'>Today<br/>
-                <p>{mood? mood.charAt(0).toUpperCase(): 'No entry'}</p>
+                <p>{mood? mood: 'No entry'}</p>
                 </div>
             </section>
     )
