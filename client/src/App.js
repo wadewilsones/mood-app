@@ -20,7 +20,7 @@ const [loginData, setLoginData] = useState({
 
   useEffect(()=>{
     console.log('This is useEFfect');
-    fetch("/api/login", {
+    fetch('/api/login', {
       method:"GET",
       headers:{
         'Content-Type':'application/json'
@@ -29,9 +29,7 @@ const [loginData, setLoginData] = useState({
     })
     .then (response => response.json())
     .then (data => {
-    console.log('This is response from server after useUffect: ', data);
         if(data.loggedIn){
-          console.log('State:' + loginData) // remove later
           setLoginData(
             {loginStatus: data.loggedIn,
               username: data.user,
