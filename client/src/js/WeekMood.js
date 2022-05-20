@@ -75,21 +75,21 @@ let  WeekMood = (props) =>{
 
                 <div className='days-div'>
                     {formatDates(weekMood[0].date)}<br/>
-                    <p>{weekMood[0].mood? weekMood[0].mood : noData}</p>
+                    <p>{weekMood[0].mood? weekMood[0].mood.charAt(0).toUpperCase() : noData}</p>
                 </div>
 
                 <div className='days-div'>
                 {formatDates(weekMood[1].date)}<br/>
-                <p>{weekMood[1].mood? weekMood[1].mood : noData}</p>
+                <p>{weekMood[1].mood? weekMood[1].mood.charAt(0).toUpperCase() : noData}</p>
 
                 </div>
                 <div className='days-div'>
                     {formatDates(weekMood[2].date)}<br/>
-                    <p>{weekMood[2].mood? weekMood[2].mood : noData}</p>
+                    <p>{weekMood[2].mood? weekMood[2].mood.charAt(0).toUpperCase() : noData}</p>
                 </div>
 
                 <div className='days-div'>Today<br/>
-                <p>{mood? mood: 'No entry'}</p>
+                <p>{mood? mood.charAt(0).toUpperCase(): 'No entry'}</p>
                 </div>
             </section>
     )
