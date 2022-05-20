@@ -125,7 +125,7 @@ app.post('/loginUser',  (req,res) => {
 
 app.get("/IsUserLoggedIn", (req,res) => {
 
-    res.send({status: 'ok', message:'This is IsuserLogin response'})
+    res.send('This is IsuserLogin response')
     /*
     if(req.session.user){
         res.send(
