@@ -39,7 +39,7 @@ const [loginData, setLoginData] = useState({
           }) 
         }
     })
-},[loginData])
+},[])
 
 
   //Setting up Routes
