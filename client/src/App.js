@@ -18,6 +18,8 @@ const [loginData, setLoginData] = useState({
 })
     
   useEffect(()=>{
+    console.log('This is useEFfect')
+    /*
     fetch("/IsUserLoggedIn", {
       method:"GET",
       headers:{'Content-Type':'application/json'},
@@ -27,7 +29,7 @@ const [loginData, setLoginData] = useState({
     .then(data => {
 
       console.log('This is response from server after useUffect: '+ data);
-      
+
         if(data.loggedIn){
           console.log('State:' + loginData) // remove later
           setLoginData(
@@ -36,7 +38,7 @@ const [loginData, setLoginData] = useState({
               userId: data.userId
           }) 
         }
-    })
+    })*/
 },[loginData])
 
 
