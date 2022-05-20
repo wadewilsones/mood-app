@@ -27,11 +27,7 @@ const [loginData, setLoginData] = useState({
       },
       credentials: 'include'
     })
-    .then (response => {
-      console.log(response);
-      console.log(typeof(response));
-      response.json();
-      })
+    .then (response => response.text())
     .then (data => {
       console.log('Data of response' + data)
     })
