@@ -81,7 +81,9 @@ app.get("/IsUserLoggedIn", (req,res) => {
             }
         )
     }
-    else{ res.send({loggedIn:false})
+    else{ 
+        res.send({loggedIn:false}
+        )
     
     }
 })
