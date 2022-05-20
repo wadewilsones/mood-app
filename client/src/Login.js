@@ -32,7 +32,7 @@ function Login(){
     }
 
     const sendData = () => {
-
+        console.log('This is login')
         fetch('/loginUser', {
             method:'POST',
             headers:{'Content-Type':'application/json'},
@@ -56,6 +56,7 @@ function Login(){
 
             }
             else{
+
                 window.location.reload();
             }
             
