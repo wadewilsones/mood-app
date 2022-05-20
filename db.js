@@ -6,9 +6,9 @@ const pool = new Pool({
     database:process.env.PG_DB ||'moodapp',
     host:process.env.PG_HOST || 'localhost',
     port:5432,
-    //ssl:{
-        //rejectUnauthorized: false
-    //}
+    ssl:{
+        rejectUnauthorized: false
+    }
 })
 
 
