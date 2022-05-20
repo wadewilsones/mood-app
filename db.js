@@ -5,7 +5,13 @@ const pool = new Pool({
     password:process.env.PG_PSW ||'mood',
     database:process.env.PG_DB ||'moodapp',
     host:process.env.PG_HOST || 'localhost',
-    port:5432
+    port:5432,
+    ssl:{
+        rejectUnauthorized: false
+    }
 })
+
+
+
 
 module.exports = pool;
