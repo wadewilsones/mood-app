@@ -20,7 +20,7 @@ const [loginData, setLoginData] = useState({
 
   useEffect(()=>{
     console.log('This is useEFfect');
-    fetch("/IsUserLoggedIn", {
+    fetch("/api/login", {
       method:"GET",
       headers:{
         'Content-Type':'application/json'

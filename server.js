@@ -123,7 +123,7 @@ app.post('/loginUser',  (req,res) => {
 })
 
 
-app.get("/IsUserLoggedIn", (req,res) => {
+app.get('/api/login', (req,res) => {
 
     res.send('Fetch was successful')
     /*
