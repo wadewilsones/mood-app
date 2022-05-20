@@ -1,14 +1,11 @@
 const Pool = require("pg").Pool;
 
 const pool = new Pool({
-    user: process.env.PG_USER || 'user_public',
-    password:process.env.PG_PSW ||'mood',
-    database:process.env.PG_DB ||'moodapp',
-    host:process.env.PG_HOST || 'localhost',
+    user: 'your data'
+    password:'your data'
+    database:'your data'
+    host:'your data'
     port:5432,
-    /*ssl:{
-        rejectUnauthorized: false
-    }*/
 })
 
 
