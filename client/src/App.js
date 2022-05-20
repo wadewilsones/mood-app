@@ -27,7 +27,7 @@ const [loginData, setLoginData] = useState({
         'Accept': 'application/json'
       },
     })
-    .then (response => response.json())
+    .then (response => console.log(response))
     .then(data => {
       console.log('This is response from server after useUffect: '+ data);
         if(data.loggedIn){
