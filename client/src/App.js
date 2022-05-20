@@ -21,7 +21,10 @@ const [loginData, setLoginData] = useState({
     console.log('This is useEFfect');
     fetch("/IsUserLoggedIn", {
       method:"GET",
-      headers:{'Content-Type':'application/json'},
+      headers:{
+        'Content-Type':'application/json',
+        'Accept': 'application/json'
+      },
     })
     .then (response => response.json())
     .then(data => {
