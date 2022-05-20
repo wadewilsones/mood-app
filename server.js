@@ -14,6 +14,7 @@ const saltRounds = 10; // how much time is needed to calculate a single has
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
 const session = require("express-session"); //for deployment
+const { ok } = require("assert");
 
 
 //set up middleware
@@ -123,6 +124,9 @@ app.post('/loginUser',  (req,res) => {
 
 
 app.get("/IsUserLoggedIn", (req,res) => {
+
+    res.send({status: 'ok', message:'This is IsuserLogin response'})
+    /*
     if(req.session.user){
         res.send(
             {loggedIn:true, 
@@ -136,6 +140,7 @@ app.get("/IsUserLoggedIn", (req,res) => {
         )
     
     }
+    */
 })
 
 
