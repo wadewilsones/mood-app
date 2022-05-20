@@ -3,7 +3,8 @@ const express = require("express");
 const PORT = process.env.PORT || 5000; // global variable that represent the state of the system environment when it starts
 const app = express();
 const path = require("path");
-const pool = require("./db")
+const pool = require("./db");
+const session = require('cookie-session'); // for production
 
 const cors = require('cors');
 
@@ -12,7 +13,7 @@ const saltRounds = 10; // how much time is needed to calculate a single has
 
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
-const session = require("express-session");
+//const session = require("express-session"); for deployment
 
 
 //set up middleware
