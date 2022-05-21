@@ -8,13 +8,15 @@
 git clone https://github.com/wadewilsones/mood-app.git
 ```
 
-2. Install modules
+2.Navigate to your project root
+
+3. Install modules
 
 ```
 npm install
 ```
 
-3. Set up Database. 
+4. Set up Database. 
 Create DB with your credentials in db.js
 
 ```
@@ -29,8 +31,8 @@ const pool = new Pool({
 })
 module.exports = pool;
 ```
-4. Create a role and add tables from database.sql to your previously created database.
-5. To get Weather API you will need your own API key from https://openweathermap.org/api. After you had obtained it, you can change Weather.js.
+5. Create a role and add tables from database.sql to your previously created database.
+6. To get Weather API you will need your own API key from https://openweathermap.org/api. After you had obtained it, you can change Weather.js.
 
 ```javascript
 .env file
@@ -39,17 +41,18 @@ API_KEY = 'yourAPIkey';
 
 ```
 
-6. Run localhost
+7. Run localhost
 
 ```
 npm run serve
 ```
 
-7. Go to client folder and run react app
+8. Navigate to client folder and install modules run react app
 
 ```
 cd client
 
+npm install
 npm run start
 
 ```
