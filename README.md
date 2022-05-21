@@ -10,6 +10,11 @@ git clone https://github.com/wadewilsones/mood-app.git
 
 2.Navigate to your project root
 
+```
+cd ...
+
+```
+
 3. Install modules
 
 ```
