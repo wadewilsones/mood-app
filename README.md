@@ -1,5 +1,6 @@
 # Hello there :grinning:
-## This is short explanation how to get started:
+
+### This is short explanation how to get started:
 
 1. Clone the repo:
 
