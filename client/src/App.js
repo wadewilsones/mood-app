@@ -5,7 +5,7 @@ import {
   BrowserRouter, Routes, Route, Navigate  
 } from "react-router-dom";
 import SignUp from './Sign-Up';
-import Login from './Login';
+import Login from './layout/Login';
 import AddMood from './AddMood'
 
 
@@ -18,6 +18,7 @@ const [loginData, setLoginData] = useState({
 })
     
 
+/*
   useEffect(()=>{
     fetch('/api/login', {
       method:"GET",
@@ -37,6 +38,8 @@ const [loginData, setLoginData] = useState({
         }
     })
 },[])
+
+*/
 
 
   //Setting up Routes

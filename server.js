@@ -203,14 +203,15 @@ app.get('/api/usersFeeling',  async (req,res) =>{
     }
 })
 
+/*
 app.post('/api/getWeather', (req, res) => {
     try{
         const { lat, lon } = req.body;
-        console.log('Lat:' + lat +' lon ' + lon)
-        const API_KEY = process.env.API_KEY;
-        API_link = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
-        console.log(API_link);
-        axios.get(API_link)
+        //console.log('Lat:' + lat +' lon ' + lon)
+        //const API_KEY = process.env.API_KEY;
+        //API_link = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+        //console.log(API_link);
+       // axios.get(API_link)
         .then((response) => {
             res.send(response.data)
         })
@@ -222,7 +223,7 @@ app.post('/api/getWeather', (req, res) => {
     }
 })
 
-
+*/
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`)
 })

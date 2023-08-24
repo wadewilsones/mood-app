@@ -16,7 +16,7 @@ function SignUp (){
         const { name, value } = event.target;
         setUserdata(
             (prevState) => ({...prevState, [name]: value}),
-            //userData.password = btoa(userData.password)
+            userData.password = btoa(userData.password)
             )
     }
 
