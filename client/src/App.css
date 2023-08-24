@@ -1,0 +1,2285 @@
+*{
+    border:0;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #f1f1f1;
+    font-family: Urbanist, Helvetica, sans-serif ;
+    color:rgb(75, 75, 75);
+
+}
+#icons-attribution{
+    font-size:8px;
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+
+}
+
+/*Display Mood Text */
+
+#mood-days .days-div p, #moodHolder div h4, #current-mood-container h2{
+    text-transform: capitalize;
+}
+
+
+/*
+Primary color:#E79686
+Secondary color:#716E77
+Third color: #455173
+
+ */
+
+/*Smartphones*/
+
+@media screen and (min-width: 300px) and (max-width:580px){
+
+    #moodContainer{
+       /*background-image: url('/media/background.jpg');*/
+       background-size: cover;
+       background-attachment: fixed;
+       min-height: 100vh;
+    }
+
+         /*HEADER PHONE*/
+
+    header{
+
+        padding-bottom: 1.6em;
+        color:#716E77;
+
+    }
+
+
+    #header-container{
+        display: grid;
+        grid-template-columns: 70% 30%;
+
+
+    }
+
+    header h3{
+        text-align:left;
+        font-size: 2em;
+        font-weight: 400;
+        padding: 0 0 0 0.5em;
+        grid-column-start: 1;
+        color:#716E77;
+    }
+
+    
+   header h4{
+    text-align: left;
+    padding: 1.2em 0 0.2em 1em;
+    font-size: 1em;
+    color: #716E77;
+    font-weight: 400;
+    grid-column-start: 1;
+    align-self: flex-end;
+}
+
+#headerLogoutMain{
+  
+        color:white;
+        background-color:#E79686;
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-size: 1em;
+        font-weight: 300;
+        grid-column-start: 2;
+        grid-row-start: 1;
+        margin: 20px 10px 0px;
+        align-self: flex-end;
+
+    }
+
+    #headerLogoutSecondary{
+  
+        color:white;
+        background-color:#E79686;
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-size: 1em;
+        font-weight: 300;
+        grid-column-start: 2;
+        grid-row-start: 1;
+        margin: 20px 10px 20px;
+        align-self: flex-start;
+
+    }    
+
+  
+
+    /*WEEK DATA PHONE*/
+
+    #checkinSection h3, #weatherSection h3, #current-mood-container h3{
+        color:#716E77;
+        font-weight: 400;
+        margin-left: 5%;
+    }
+    
+    #mood-days{
+       
+        width:100%;
+        padding: 1.5em 0;
+        color:white;
+        display: flex;
+        overflow-x: scroll;
+        margin: 0em 0 0;
+        
+    }
+
+   .days-div:first-child{
+        margin: 0 10px 0 20px;
+    }
+
+    .days-div{
+        white-space: nowrap;
+        flex-shrink: 0;
+        background-color: #716E77;
+        width:20%;
+        height: 70px;
+        margin: 0 10px;
+        padding: 5px 10px;
+        text-align: center;
+        border-radius:10px;
+        box-shadow: #241d2c5e 1px 4px 10px;
+        
+    }
+
+    .days-div p{
+        margin-top: 1.2em;
+    }
+
+
+    @media screen and (min-height: 700px){
+    /*IF USER DOESN'T HAVE ENTRY*/
+        .MoodEditOff {
+            margin-top: 2em;
+            margin-bottom: 4em;
+
+        }
+        
+    /*IF USER DOES HAVE ENTRY*/
+
+    #MoodOn{
+        background-color: #E79686;
+
+        color:white;
+        padding: 1.5em;
+        width: 70%;
+        position: absolute;
+        bottom: 2%;
+        left:0;
+        right:0;
+        margin:5% auto 0;
+        border-radius: 12px;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+
+    #MoodOn h4{
+        font-weight: 400;
+        text-align: center;
+        font-size: 1em;
+        padding-top: 15px
+    }
+
+    #MoodOn a {
+        background-color: #FEE18C;
+        color: #6A6A6A;
+        display: block;
+        width:60px;
+        height: 60px;
+        font-size: 48px;
+        border-radius: 60px;
+        margin: 0 auto;
+        position: absolute;
+        bottom:60%;
+        right: 0;
+        left: 0;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+    }
+
+    /*For smaller height*/
+           
+    /*IF USER DOESN'T HAVE ENTRY*/
+
+    .MoodEditOff {
+        margin-bottom: 4em;
+    }
+
+    #moodEdit h2{
+        color:#716E77;
+        font-weight: 300;
+        text-align: center;
+        font-size: 1.5em;
+        margin: 0.5em 0 0;
+    }
+
+  
+    /*IF USER DOES HAVE ENTRY*/
+
+    #MoodOn{
+        background-color: #6A6A6A;
+        color:white;
+        padding: 1.5em;
+        width: 70%;
+        position: relative;
+        bottom: 2%;
+        left:0;
+        right:0;
+        margin:5% auto 0;
+        border-radius: 12px;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+
+    #MoodOn h4{
+        font-weight: 400;
+        text-align: center;
+        font-size: 1em;
+        padding-top: 15px
+    }
+
+    #MoodOn a {
+        background-color: #E79686;
+        color: white;
+        display: block;
+        width:60px;
+        height: 60px;
+        font-size: 48px;
+        border-radius: 60px;
+        margin: 0 auto;
+        position: absolute;
+        bottom:60%;
+        right: 0;
+        left: 0;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+
+    /*Contribution*/
+    .pic-contribution{
+        color:rgb(184, 175, 175);
+        font-size: 0.8em;
+        display: block;
+        margin: auto;
+        display: absolute;
+        margin-top: 0.5em;
+    }
+    
+
+
+    /*WEATHER PHONE*/
+
+    .weather_container{
+        width:90%;
+        text-align: center;
+        margin: 1em auto;
+        color:white;
+        padding: 2em 0;
+        border-radius:10px;
+        background-color: #E79686;
+        box-shadow: #241d2c5e 1px 4px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-template-rows: 50% 25% 25%;
+        
+
+    }
+
+  
+    #Location{
+        text-align: left;
+        font-size: 1.8em;
+        font-weight: 400;
+        margin-left:20px;
+    }
+
+
+    #temperature{
+
+        grid-row-start:1;
+        grid-row-end: 4;
+        font-size: 3em;
+        grid-column-start: 2;
+    }
+
+
+    #time{
+        font-size: 1.5em;
+        text-align: left;
+        margin:0 0 0 20px;
+        grid-column-start: 1;
+        font-weight: 200;
+    }
+
+    #weather-decrs{
+
+        grid-column-start: 1;
+        font-size:0.8em;
+        text-align: left;
+        margin-left:20px;
+        margin-top: 10px;
+        font-weight: 200;
+    }
+
+    /*TODAY'S MOOD PHONE*/
+
+    #current-mood-container{
+     
+        color:white;
+    }
+
+
+    #current-mood-container div{
+        display: grid;
+        width:90%;
+        padding: 1.6em 0;
+        margin: 1em auto 2em;
+        background-color: #E79686;
+        border-radius: 20px;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 40% 60%;
+    }
+
+    #current-mood-container div h2{
+        font-size:2em;
+        color:white;
+        font-weight: 300;
+        text-align:left;
+        margin-left: 20px;
+        grid-column-start: 1;
+
+    }
+
+    #current-mood-container div p{
+        font-size:1em;
+        justify-content: flex-start;
+        color:white;
+        margin-left: 20px;
+        margin-top: 10px;
+        font-weight: 200;
+        grid-column-start: 1;
+        grid-row-start: 2;
+    }
+
+    #current-mood-container img{
+        width:80%;
+        grid-column-start: 2;
+        align-self: center;
+        justify-self: center;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
+
+  /*MOOD CHANGE BUTTON PHONE*/
+
+  #ChangeMoodSection{
+    background-color: #716E77;
+    color:white;
+    padding: 1.5em;
+    position: relative;
+    width: 70%;
+    bottom: 20px;
+    left:0;
+    right:0;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: #241d2c5e 1px 4px 10px;
+}
+
+/*Mood display off*/
+
+#ChangeMoodSection h4{
+    font-weight: 400;
+    text-align: center;
+    font-size: 1em;
+    padding-top: 15px
+    
+}
+
+#ChangeMoodSection a {
+    background-color: #E79686;
+    color: #ffffff;
+    display: block;
+    width:60px;
+    height: 60px;
+    font-size: 48px;
+    border-radius: 60px;
+    margin: 0 auto;
+    position: absolute;
+    top:-40%;
+    right: 0;
+    left: 0;
+    box-shadow: #241d2c5e 1px 4px 10px;
+}
+
+
+    /*ADD MOOD PAGE - PHONE*/
+
+    #addModd-container{
+      /*  background-image: url('/media/background.jpg'); */
+        padding: 20px 0;
+        background-size: cover;
+    }
+
+    #goBackHeader{
+      
+  
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0 auto;
+        width:75%;
+
+    }
+
+
+    #goBackHeader a span{
+
+        color: #716E77;
+        display: block;
+        margin-left: 20px;
+
+    }
+
+    #goBackHeader img{
+     
+        width:48px;
+        margin: 0;
+    }
+
+    #moodHolder{
+
+        display: grid;
+        grid-template-columns: 33.3% 33.3% 33.3%;
+        grid-template-rows: 15% 28.3% 28.3% 28.3%;
+        width:90%;
+        margin: auto;
+    }
+
+    #moodHolder h3 {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        text-align: center;
+        color:#716E77;
+        font-size:1.4em;
+        font-weight: 200;
+        align-self: center;
+
+    }
+
+    #moodHolder div {
+        border-radius: 12px;
+        width:90%;
+        margin: 0 auto 30%;
+
+    }
+
+    .mood-img{
+        background-color: #E79686;
+        border-radius: 10px;
+        padding: 10px;
+        width: 70%;
+        margin: auto;
+        display: block;
+        box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
+    }
+
+    .mood-selected{
+        background-color: #C57F71;
+        border-radius: 10px;
+        padding: 10px;
+        width: 70%;
+        margin: auto;
+        display: block;
+        box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
+    }
+
+    #moodHolder div h4{
+
+        color:#716E77;
+        font-weight: 500;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    #symptoms{
+        width:90%;
+        margin: auto;
+    }
+    #symptoms h3{
+        text-align: left;
+        color:#716E77;
+        font-weight: 400;
+        margin:0.5em 1em 0 1em;
+    }
+
+
+    #symptoms textarea {
+        margin: 2em 0 2em 1em;
+        min-height:100px;
+        border-radius: 5px;
+        width:79%;
+        padding: 20px 10px 0 30px;
+        border:2px solid #716E77;
+        font-family: Urbanist, Helvetica, sans-serif;
+        font-size: 1.2em;
+    }
+
+    /*Mood added confirmation*/
+    #Mood-update-note {
+        text-align: center;
+        color:#ffffff;
+        width:80%;
+        margin: auto;
+        padding: 10px 15px;
+        border-radius: 10px;
+        background-color: #716E77;
+
+    }
+
+
+    #Mood-update-note h4{
+        font-weight: 200;
+        font-size:1.5em;
+    }
+
+    #addModd-container button{
+        width:300px;
+        background-color: #716E77;
+        color:white;
+        margin:auto;
+        margin-bottom: 30px;
+        display: block;
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 1.4em;
+        box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
+    }
+
+
+
+
+
+    /*LOGIN PHONE*/
+
+    .sign-up-container{   
+        display:grid;
+        grid-template-rows: 30% 70%;
+        width:100%;
+        background-repeat: no-repeat;
+       /* background-image: url('/media/background.jpg'); */
+        height: 100vh;
+     }
+
+    .loginScreenHeader{
+
+     align-self: center;
+     color:#716E77;
+    }
+
+    .sign-up-container h1{
+      font-family: Allura, Helvetica, sans-serif;
+      text-align: center;
+      font-weight: 300;
+      font-size:3em;
+      margin: 0.4em 0 0;
+    }
+    .sign-up-container h5{
+        text-align: center;
+        font-size:1.2em;
+        font-weight: 300;
+        margin: 0.5em 0 0;
+    }
+    .sign-up-container h3 {
+        text-align: center;
+        font-weight: 300;
+        font-size:2em;
+        margin: 0.5em 0;
+    }
+
+  .sign-up-container form p{
+      font-size: 1em;
+      text-align: center;
+      margin-top: 1em;
+      color:#716E77;
+  }
+
+
+    .sign-up-container form {
+
+        width:310px;
+        margin: 5vh auto;
+
+    }
+
+    footer{
+        background-color: #E79686;
+        color:white;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width:100%;
+        padding: 1em 0;
+    }
+
+    /*Additional query*/
+    @media screen and (max-height: 670px){
+        
+        .sign-up-container form {
+
+            width:310px;
+            margin:auto;
+    
+        }
+
+    }    
+
+
+    .sign-up-container form label{
+        margin-left:10px;
+        font-size: 1.2em;
+        color:#716E77;
+    }
+    
+    .sign-up-container form input[type="text"]{
+        display: block;
+        margin: 0.5em auto;
+        width:90%;
+        box-shadow: rgb(214, 207, 207) 1px 1px 10px;
+        height: 50px;
+        border-radius: 10px;
+        padding-left:10px;
+        -webkit-appearance: none;
+        
+    }
+
+    .sign-up-container form input[type="password"]{
+        display: block;
+        margin: 0.5em auto;
+        width:90%;
+        height: 50px;
+        box-shadow: rgb(214, 207, 207) 1px 1px 10px;
+        -webkit-appearance: none;
+        border-radius: 10px;
+        padding-left:10px;
+    }
+
+
+    .sign-up-container form input[type="submit"]{
+        display: block;
+        margin: 2em auto 0;
+        width:150px;
+        text-align: center;
+        height: 50px;
+        border-radius: 10px;
+        font-size: 1.2em;
+        box-shadow: rgb(214, 207, 207) 1px 1px 10px;
+        background-color: #716E77;
+        color:white;
+
+    }
+
+   a{
+        color:#E79686;
+        text-align: center;
+        text-decoration: none;
+        color:#716E77;
+        font-weight: bold;
+    }
+
+    .notification{
+        position: absolute;
+        width: 90%;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: rgba(75, 75, 75, 0.468) 1px 1px 10px;
+        transition: opacity 5s ease-in;
+        position: absolute;
+        top:5%;
+        left:0;
+        right:0;
+        margin: auto;
+    }
+
+    .notificationHidden{
+        display: none;
+    }
+
+    .notification p{
+        padding: 1em 0;
+        font-size:1.5em;
+        text-align: center;
+        color: rgb(47, 47, 47);
+    }
+    .notification a{
+        color: rgb(255, 255, 255);
+        background-color: #716E77;
+        border-radius: 10px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto 2em;
+        width:40%;
+        padding: 10px 0;
+        font-weight: 300;
+    }
+
+
+    /*Login PHONE*/
+
+
+    .loginError-active{
+        color:#716E77;
+        font-weight: bold;
+        margin-bottom: 1em;
+    }
+
+    .loginError-none{
+        display: none;
+    }
+
+
+}
+
+/*Tablets*/
+
+@media screen and (min-width: 581px) and (max-width:1200px){
+
+    /*React root*/
+    #moodContainer{
+      /*  background-image: url('/media/background.jpg'); */
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+     }
+
+     #Grid-holder-mood{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 10% 25% 25% 25% 15%;
+        min-height: 100vh;
+     }
+
+         /*Contribution*/
+    .pic-contribution{
+        color:rgb(184, 175, 175);
+        font-size: 1em;
+        display: block;
+        margin: auto;
+        display: absolute;
+        margin-top: 0.5em;
+    }
+    
+
+ 
+     /*HEADER TABLET*/
+ 
+     header{
+        
+        grid-column-start: 1;
+        grid-column-end: 3;
+        color:#716E77;
+        width: 80%;
+        margin: auto;
+        align-self: center;
+
+     }
+ 
+ 
+     #header-container{
+         display: grid;
+         grid-template-columns: 70% 30%;
+
+     }
+ 
+     header h3{
+         text-align:left;
+         font-size: 2.4em;
+         font-weight: 400;
+         padding: 0 0 0 0.5em;
+         grid-column-start: 1;
+        
+     }
+ 
+     
+    header h4{
+     text-align: left;
+     padding: 1.2em 0 0.2em 1em;
+     font-size: 1.2em;
+     color:#716E77;
+     font-weight: 400;
+     grid-column-start: 1;
+     align-self: flex-end;
+ }
+ 
+ #headerLogoutMain{
+   
+         color:#ffffff;
+         background-color:#E79686;
+         border-radius: 5px;
+         padding: 5px 5px;
+         font-size: 1em;
+         font-weight: 500;
+         grid-column-start: 2;
+         grid-row-start: 1;
+         margin: 20px 10px 0px;
+         align-self: flex-end;
+         cursor: pointer;
+ 
+     }
+ 
+     #headerLogoutSecondary{
+   
+         color:#ffffff;
+         background-color:#E79686;
+         border-radius: 5px;
+         padding: 5px 5px;
+         font-size: 1em;
+         font-weight: 500;
+         grid-column-start: 2;
+         grid-row-start: 1;
+         margin: 20px 10px 20px;
+         width:100px;
+         align-self: center;
+         justify-self: flex-end;
+         cursor: pointer;
+ 
+     }    
+
+   
+     /*WEEK CONTAINER TABLET*/
+
+     #checkinSection{
+         width:100%;
+         grid-column-start: 1;
+         grid-column-end: 3;
+         grid-row-start:2;
+         align-self: flex-end;
+
+     }
+
+     #checkinSection h3{
+         text-align: center;
+         color:#716E77;
+         font-weight: 500;
+         font-size: 1.6em;
+     }
+
+     #mood-days{
+        
+         width:80%;
+         padding: 1.5em 0;
+         color:white;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin: 0em auto 0;
+         
+     }
+ 
+    .days-div:first-child{
+         margin: 0 10px 0 20px;
+     }
+ 
+     .days-div{
+         white-space: nowrap;
+         flex-shrink: 0;
+         background-color: #716E77;
+         width:100px;
+         height: 90px;
+         margin: 0 10px;
+         padding: 5px 10px;
+         text-align: center;
+         border-radius:10px;
+         box-shadow: #241d2c5e 1px 4px 10px;
+         
+     }
+ 
+     .days-div p{
+         margin-top: 1.2em;
+     }
+ 
+
+
+     /*WEATHER TABLET*/
+
+     #weatherSection{
+        width:80%;
+        margin: 0 auto;
+        grid-column-start: 1;
+        grid-column-end:3;
+        grid-row-start:3 ;
+    }
+
+    
+    #weatherSection h3{
+        color:#716E77;
+        font-weight: 400;
+        font-size: 1.6em;
+        text-align: center;
+        margin: 0.5em 0;
+    }
+    
+     .weather_container{
+
+        width:500px;
+        margin: auto;
+        text-align: center;
+         color:white;
+         padding: 2em 0;
+         border-radius:10px;
+         background-color: #E79686;
+         box-shadow: #241d2c5e 1px 4px 10px;
+         display: flex;
+         align-items: center;
+         justify-content: space-around;
+         display: grid;
+         grid-template-columns: 60% 40%;
+         grid-template-rows: 50% 25% 25%;
+         
+ 
+     }
+ 
+   
+     #Location{
+         text-align: left;
+         font-size: 2em;
+         font-weight: 400;
+         margin-left:20px;
+     }
+ 
+ 
+     #temperature{
+ 
+         grid-row-start:1;
+         grid-row-end: 4;
+         font-size: 4em;
+         grid-column-start: 2;
+     }
+ 
+ 
+     #time{
+         font-size: 1.5em;
+         text-align: left;
+         margin:0 0 0 20px;
+         grid-column-start: 1;
+         font-weight: 200;
+     }
+ 
+     #weather-decrs{
+ 
+         grid-column-start: 1;
+         font-size:1.5em;
+         text-align: left;
+         margin-left:20px;
+         margin-top: 10px;
+         font-weight: 200;
+     }
+ 
+
+    /*MOOD DISPLAY ON TABLET*/
+
+     /*If entry exists*/
+
+     .MoodEditOn{
+
+         width:80%;
+        grid-column-start:1;
+        grid-column-end: 3;
+        align-self:flex-start;
+        justify-content: center;
+        margin: auto;
+     }
+
+
+     .MoodEditOn div{
+
+         width:500px;
+         margin: 0 auto 0; 
+         border-radius: 10px;
+     }
+
+     .MoodEditOn div h3{
+
+        color:#716E77;
+        font-weight: 400;
+        font-size: 1.6em;
+        text-align: center;
+        margin: 0.5em 0;
+     }
+
+     .MoodEditOn div div{
+        background-color: #716E77;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-template-rows: 50% 50%;
+        padding: 1.5em 0;
+     }
+
+     .MoodEditOn div div h2{
+
+         color:white;
+         align-self: center;
+         font-size: 2.4em;
+         font-weight: 300;
+         text-align: left;
+         margin-left: 0.7em;
+
+     }
+
+     .MoodEditOn div div p{
+         color:white;
+         align-self: flex-start;
+         font-size: 1.3em;
+         text-align: left;
+         margin-left: 1.2em;
+     }
+
+     .MoodEditOn div div img{
+         width:130px;
+         grid-column-start: 2;
+         grid-row-start: 1;
+         grid-row-end: 3;
+        margin: auto;
+        align-self: center;
+     }
+
+    
+    /*If entry doesn't exist*/
+
+    .MoodEditOff {
+
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-top:1em;
+
+    }
+
+    .MoodEditOff h2{
+        color:#6A6A6A;
+        font-weight: 300;
+        text-align: center;
+        font-size: 2.2em;
+        margin: 1.5em 0 0;
+    }
+
+    .MoodEditOff div{
+        background-color: #E79686;
+        color:white;
+        padding: 1.5em;
+        position: fixed;
+        width: 70%;
+        bottom: 5%;
+        left:0;
+        right:0;
+        margin: 0 auto 0;
+        border-radius: 12px;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+
+    
+    .MoodEditOff div h4{
+        font-weight: 400;
+        text-align: center;
+        font-size: 2em;
+        padding-top: 15px
+    }
+
+    .MoodEditOff div a {
+        background-color: #FEE18C;
+        color: #6A6A6A;
+        display: block;
+        width:80px;
+        height: 80px;
+        font-size: 60px;
+        border-radius: 60px;
+        margin: 0 auto;
+        position: absolute;
+        top:-50%;
+        right: 0;
+        left: 0;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+
+ 
+      /*EDIT BTN TABLET*/
+
+        /*If entry doesn't exist 'Add Mood' text is applied*/
+
+      #MoodOn{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        background-color: #716E77;
+        color:white;
+        padding: 1.5em;
+        width: 400px;
+        position: relative;
+        bottom: 4%;
+        left:0;
+        right:0;
+        margin:3em auto 0;
+        border-radius: 12px;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+
+    #MoodOn h4{
+        font-weight: 400;
+        text-align: center;
+        font-size: 2em;
+        padding-top: 15px
+    }
+
+    #MoodOn a {
+        background-color: #E79686;
+        color: white;
+        display: block;
+        width:60px;
+        height: 60px;
+        font-size: 48px;
+        border-radius: 60px;
+        margin:  auto;
+        position: absolute;
+        bottom:70%;
+        right: 0;
+        left: 0;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+
+     /*If entry exists 'Edit Mood' text is applied (ChangeMoodSection)*/
+
+     #ChangeMoodSection{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        background-color: #6A6A6A;;
+        color:white;
+        height: 50px;
+        padding: 1.5em 1.5em 0;
+        width: 400px;
+        position: relative;
+        bottom: 4%;
+        left:0;
+        right:0;
+        margin:2em auto 0;
+        border-radius: 12px;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+
+    #ChangeMoodSection h4{
+        font-weight: 400;
+        text-align: center;
+        font-size: 1.6em;
+    }
+
+    #ChangeMoodSection a {
+        background-color: #E79686;
+        color: white;
+        display: block;
+        width:70px;
+        height: 70px;
+        font-size:56px;
+        border-radius: 60px;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 75%;
+        right: 0;
+        left: 0;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+ 
+     /*ADD MOOD SCREEN TABLET*/
+ 
+     #addModd-container{
+ 
+        /* background-image: url('/media/background.jpg'); */
+         padding: 20px 0;
+         background-size: cover;
+     }
+
+        
+     #goBackHeader{
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+    }
+
+    #goBackHeader img{
+ 
+        width:48px;
+    }
+
+    #goBackHeader span{
+        margin-right: 4em;
+        margin-left: 1em;
+        color: #716E77;
+    }
+
+
+ 
+     #mood-selected{
+         background-color: #C57F71;
+     }
+ 
+     #addModd-container button{
+         width:380px;
+         background-color: #E79686;
+         color:white;
+         margin:auto;
+         margin-bottom: 10px;
+         display: block;
+         padding: 20px;
+         border-radius: 10px;
+         font-size: 1.4em;
+         box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
+         cursor: pointer;
+     }
+ 
+ 
+     #moodHolder{
+ 
+         display: grid;
+         grid-template-columns: 33.3% 33.3% 33.3%;
+         grid-template-rows: 15% 28.3% 28.3% 28.3%;
+         width:400px;
+         margin: 0 auto;
+     }
+ 
+     #moodHolder h3 {
+         grid-column-start: 1;
+         grid-column-end: 4;
+         text-align: center;
+         color:#716E77;
+         font-size:1.4em;
+         font-weight: 500;
+         align-self: center;
+ 
+     }
+ 
+     #moodHolder div {
+         border-radius: 12px;
+         width:70%;
+         margin: 0 auto 20%;
+ 
+     }
+ 
+     .mood-img{
+         background-color: #E79686;
+         border-radius: 10px;
+         padding: 10px;
+         width: 70%;
+         margin: auto;
+         display: block;
+         box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
+         cursor: pointer;
+     }
+ 
+     .mood-selected{
+         background-color: #C57F71;
+         border-radius: 10px;
+         padding: 10px;
+         width: 70%;
+         margin: auto;
+         display: block;
+         box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
+     }
+ 
+     #moodHolder div h4{
+ 
+         color:#716E77;
+         font-weight: 500;
+         margin: 10px 0;
+         text-align: center;
+     }
+ 
+     #symptoms{
+         width:50%;
+         margin: auto;
+     }
+     #symptoms h3{
+         text-align: left;
+         color:#716E77;
+         width:360px;
+         font-weight: 400;
+         font-size: 1.5em;
+         margin: 2em auto 1em;
+     }
+ 
+ 
+     #symptoms textarea {
+         min-height:100px;
+         border-radius: 5px;
+         width:320px;
+         display: block;
+         font-size:1.2em;
+         border:2px solid grey;
+         padding: 20px 10px 0 30px;
+         font-family: Urbanist, Helvetica, sans-serif;
+         margin: 2em auto 1em;
+     }
+ 
+ 
+     #Mood-update-note {
+         text-align: center;
+         color:white;
+         width:400px;
+         padding: 10px 0;
+         margin: auto;
+         border-radius: 10px;
+         background-color: #716E77;
+ 
+     }
+ 
+     #Mood-update-note h4{
+         font-weight: 200;
+         font-size:1.5em;
+     }
+
+     /*FOOTER TABLET*/
+
+     footer{
+        background-color: #E79686;
+        color:white;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width:100%;
+        padding: 1em 0;
+    }
+
+    
+     /*LOGIN TABLET*/
+ 
+     .sign-up-container{   
+        display:grid;
+        grid-template-rows: 30% 70%;
+        width:100%;
+        background-repeat: no-repeat;
+      /*  background-image: url('/media/background.jpg'); */
+        height: 100vh;
+     }
+
+
+    .loginScreenHeader{
+
+        color:#716E77;
+        align-self: center;
+    }
+
+    .sign-up-container h1{
+      font-family: Allura, Helvetica, sans-serif;
+      text-align: center;
+      font-weight: 300;
+      font-size:4em;
+      margin: 0.4em 0 0;
+    }
+    .sign-up-container h5{
+        text-align: center;
+        font-size:1.2em;
+        font-weight: 300;
+        margin: 0.5em 0 0;
+    }
+    .sign-up-container h3 {
+        text-align: center;
+        font-weight: 300;
+        font-size:2em;
+        margin: 1em 0;
+    }
+
+  .sign-up-container form p{
+      font-size: 1em;
+      text-align: center;
+      margin-top: 1em;
+      color:#716E77;
+  }
+
+
+    .sign-up-container form {
+
+        width:310px;
+        margin: 5vh auto;
+
+    }
+
+
+    .sign-up-container form label{
+        margin-left:10px;
+        font-size: 1.2em;
+        color:#716E77;
+    }
+    
+    .sign-up-container form input[type="text"]{
+        display: block;
+        margin: 0.5em auto;
+        width:90%;
+        box-shadow: rgb(214, 207, 207) 1px 1px 10px;
+        height: 50px;
+        border-radius: 10px;
+        padding-left:10px;
+    }
+
+    .sign-up-container form input[type="password"]{
+        display: block;
+        margin: 0.5em auto;
+        width:90%;
+        height: 50px;
+        box-shadow: rgb(214, 207, 207) 1px 1px 10px;
+        -webkit-appearance: none;
+        border-radius: 10px;
+        padding-left:10px;
+    }
+
+
+    .sign-up-container form input[type="submit"]{
+        display: block;
+        margin: 2em auto 0;
+        width:150px;
+        text-align: center;
+        height: 50px;
+        border-radius: 10px;
+        font-size: 1.2em;
+        box-shadow: rgb(214, 207, 207) 1px 1px 10px;
+        background-color: #716E77;
+        color:white;
+
+    }
+
+   a{
+        color:#716E77;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+
+
+    .notification{
+        position: absolute;
+        width: 450px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: rgba(75, 75, 75, 0.468) 1px 1px 10px;
+        transition: opacity 5s ease-in;
+        position: absolute;
+        top:2%;
+        right:0;
+        left:0;
+        margin: auto;
+    }
+
+    .notificationHidden{
+        display: none;
+    }
+
+    .notification p{
+        padding: 1em 0;
+        font-size:1.5em;
+        text-align: center;
+        color: rgb(47, 47, 47);
+    }
+    .notification a{
+        color: rgb(255, 255, 255);
+        background-color: #716E77;
+        border-radius: 10px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto 2em;
+        width:40%;
+        padding: 10px 0;
+        font-weight: 300;
+
+    }
+
+    
+    .loginError-active{
+        color:#716E77;
+        font-weight: bold;
+        margin-bottom: 1em;
+    }
+
+    .loginError-none{
+        display: none;
+    }
+
+
+
+}
+
+/*Desktop*/
+
+@media screen and (min-width: 1201px){
+
+       /*React root*/
+       #moodContainer{
+      /*  background-image: url('/media/background.jpg'); */
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height:100vh;
+        padding-bottom: 4em;
+     }
+
+     #Grid-holder-mood{
+        display: grid;
+        width:1000px;
+        margin: auto;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 10% 25% 25% 25% 15%;
+        height:100vh;
+
+
+     }
+ 
+     /*HEADER TABLET*/
+ 
+     header{
+        
+        grid-column-start: 1;
+        grid-column-end: 3;
+        color:#716E77;
+        width: 80%;
+        margin: auto;
+        align-self: center;
+
+     }
+ 
+ 
+     #header-container{
+         display: grid;
+         grid-template-columns: 70% 30%;
+
+     }
+ 
+     header h3{
+         text-align:left;
+         font-size: 2.4em;
+         font-weight: 400;
+         padding: 0 0 0 0.5em;
+         grid-column-start: 1;
+        
+     }
+ 
+     
+    header h4{
+     text-align: left;
+     padding: 1.2em 0 0.2em 1em;
+     font-size: 1.2em;
+     color:#716E77;
+     font-weight: 400;
+     grid-column-start: 1;
+     align-self: flex-end;
+ }
+ 
+ #headerLogoutMain{
+   
+         color:#ffffff;
+         background-color:#E79686;
+         border-radius: 5px;
+         padding: 5px 5px;
+         font-size: 1em;
+         font-weight: 500;
+         grid-column-start: 2;
+         grid-row-start: 1;
+         margin: 20px 10px 0px;
+         align-self: flex-end;
+         cursor: pointer;
+ 
+     }
+ 
+     #headerLogoutSecondary{
+   
+         color:#ffffff;
+         background-color:#E79686;
+         border-radius: 5px;
+         padding: 5px 5px;
+         font-size: 1em;
+         font-weight: 500;
+         grid-column-start: 2;
+         grid-row-start: 1;
+         margin: 20px 10px 20px;
+         width:100px;
+         align-self: center;
+         justify-self: flex-end;
+         cursor: pointer;
+ 
+     }    
+
+   
+     /*WEEK CONTAINER TABLET*/
+
+     #checkinSection{
+         width:100%;
+         grid-column-start: 1;
+         grid-column-end: 3;
+         grid-row-start:2;
+         align-self: flex-end;
+
+     }
+
+     #checkinSection h3{
+         text-align: center;
+         color:#716E77;
+         font-weight: 500;
+         font-size: 1.6em;
+     }
+
+     #mood-days{
+        
+         width:80%;
+         padding: 1.5em 0;
+         color:white;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin: 0em auto 0;
+         
+     }
+ 
+    .days-div:first-child{
+         margin: 0 10px 0 20px;
+     }
+ 
+     .days-div{
+         white-space: nowrap;
+         flex-shrink: 0;
+         background-color: #716E77;
+         width:100px;
+         height: 90px;
+         margin: 0 10px;
+         padding: 5px 10px;
+         text-align: center;
+         border-radius:10px;
+         box-shadow: #241d2c5e 1px 4px 10px;
+         
+     }
+ 
+     .days-div p{
+         margin-top: 1.2em;
+     }
+ 
+
+
+     /*WEATHER TABLET*/
+
+     #weatherSection{
+        width:80%;
+        margin: 0 auto;
+        grid-column-start: 1;
+        grid-column-end:3;
+        grid-row-start:3 ;
+    }
+
+    
+    #weatherSection h3{
+        color:#716E77;
+        font-weight: 400;
+        font-size: 1.6em;
+        text-align: center;
+        margin: 0.5em 0;
+    }
+    
+     .weather_container{
+
+        width:500px;
+        margin: auto;
+        text-align: center;
+         color:white;
+         padding: 2em 0;
+         border-radius:10px;
+         background-color: #E79686;
+         box-shadow: #241d2c5e 1px 4px 10px;
+         display: flex;
+         align-items: center;
+         justify-content: space-around;
+         display: grid;
+         grid-template-columns: 60% 40%;
+         grid-template-rows: 50% 25% 25%;
+         
+ 
+     }
+ 
+   
+     #Location{
+         text-align: left;
+         font-size: 2em;
+         font-weight: 400;
+         margin-left:20px;
+     }
+ 
+ 
+     #temperature{
+ 
+         grid-row-start:1;
+         grid-row-end: 4;
+         font-size: 4em;
+         grid-column-start: 2;
+     }
+ 
+ 
+     #time{
+         font-size: 1.5em;
+         text-align: left;
+         margin:0 0 0 20px;
+         grid-column-start: 1;
+         font-weight: 200;
+     }
+ 
+     #weather-decrs{
+ 
+         grid-column-start: 1;
+         font-size:1.5em;
+         text-align: left;
+         margin-left:20px;
+         margin-top: 10px;
+         font-weight: 200;
+     }
+ 
+
+    /*MOOD DISPLAY ON TABLET*/
+
+     /*If entry exists*/
+
+     .MoodEditOn{
+
+         width:80%;
+        grid-column-start:1;
+        grid-column-end: 3;
+        align-self:flex-start;
+        justify-content: center;
+        margin: auto;
+     }
+
+
+     .MoodEditOn div{
+
+         width:500px;
+         margin: 0 auto 0; 
+         border-radius: 10px;
+     }
+
+     .MoodEditOn div h3{
+
+        color:#716E77;
+        font-weight: 400;
+        font-size: 1.6em;
+        text-align: center;
+        margin: 0.5em 0;
+     }
+
+     .MoodEditOn div div{
+        background-color: #716E77;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-template-rows: 50% 50%;
+        padding: 1.5em 0;
+     }
+
+     .MoodEditOn div div h2{
+
+         color:white;
+         align-self: center;
+         font-size: 2.4em;
+         font-weight: 300;
+         text-align: left;
+         margin-left: 0.7em;
+
+     }
+
+     .MoodEditOn div div p{
+         color:white;
+         align-self: flex-start;
+         font-size: 1.3em;
+         text-align: left;
+         margin-left: 1.2em;
+     }
+
+     .MoodEditOn div div img{
+         width:130px;
+         grid-column-start: 2;
+         grid-row-start: 1;
+         grid-row-end: 3;
+        margin: auto;
+        align-self: center;
+     }
+
+    
+    /*If entry doesn't exist*/
+
+    .MoodEditOff {
+
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-top:1em;
+
+    }
+
+    .MoodEditOff h2{
+        color:#6A6A6A;
+        font-weight: 300;
+        text-align: center;
+        font-size: 2.2em;
+        margin: 1.5em 0;
+    }
+
+    .MoodEditOff div{
+        background-color: #E79686;
+        color:white;
+        padding: 1.5em;
+        position: fixed;
+        width: 70%;
+        bottom: 5%;
+        left:0;
+        right:0;
+        margin: 0 auto 0;
+        border-radius: 12px;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+
+    
+    .MoodEditOff div h4{
+        font-weight: 400;
+        text-align: center;
+        font-size: 2em;
+        padding-top: 15px
+    }
+
+    .MoodEditOff div a {
+        background-color: #FEE18C;
+        color: #6A6A6A;
+        display: block;
+        width:80px;
+        height: 80px;
+        font-size: 60px;
+        border-radius: 60px;
+        margin: 0 auto;
+        position: absolute;
+        top:-50%;
+        right: 0;
+        left: 0;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+
+ 
+      /*EDIT BTN TABLET*/
+
+        /*If entry doesn't exist 'Add Mood' text is applied*/
+
+      #MoodOn{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        background-color: #716E77;
+        color:white;
+        padding: 1.5em;
+        width: 400px;
+        position: relative;
+        bottom: 4%;
+        left:0;
+        right:0;
+        margin:3em auto 0;
+        border-radius: 12px;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+
+    #MoodOn h4{
+        font-weight: 400;
+        text-align: center;
+        font-size: 2em;
+        padding-top: 15px
+    }
+
+    #MoodOn a {
+        background-color: #E79686;
+        color: white;
+        display: block;
+        width:60px;
+        height: 60px;
+        font-size: 48px;
+        border-radius: 60px;
+        margin:  auto;
+        position: absolute;
+        bottom:70%;
+        right: 0;
+        left: 0;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+
+     /*If entry exists 'Edit Mood' text is applied (ChangeMoodSection)*/
+
+     #ChangeMoodSection{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        background-color: #6A6A6A;;
+        color:white;
+        padding: 1.5em;
+        width: 400px;
+        height: 50px;
+        position: relative;
+        bottom: 4%;
+        left:0;
+        right:0;
+        margin:2em auto 0;
+        border-radius: 12px;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+
+    #ChangeMoodSection h4{
+        font-weight: 400;
+        text-align: center;
+        font-size: 1.6em;
+        padding-top: 15px
+    }
+
+    #ChangeMoodSection a {
+        background-color: #E79686;
+        color: white;
+        display: block;
+        width:90px;
+        height: 90px;
+        font-size: 72px;
+        border-radius: 60px;
+        margin: 0 auto;
+        position: absolute;
+        bottom:70%;
+        right: 0;
+        left: 0;
+        box-shadow: #241d2c5e 1px 4px 10px;
+    }
+ 
+     /*ADD MOOD SCREEN TABLET*/
+ 
+     #addModd-container{
+ 
+       /*  background-image: url('/media/background.jpg'); */
+         padding: 20px 0;
+         height:99vh;
+         background-size: cover;
+     }
+
+     #addModd-mood-inner-container{
+         width:1000px;
+         margin: auto;
+     }
+
+        
+     #goBackHeader{
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width:1000px;
+        margin: auto;
+    }
+
+    #goBackHeader img{
+ 
+        width:48px;
+    }
+
+    #goBackHeader span{
+        margin-right: 4em;
+        margin-left: 1em;
+        color: #716E77;
+    }
+
+
+ 
+     #mood-selected{
+         background-color: #C57F71;
+     }
+ 
+     #addModd-container button{
+         width:380px;
+         background-color: #E79686;
+         color:white;
+         margin:auto;
+         margin-bottom: 10px;
+         display: block;
+         padding: 20px;
+         border-radius: 10px;
+         font-size: 1.4em;
+         box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
+         cursor: pointer;
+     }
+ 
+ 
+     #moodHolder{
+ 
+         display: grid;
+         grid-template-columns: 33.3% 33.3% 33.3%;
+         grid-template-rows: 15% 28.3% 28.3% 28.3%;
+         width:400px;
+         margin: 0 auto;
+     }
+ 
+     #moodHolder h3 {
+         grid-column-start: 1;
+         grid-column-end: 4;
+         text-align: center;
+         color:#716E77;
+         font-size:1.4em;
+         font-weight: 500;
+         align-self: center;
+ 
+     }
+ 
+     #moodHolder div {
+         border-radius: 12px;
+         width:70%;
+         margin: 0 auto 20%;
+ 
+     }
+ 
+     .mood-img{
+         background-color: #E79686;
+         border-radius: 10px;
+         padding: 10px;
+         width: 70%;
+         margin: auto;
+         display: block;
+         box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
+         cursor: pointer;
+     }
+ 
+     .mood-selected{
+         background-color: #C57F71;
+         border-radius: 10px;
+         padding: 10px;
+         width: 70%;
+         margin: auto;
+         display: block;
+         box-shadow: rgba(60, 55, 55, 0.346) 1px 1px 10px;
+     }
+ 
+     #moodHolder div h4{
+ 
+         color:#716E77;
+         font-weight: 500;
+         margin: 10px 0;
+         text-align: center;
+     }
+ 
+     #symptoms{
+         width:50%;
+         margin: auto;
+     }
+     #symptoms h3{
+         text-align: left;
+         color:#716E77;
+         width:360px;
+         font-weight: 400;
+         font-size: 1.5em;
+         margin: 2em auto 1em;
+     }
+ 
+ 
+     #symptoms textarea {
+         min-height:100px;
+         border-radius: 5px;
+         width:320px;
+         display: block;
+         font-size:1.2em;
+         border:2px solid grey;
+         padding: 20px 10px 0 30px;
+         font-family: Urbanist, Helvetica, sans-serif;
+         margin: 2em auto 1em;
+     }
+ 
+ 
+     #Mood-update-note {
+         text-align: center;
+         color:white;
+         width:400px;
+         padding: 10px 0;
+         margin: auto;
+         border-radius: 10px;
+         background-color: #716E77;
+ 
+     }
+ 
+     #Mood-update-note h4{
+         font-weight: 200;
+         font-size:1.5em;
+     }
+
+
+    /*Contribution*/
+    .pic-contribution{
+        color:rgb(184, 175, 175);
+        font-size: 1em;
+        display: block;
+        margin: auto;
+        display: absolute;
+        margin-top: 0.5em;
+    }
+    
+ 
+     /*Sign up*/
+ 
+     .sign-up-container{   
+        display:grid;
+        grid-template-rows: 30% 70%;
+        width:100%;
+        background-repeat: no-repeat;
+   /*     background-image: url('/media/background.jpg'); */
+        height: 100vh;
+     }
+
+     .loginScreenHeader{
+         align-self: center;
+         color:#716E77;
+     }
+
+    .sign-up-container h1{
+      font-family: Allura, Helvetica, sans-serif;
+      text-align: center;
+      font-weight: 300;
+      font-size:5em;
+      margin: 0.4em 0 0;
+    }
+    .sign-up-container h5{
+        text-align: center;
+        font-size:1.5em;
+        font-weight: 300;
+        margin: 0.5em 0 0;
+    }
+    .sign-up-container h3 {
+        text-align: center;
+        font-weight: 300;
+        font-size:2.5em;
+        margin: 0.5em 0;
+    }
+
+    .sign-up-container form {
+
+        width:350px;
+        margin: 20px auto;
+
+    }
+
+
+  .sign-up-container form p{
+      font-size: 1.3em;
+      text-align: center;
+      margin-top: 1em;
+      color:#716E77;
+  }
+
+
+
+
+    .sign-up-container form label{
+        margin-left:10px;
+        font-size: 1.2em;
+        color:#716E77;
+    }
+    
+    .sign-up-container form input[type="text"]{
+        display: block;
+        margin: 0.5em auto;
+        width:90%;
+        box-shadow: rgb(214, 207, 207) 1px 1px 10px;
+        height: 50px;
+        border-radius: 10px;
+        padding-left:10px;
+    }
+
+    .sign-up-container form input[type="password"]{
+        display: block;
+        margin: 0.5em auto;
+        width:90%;
+        height: 50px;
+        box-shadow: rgb(214, 207, 207) 1px 1px 10px;
+        -webkit-appearance: none;
+        border-radius: 10px;
+        padding-left:10px;
+    }
+
+
+    .sign-up-container form input[type="submit"]{
+        display: block;
+        margin: 2em auto 0;
+        width:150px;
+        text-align: center;
+        height: 50px;
+        border-radius: 10px;
+        font-size: 1.2em;
+        box-shadow: rgb(214, 207, 207) 1px 1px 10px;
+        background-color: #716E77;
+        color:white;
+        cursor: pointer;
+
+    }
+
+   a{
+        color:#716E77;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: bold;
+
+    }
+
+    .notification{
+        position: absolute;
+        width: 400px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: rgba(75, 75, 75, 0.468) 1px 1px 10px;
+        transition: opacity 5s ease-in;
+        position: absolute;
+        top:5%;
+        left:0;
+        right:0;
+        margin: auto;
+    }
+
+    .notificationHidden{
+        display: none;
+    }
+
+    .notification p{
+        padding: 1em 0;
+        font-size:1.5em;
+        text-align: center;
+        color: rgb(47, 47, 47);
+    }
+    .notification a{
+        color: rgb(255, 255, 255);
+        background-color: #716E77;
+        border-radius: 10px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto 2em;
+        width:40%;
+        cursor: pointer;
+        padding: 10px 0;
+        font-weight: 300;
+
+    }
+
+
+    /*Login Errors DESKTOP*/
+ 
+
+    .loginError-active{
+        color:#716E77;
+        font-weight: bold;
+        margin-bottom: 1em;
+    }
+
+    .loginError-none{
+        display: none;
+    }
+
+
+
+}
