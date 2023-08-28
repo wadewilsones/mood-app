@@ -1,12 +1,12 @@
 import '../App.css';
 import React, { useState, useEffect } from "react";
-import Today from './date';
-
+import Today from '../js/date';
+import '../style/WeeklyMoodStyle.css'
 
 let todayInfo = Today();
 let formateMonth = todayInfo[3];
 
-let  WeekMood = (props) =>{
+const  WeekMood = (props) => {
 
     let mood = props.mood;
 
@@ -69,26 +69,29 @@ let  WeekMood = (props) =>{
     let noData = "No entry";
 
     return(
-        <section id='mood-days'>
+        <section className='weekMainContainer'>
+                <h3>You weekly data</h3>
+                <div id='mood-days'>
+                    <div className='days-div'>
+                        {formatDates(weekMood[0].date)}<br/>
+                        <p>{weekMood[0].mood? weekMood[0].mood : noData}</p>
+                    </div>
 
-                <div className='days-div'>
-                    {formatDates(weekMood[0].date)}<br/>
-                    <p>{weekMood[0].mood? weekMood[0].mood : noData}</p>
-                </div>
+                    <div className='days-div'>
+                    {formatDates(weekMood[1].date)}<br/>
+                    <p>{weekMood[1].mood? weekMood[1].mood : noData}</p>
 
-                <div className='days-div'>
-                {formatDates(weekMood[1].date)}<br/>
-                <p>{weekMood[1].mood? weekMood[1].mood : noData}</p>
+                    </div>
+                    <div className='days-div'>
+                        {formatDates(weekMood[2].date)}<br/>
+                        <p>{weekMood[2].mood? weekMood[2].mood : noData}</p>
+                    </div>
 
+                    <div className='days-div'>Today<br/>
+                    <p>{mood? mood: 'No entry'}</p>
+                    </div>
                 </div>
-                <div className='days-div'>
-                    {formatDates(weekMood[2].date)}<br/>
-                    <p>{weekMood[2].mood? weekMood[2].mood : noData}</p>
-                </div>
-
-                <div className='days-div'>Today<br/>
-                <p>{mood? mood: 'No entry'}</p>
-                </div>
+                
             </section>
     )
 }

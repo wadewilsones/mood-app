@@ -1,0 +1,50 @@
+ /*WEEK CONTAINER*/
+
+.weekMainContainer {
+    background-color: rgba(217, 217, 217, 0.01);
+    padding: 10px 30px 40px;
+    margin-top: 2em;
+}
+
+
+.weekMainContainer h3{
+    color: white;
+    font-weight: 400;
+    font-size: 1.6em;
+    text-align: left;
+}
+
+#mood-days{
+    
+    color:white;
+    display: flex;
+    margin-top: 2em;
+    margin-left: 0;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.days-div{
+    white-space: nowrap;
+    flex-shrink: 0;
+    background-color: rgba(54, 135, 91, 0.30);
+    width:90px;
+    height: 90px;
+    margin: 0 10px;
+    padding: 5px 10px;
+    grid-row-start: 2;
+    text-align: center;
+    border-radius:10px;
+    box-shadow: #241d2c5e 1px 4px 10px;
+    transition: all 0.7s;
+    cursor: pointer;
+    
+}
+
+.days-div p{
+    margin-top: 1.2em;
+}
+
+.days-div:hover{
+    background-color: rgba(67, 195, 124, 0.3);
+}

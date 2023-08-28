@@ -1,8 +1,8 @@
 
 import React from "react";
-import Today from './date';
+import Today from '../js/date';
+import '../style/HeaderStyle.css'
 import { Link }  from "react-router-dom";
-
 let todayInfo = Today();
 let today = todayInfo[0].toString().split(' ');
 
@@ -31,8 +31,9 @@ function Logout(){
                 <section id='header-container'>
                         {location === '/'?
                         <div>
-                                <h4>{today[0] + ", " + today[1] + " " + today[3]}</h4>
-                                <h3>Hello {props.username}</h3>
+                                <h4>{today[0] + ", "+ today[1] + " " +today[2]}</h4>
+                                <h3>Hello Ulada{props.username}!</h3>
+                                <h5>We’re glad to see you</h5>
                         </div>  
                         : <div id = 'goBackHeader'>
                         <Link to = '/'><img src="/media/goBack.svg" alt="goBack"></img></Link>

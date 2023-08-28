@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from "react";
-import Header from './js/Header';
+import Header from './components/Header';
 
 
 let AddMood = (props) =>{

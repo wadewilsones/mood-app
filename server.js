@@ -24,9 +24,9 @@ const session = require("express-session"); //for deployment
 app.use(express.json());
 
 app.use(cors({  
-    origin: 'http://localhost:3001/',
+    origin: 'http://localhost:3001',
     methods:['GET','POST'],
-    credential:true})
+    credential:false})
 );
 
 app.use(cookieParser());
@@ -41,7 +41,7 @@ app.use(session({
     }
 }))
 
-app.use(express.static(path.join(__dirname, 'client/public')));
+//app.use(express.static(path.join(__dirname, 'client/public')));
 
 //For deployment
 /*
@@ -64,17 +64,23 @@ app.get('/signup', (req,res) => {
 */
 
 
+
+app.get('/', async (req,res) => {
+
+    res.send('Test')
+}
+)
+
 app.post('/signUpUser', async (req,res) => {
 
     try{
 
         const { username, password } = req.body;
-        req.body.password = atob(req.body.password);
         //hash password
         const hashPassword = bcrypt.hashSync(password, saltRounds);
-        const addData =  await pool.query("INSERT INTO users (username, password) VALUES ($1,$2);", [username, hashPassword]);
-        if (addData){
-            res.send({message:'Registration is successful'});
+        const addData =  await pool.query("INSERT INTO users (username, password) VALUES (?,?);", [username, hashPassword]);
+        if (addData.affectedRows === 1){
+            res.send({message:'Added'});
         }
         else{
             res.send({message:'Error!'});
@@ -98,33 +104,41 @@ app.get('/logoutUser',  (req, res) =>{
     })
 
 
-app.post('/loginUser',  (req,res) => {
-    try{
-        const { username, password } = req.body;
-        //Get data from DB
-        pool.query("SELECT * FROM users WHERE username = $1", [username], (err, result) => {
-            if (err){
-                res.send({err:err.message})
-            }
-            if(result.rows.length > 0){
-                    bcrypt.compare(password, result.rows[0].password).then(function(success){
-                        if(success){
-                        req.session.user = result;
-                        res.send(result.rows);
-                        }
-                        else{
-                            res.send({message:"Wrong password"});
-                        }
-                    })
-            }
-            else{
-                res.send({message:"No user found"})
-            }
-        });
+app.post('/loginUser',  async (req,res) => {
+
+    const { username, password } = req.body;
     
+    try{
+        console.log("INSIDE TRY")
+        const user = await pool.query("SELECT * FROM users WHERE username = ?;", [username]);
+        console.log(user[0][0].password);
+        if(user[0].length === 0){
+            console.log("Unknown username");
+            res.send({status: "500", message:"No user found", error:true});
+        }
+        else if(user[0].length > 0){
+            console.log("Checking for password match...");
+            bcrypt.compare(password, user[0][0].password).then(function(success){
+                if(success){
+                req.session.user =  user[0][0];
+                console.log("Credentials Correct");
+                res.send({status: "200", message:"Credentials Correct", error:false});
+                }
+                else{
+                    console.log("Wrong password");
+                    res.send({message:"Wrong password", error:true});
+                }
+            })
+
+        }
+        else{
+            console.log("Else statement");
+            res.send({status: "500", message:"ELSE STATEMENT"});
+        }
+
     }
     catch(err){
-        console.error(message.err)
+        console.error(err.message);
     }
 })
 

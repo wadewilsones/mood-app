@@ -1,4 +1,4 @@
-import './App.css';
+import '../style/LoginStyle.css' 
 import React, { useState } from "react";
 import { Link  } from "react-router-dom";
 
@@ -10,17 +10,18 @@ function SignUp (){
         password:''
     });
 
-
-
     const changeInput = (event) => {
         const { name, value } = event.target;
         setUserdata(
-            (prevState) => ({...prevState, [name]: value}),
-            userData.password = btoa(userData.password)
-            )
+            (prevState) => (
+                {...prevState, 
+                    [name]: value
+                }
+            ))
     }
 
     const {username, password} = userData;
+
     const [notification, setNotificetion] = useState(false);
 
     const handleSubmit = (e) => {
@@ -34,7 +35,7 @@ function SignUp (){
 
     const sendData = () => {
 
-        fetch('/signUpUser', {
+        fetch('http://localhost:3000/signUpUser', {
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify(userData)
@@ -42,11 +43,10 @@ function SignUp (){
 
         .then(response => response.json())
         .then(data => {
-            if(data.message === "Registration is successful"){
-            setNotificetion(true)
-            }
-        })
-
+            console.log(data);
+            setNotificetion(true);
+            })
+    
     }
 
     const hideNotification = () =>{
@@ -64,15 +64,13 @@ function SignUp (){
         <div className = {notification? "notification" : "notificationHidden"}><p>Thank you for registration, {username}</p><a onClick={hideNotification}>Close</a></div>
             
             <div className = 'loginScreenHeader'> 
-                <h1>Moodnex</h1>
-                <h5>Your personal mood app</h5>
+                <h1>Feelu</h1>
+                <h5>Keep track of your mind</h5>
                 <h3>Sign Up</h3> 
             </div>
             <form method="POST" action="/" onSubmit={handleSubmit}> 
-                    <label htmlFor="username">Username</label>
-                <input type="text" id="username" name="username"  value = {username} onChange = {changeInput} placeholder='Username..' required />
-                <label htmlFor="passwordR">Password</label>
-                <input type="password" id="passwordR" name="password" value = {password}  onChange = {changeInput} placeholder= 'Enter Your Password' required />
+                <input type="text" id="username" name="username"  value = {username} onChange = {changeInput} placeholder='Username..' required autoComplete='true' />
+                <input type="password" id="passwordR" name="password" value = {password}  onChange = {changeInput} placeholder= 'Enter Your Password' required autoComplete='true'/>
                 <input type="submit" id="subBtn" value="Sign Up"/>
                 <p>Already have an account? <Link to="/login">Log In!</Link></p>
 

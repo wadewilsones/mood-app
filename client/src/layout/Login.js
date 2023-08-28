@@ -32,31 +32,25 @@ function Login(){
     }
 
     const sendData = () => {
-        console.log('This is login')
-        fetch('/loginUser', {
+
+        //Clear error field
+        setError(null);
+
+        fetch('http://localhost:3000/loginUser', {
             method:'POST',
             headers:{'Content-Type':'application/json'},
-            credential:true,
+            credential:false,
             body: JSON.stringify(userData)
         })
 
         .then(response => response.json())
         .then(data => {
-            console.log(data); // remove later
-            if(data.message){
-                if(data.message === "Wrong password"){
-                    setError("Wrong password!");
-                }
-                else if (data.message === "No user found"){
-                    setError("Wrong username!");
-                }
-                else{
-                    alert( 'Wrong credentials. Try again');
-                }
 
+            if(data.error){
+                    setError(data.message);
             }
             else{
-
+                console.log(data.message)
                 window.location.reload();
             }
             

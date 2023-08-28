@@ -1,0 +1,94 @@
+  /*WEATHER TABLET*/
+
+
+.weatherMainContainer{
+    background-color: rgba(217, 217, 217, 0.01);
+    padding: 10px 30px 40px;
+    margin-top: 2em;
+   
+}
+
+.weatherInfoContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#weatherSection h3{
+    color:#e5e2eb;
+    font-weight: 400;
+    font-size: 1.6em;
+    line-height: 2.5;
+
+}
+
+ .weather_container{
+
+    width:500px;
+    margin-top: 1em;
+    text-align: center;
+     color:white;
+     padding: 2em 0;
+     border-radius:10px;
+     background-color: #2D4F3E;
+     box-shadow: #241d2c5e 1px 4px 10px;
+     display: flex;
+     align-items: center;
+     justify-content: space-around;
+     display: grid;
+     grid-template-columns: 60% 40%;
+     grid-template-rows: 50% 25% 25%;
+     
+
+ }
+
+
+ #Location{
+     text-align: left;
+     font-size: 2em;
+     font-weight: 400;
+     margin-left:20px;
+ }
+
+
+ #temperature{
+
+     grid-row-start:1;
+     grid-row-end: 4;
+     font-size: 4em;
+     grid-column-start: 2;
+ }
+
+
+ #time{
+     font-size: 1.4em;
+     text-align: left;
+     margin:10px 0 0 20px;
+     grid-column-start: 1;
+     font-weight: 200;
+ }
+
+ .weatherFacts{
+
+    color:white;
+    width:50%;
+
+ }
+
+ .weatherFacts h5{
+  
+    color:white;
+    font-size: 1.6em;
+    font-weight: 400;
+    line-height: 2;
+    text-align: left;
+ }
+
+ .weatherFacts p{
+
+    width:90%;
+    color:white;
+    text-align: left;
+
+ }

@@ -1,0 +1,254 @@
+/*DESKTOP*/
+
+@media screen and (min-width:1300px){
+    
+header{
+        
+    grid-column-start: 1;
+    grid-column-end: 3;
+    color:#e5e1ec;
+    width: 1200px;
+    margin: auto;
+    margin-top: 2em;
+    align-self: center;
+ }
+
+
+ #header-container{
+     display: grid;
+     grid-template-columns: 70% 30%;
+
+ }
+
+ header h3{
+     text-align:left;
+     font-size: 2.4em;
+     font-weight: 500;
+     grid-column-start: 1;
+    
+ }
+
+ 
+    header h4{
+    text-align: left;
+    font-size: 1.2em;
+    color:#e2dfe6;
+    font-weight: 300;
+    grid-column-start: 1;
+    align-self: flex-end;
+    }
+
+    header h5{
+        font-weight: 300;
+        font-size: 1.2em;
+    }
+
+    #headerLogoutMain{
+
+        color:#ffffff;
+        background-color:#354C3D;
+        border-radius: 5px;
+        padding: 5px 5px;
+        font-size: 1em;
+        font-weight: 500;
+        grid-column-start: 2;
+        grid-row-start: 1;
+        margin: 20px 10px 0px;
+        align-self: flex-end;
+        cursor: pointer;
+
+    }
+
+ #headerLogoutSecondary{
+
+     color:#ffffff;
+     background-color:#50735c;
+     border-radius: 5px;
+     padding: 5px 5px;
+     font-size: 1em;
+     font-weight: 500;
+     grid-column-start: 2;
+     grid-row-start: 1;
+     margin: 20px 10px 20px;
+     width:100px;
+     align-self: center;
+     justify-self: flex-end;
+     cursor: pointer;
+     transition: all 0.5s;
+
+ }
+ 
+ #headerLogoutSecondary:hover{
+    background-color:#699c7b;
+ }
+}
+
+/*TABLET*/
+
+@media screen and (min-width:700px) and (max-width:1299px){
+    
+    header{
+            
+        grid-column-start: 1;
+        grid-column-end: 3;
+        color:#e5e1ec;
+        width: 80%;
+        margin: auto;
+        margin-top: 2em;
+        align-self: center;
+     }
+    
+    
+     #header-container{
+         display: grid;
+         grid-template-columns: 70% 30%;
+    
+     }
+    
+     header h3{
+         text-align:left;
+         font-size: 2.4em;
+         font-weight: 500;
+         grid-column-start: 1;
+        
+     }
+    
+     
+        header h4{
+        text-align: left;
+        font-size: 1.2em;
+        color:#e2dfe6;
+        font-weight: 300;
+        grid-column-start: 1;
+        align-self: flex-end;
+        }
+    
+        header h5{
+            font-weight: 300;
+            margin-left: 20px;
+            font-size: 1.2em;
+        }
+    
+        #headerLogoutMain{
+    
+            color:#ffffff;
+            background-color:#354C3D;
+            border-radius: 5px;
+            padding: 5px 5px;
+            font-size: 1em;
+            font-weight: 500;
+            grid-column-start: 2;
+            grid-row-start: 1;
+            margin: 20px 10px 0px;
+            align-self: flex-end;
+            cursor: pointer;
+    
+        }
+    
+     #headerLogoutSecondary{
+    
+         color:#ffffff;
+         background-color:#50735c;
+         border-radius: 5px;
+         padding: 5px 5px;
+         font-size: 1em;
+         font-weight: 500;
+         grid-column-start: 2;
+         grid-row-start: 1;
+         margin: 20px 10px 20px;
+         width:100px;
+         align-self: center;
+         justify-self: flex-end;
+         cursor: pointer;
+         transition: all 0.5s;
+    
+     }
+     
+     #headerLogoutSecondary:hover{
+        background-color:#699c7b;
+     }
+}
+
+/*PHONE*/
+@media screen and (min-width:300px) and (max-width:699px){
+    
+    header{
+            
+        grid-column-start: 1;
+        grid-column-end: 3;
+        color:#f6f5f8;
+        width: 100%;
+        margin: auto;
+        align-self: center;
+     }
+    
+    
+     #header-container{
+         display: grid;
+         grid-template-columns: 70% 30%;
+    
+     }
+    
+     header h3{
+         text-align:left;
+         font-size: 2.3em;
+         color:#e2dfe6;
+         font-weight: 500;
+         grid-column-start: 1;
+        
+     }
+    
+        header h4{
+        text-align: left;
+        font-size: 1.2em;
+        color:#e2dfe6;
+        font-weight: 300;
+        grid-column-start: 1;
+        align-self: flex-end;
+        }
+    
+        header h5{
+            font-weight: 300;
+            font-size: 1.2em;
+            margin-left: 20px;
+        }
+    
+        #headerLogoutMain{
+    
+            color:#ffffff;
+            background-color:#354C3D;
+            border-radius: 5px;
+            padding: 5px 5px;
+            font-size: 1em;
+            font-weight: 500;
+            grid-column-start: 2;
+            grid-row-start: 1;
+            margin: 20px 10px 0px;
+            align-self: flex-end;
+            cursor: pointer;
+    
+        }
+    
+     #headerLogoutSecondary{
+    
+         color:#ffffff;
+         background-color:#50735c;
+         border-radius: 5px;
+         padding: 5px 5px;
+         font-size: 1em;
+         font-weight: 500;
+         grid-column-start: 2;
+         grid-row-start: 1;
+         margin: 20px 10px 20px;
+         width:100px;
+         align-self: center;
+         justify-self: flex-end;
+         cursor: pointer;
+         transition: all 0.5s;
+    
+     }
+     
+     #headerLogoutSecondary:hover{
+        background-color:#699c7b;
+     }
+}

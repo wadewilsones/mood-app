@@ -1,0 +1,96 @@
+#MoodSelectionContainer{
+    background-color: rgba(217, 217, 217, 0.01);
+    padding: 10px 30px 20px;
+    margin-top: 2em;
+    
+}
+
+#MoodSelectionContainer h3{
+    color:#e5e2eb;
+    font-weight: 400;
+    font-size: 1.6em;
+    text-align: left;
+    line-height: 2.5;
+
+}
+
+.MoodOptions{
+    display: flex;
+    margin-top: 2em;
+    align-items: center;
+    justify-content:flex-start;
+
+}
+
+.signleMoodContainer{
+
+
+    width:15%;
+    background-color: rgba(54, 135, 91, 0.30);
+    margin: 0 10px;
+    padding: 1em 0;
+    text-align: center;
+    border-radius:10px;
+    box-shadow: #241d2c5e 1px 4px 10px;
+    cursor: pointer;
+    transition: all 0.7s;
+
+}
+
+.signleMoodContainer img{
+
+    display: block;
+    margin: auto;
+    width: 70px;
+}
+
+.signleMoodContainer p{
+
+    color:#e5e2eb;
+    text-align: center;
+    line-height: 2;
+    font-size: 1.2em;
+}
+
+.userInputContainer{
+
+    margin-top: 2em;
+}
+
+.userInputContainer textarea{
+
+    width:65%;
+    display: block;
+    margin: auto;
+    height: 150px;
+    font-size: 1.4em;
+    padding:10px 0 0 20px;
+    color: white;
+    background-color: #d9d9d937;
+    border-radius: 5px;
+}
+
+.userInputContainer input[type="submit"]{
+
+    display: block;
+    color:white;
+    background-color: #37784e;
+    padding: 20px 50px;
+    margin: 2em auto 0;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight:100;
+    cursor: pointer;
+    transition: all 0.7s;
+}
+
+
+.userInputContainer input[type="submit"]:hover{
+    background-color: rgba(25, 182, 96, 0.793);
+}
+
+.signleMoodContainer:hover{
+    background-color: rgba(53, 171, 65, 0.3);
+  
+}
+

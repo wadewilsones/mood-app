@@ -69,6 +69,8 @@
     background-color: transparent;
     font-family: Quicksand, sans-serif;
     width:100%;
+    outline: none;
+    transition: border-bottom-color 0.3s ease;
     -webkit-appearance: none;
 
 }
@@ -86,6 +88,8 @@
     background-color: transparent;
     width:100%;
     margin-top: 2em;
+    outline: none;
+    transition: border-bottom-color 0.3s ease;
     -webkit-appearance: none;
 }
 
@@ -101,6 +105,7 @@
     background-color: #7C9A92;
     color:white;
     cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
 
 }
 
@@ -174,6 +179,75 @@ span a{
 
 .loginError-none{
     display: none;
+}
+
+
+/*Focuse and hover behavior*/
+
+
+.sign-up-container form input[type="text"]:focus{
+    display: block;
+    border: none;
+    border-bottom: 2px solid #66d2b599;
+    padding-bottom: 10px;
+    font-weight: 400;
+    font-size: 1.4em;
+    color:#e4dada;
+    border-radius: 2px;
+    background-color: transparent;
+    font-family: Quicksand, sans-serif;
+    width:100%;
+    -webkit-appearance: none;
+
+}
+
+
+.sign-up-container form input[type="password"]:focus{
+    display: block;
+    border: none;
+    border-bottom: 2px solid #66d2b599;
+    padding-bottom: 10px;
+    font-weight: 400;
+    font-size: 1.4em;
+    color:#A09797;
+    border-radius: 2px;
+    font-family: Quicksand, sans-serif;
+    background-color: transparent;
+    width:100%;
+    margin-top: 2em;
+    -webkit-appearance: none;
+}
+
+.sign-up-container form input:-webkit-autofill:active {
+    /* Apply styles for autofilled input */
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    color: #ffffff; /* Change text color */
+  }
+
+  input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-font-size:1.2em;
+    -webkit-text-fill-color: #ffffff;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px #23232329;
+}
+
+.sign-up-container form input[type="submit"]:hover{
+    display: block;
+    margin: 5em auto 0;
+    width:80%;
+    text-align: center;
+    height: 50px;
+    border-radius: 60px;
+    font-size: 1.2em;
+    background-color: #5aa490;
+    color:white;
+    cursor: pointer;
+
+
 }
 
 

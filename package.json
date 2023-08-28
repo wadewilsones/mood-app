@@ -36,7 +36,7 @@
     "express": "^4.17.3",
     "express-session": "^1.17.2",
     "mariadb": "^3.2.0",
-    "pg-promise": "^10.11.1"
+    "mysql2": "^3.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

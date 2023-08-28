@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
+import '../style/WeatherStyle.css'
 
 
 function Weather(){
@@ -79,12 +80,23 @@ function Weather(){
 
 
     return(   
-        <div className="weather_container">
-        <p id="Location">{weather.location}</p> 
-        <p id="temperature">{weather.temperature}°</p>
-        <p id="time">{time.getHours() + ":" + time.getMinutes()}</p>
-        <p id="weather-decrs">{weather.description}</p>
-        </div>
+        <section className='weatherMainContainer'>
+                <h3>Weather also can impact your state</h3>
+                <div className='weatherInfoContainer'>
+                    <div className="weather_container">
+                        <p id="Location">{weather.location}</p> 
+                        <p id="temperature">{weather.temperature}°</p>
+                        <p id="time">{time.getHours() + ":" + time.getMinutes()}</p>
+                    </div>
+
+                    <div className = "weatherFacts">
+                        <h5>Interesting Fact</h5>
+                        <p> Weather can significantly influence human mood and emotions. On sunny days, increased exposure to natural light can boost serotonin levels, promoting feelings of happiness and well-being.</p>
+                    </div>
+                </div>
+               
+          
+        </section>
     )
 }
 
