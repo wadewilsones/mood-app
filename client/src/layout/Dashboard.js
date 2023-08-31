@@ -1,5 +1,5 @@
 //set up class
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import WeekMood from '../components/WeekMood';
 import MoodSelection from '../components/MoodSelection';
@@ -13,6 +13,9 @@ import { Link }  from "react-router-dom";
 const Dashboard = (props) => {
 
 
+    const[userData, setUserData] = useState({
+        username:''
+    })
     
     useEffect(() => {
         fetch('http://localhost:3000/api/dashboard', {
@@ -24,7 +27,12 @@ const Dashboard = (props) => {
     })
     .then(response => response.json())
     .then(data => {
-            console.log(data);
+        console.log(data)
+            setUserData((prevState) => ({
+                ...prevState,
+                username:data.username,
+            }))
+
     })
     }, [])
 
@@ -32,7 +40,7 @@ const Dashboard = (props) => {
 
     return(
         <div id='moodContainer'>
-            <Header  location = '/' username = "Ulada"/>
+            <Header  location = '/' username = {userData.username}/>
             <section id = "checkinSection">
                 <WeekMood/>
             </section>

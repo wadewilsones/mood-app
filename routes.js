@@ -1,16 +1,15 @@
 const express = require('express');
 const router = express.Router();
-
-
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
-
 const pool = require("./db");
 const saltRounds = 10; // how much time is needed to calculate a single has
 const jwt = require('jsonwebtoken');
-
 const bodyParser = require('body-parser');
 const secretKey = crypto.randomBytes(32).toString('hex');
+
+const getUserId = require('./helpers/queries');
+
 
 
 router.get('/', (req, res) => {
@@ -25,10 +24,6 @@ router.post('/api/signup', async (req, res) => {
     try{
 
         const { username, password } = req.body;
-        
-        //Test for unique username
-
-
         //hash password
         const hashPassword = bcrypt.hashSync(password, saltRounds);
         const addData =  await pool.query("INSERT INTO users (username, password) VALUES (?,?);", [username, hashPassword]);
@@ -115,30 +110,33 @@ const authneticationCheck = (req, res, next) => {
 //PROTECTED ROUTES
 //Get user data to display on dashboard
 router.get(`/api/dashboard`, authneticationCheck, (req, res) => {
-
-
-    res.send({ message: `Hello, ${req.user.username}! This is a protected route.` });
-
-
+    res.send({username: req.user.username});
 })
 
 
 //Send data to mood table
-router.post('/api/addMood', async (req,res) =>{
+router.post('/api/addMood', authneticationCheck, async (req,res) =>{
+    console.log("Attempt to add Mood")
+
 try{
-    const { userId, mood, symptoms } = req.body;
+    const { mood, entry } = req.body;
+    const username = req.user.username;
+    const userId = await getUserId(username); 
+    console.log(userId);
     //Check DB for existing information
-    const checkData =  await pool.query("SELECT * FROM user_moods WHERE mood_date = CURRENT_DATE AND user_idfk = $1 ORDER BY mood_id;", [userId]);
-    if(checkData.rows.length > 0){
+    const checkData =  await pool.query("SELECT * FROM user_moods WHERE user_id = ?;", [userId]);
+    console.log(checkData[0].length);
+
+    if(checkData[0].length > 0){
         console.log(checkData.rows);
         //Update mood
-        const updateMood = await pool.query("UPDATE user_moods SET mood_descr = $1, symptoms = $2 WHERE mood_date = CURRENT_DATE AND user_idfk = $3;", [mood, symptoms, userId]);
+        const updateMood = await pool.query("UPDATE user_moods SET mood_desc = ?, mood_desc = ? WHERE mood_date = CURDATE() AND user_id = ?;", [mood, entry, userId]);
         if(updateMood){
             console.log('Mood was updated')
         }
     }
-    else if (checkData.rows.length <= 0){
-        const addMood = await pool.query("INSERT INTO user_moods (user_idfk, mood_date, mood_descr, symptoms) VALUES ($1,CURRENT_DATE,$2,$3);", [userId, mood, symptoms]);
+    else if (checkData[0].length <= 0){
+        const addMood = await pool.query("INSERT INTO user_moods (user_id, mood_date, mood_id, mood_desc) VALUES (?,CURDATE(),?,?);", [userId, mood, entry]);
         if(addMood){
             console.log('New record was added');
             res.send(

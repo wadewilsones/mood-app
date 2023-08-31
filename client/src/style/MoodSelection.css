@@ -94,3 +94,65 @@
   
 }
 
+
+/*If user selected mood*/
+.displayCurrentMood{
+    width: 1200px;
+    margin: auto;
+}
+
+.displayCurrentMood h3{
+    text-align: center!important;
+}
+
+.displayCurrentMood img{
+    display: block;
+    margin: 2em auto 10px;
+    width: 90px;
+}
+
+.displayCurrentMood span{
+    color: white;
+    display: block;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.displayCurrentMood p{
+    color: white;
+    width:70%;
+    margin: auto;
+    margin-top: 2em;
+    text-align: left;
+}
+
+.displayCurrentMood button{
+    
+    color:#ffffff;
+    background-color:#354C3D;
+    border-radius: 5px;
+    padding: 15px 25px;
+    font-size: 1em;
+    font-weight: 500;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    display: block;
+    margin: 2em auto 0;
+    align-self: flex-end;
+    cursor: pointer;
+
+}
+
+.displayCurrentMood button:hover{
+    background-color:#699c7b;
+ }
+
+.errors{
+
+    color: #da4726;
+    font-weight: 500;
+
+
+}
+

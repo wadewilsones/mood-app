@@ -1,6 +1,9 @@
-# Hello there :grinning:
+# Mood tracker
 
-### This is short explanation how to get started:
+![alt text](https://github.com/wadewilsones/mood-app/blob/main/screenshot.png)
+
+
+### This is a short explanation of how to get started:
 
 1. Clone the repo:
 
@@ -8,7 +11,7 @@
 git clone https://github.com/wadewilsones/mood-app.git
 ```
 
-2.Navigate to your project root
+2. Navigate to your project root
 
 ```
 cd ...
@@ -23,7 +26,7 @@ npm install
 
 4. Set up Database. 
 Create DB with your credentials in db.js. 
-The app uses MariaDB connector.
+The app uses a MariaDB connector.
 ```
 $ npm install mariadb
 ```
@@ -32,7 +35,7 @@ $ npm install mariadb
 const Pool = require("pg").Pool;
 
 const pool = new Pool({
-    user: 'yourusername', 
+    user: 'username', 
     password:'yourpassword',
     database:'yourdbname',
     host:'localhost',
@@ -56,7 +59,7 @@ API_KEY = 'yourAPIkey';
 npm run serve
 ```
 
-8. Navigate to client folder and install modules run react app
+8. Navigate to the client folder and install modules run the react app
 
 ```
 cd client
@@ -66,7 +69,7 @@ npm run start
 
 ```
 
-8. Enjoy :sunglasses::sunglasses:
+8. Enjoy sunglasses::sunglasses:
 
 
 

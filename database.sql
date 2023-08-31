@@ -18,7 +18,7 @@ CREATE TABLE users(
 );
 
 CREATE TABLE user_moods(
-  mood_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  mood_id VARCHAR(100) PRIMARY KEY,
   user_id INT,
   mood_date DATE,
   mood_desc VARCHAR(500),
