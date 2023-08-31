@@ -11,20 +11,12 @@ function Header(props){
 
 let location  = props.location;
 
-function Logout(){
-        fetch('/logoutUser', {
-                method: "GET",
-                headers:{
-                        'Content-Type':'application/json'
-                },
-        })
-        .then(response => response.json())
-        .then(data => {
-                console.log(data);
-                window.location = '/';
-        })
+  const Logout = () =>{
+     
+        localStorage.clear('token');
+        window.location.reload();
        
-}
+  }
 
         return (
         <header>
@@ -32,7 +24,7 @@ function Logout(){
                         {location === '/'?
                         <div>
                                 <h4>{today[0] + ", "+ today[1] + " " +today[2]}</h4>
-                                <h3>Hello Ulada{props.username}!</h3>
+                                <h3>Hello {props.username}!</h3>
                                 <h5>We’re glad to see you</h5>
                         </div>  
                         : <div id = 'goBackHeader'>

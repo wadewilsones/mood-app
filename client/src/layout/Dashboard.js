@@ -1,5 +1,5 @@
 //set up class
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import WeekMood from '../components/WeekMood';
 import MoodSelection from '../components/MoodSelection';
@@ -12,9 +12,27 @@ import { Link }  from "react-router-dom";
 
 const Dashboard = (props) => {
 
+
+    
+    useEffect(() => {
+        fetch('http://localhost:3000/api/dashboard', {
+            method: "GET",
+            headers:{
+                    'Content-Type':'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+    })
+    .then(response => response.json())
+    .then(data => {
+            console.log(data);
+    })
+    }, [])
+
+    //Get Current User Data
+
     return(
         <div id='moodContainer'>
-            <Header  location = '/' />
+            <Header  location = '/' username = "Ulada"/>
             <section id = "checkinSection">
                 <WeekMood/>
             </section>

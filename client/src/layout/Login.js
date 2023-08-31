@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import '../style/LoginStyle.css' 
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
 
 function Login(){
+
+    // Use navigation function
+    const navigate = useNavigate();
 
     const [userData, setUserdata] = useState({
         username:'',
         password:''
     });
-
+    const {username, password} = userData;
     const [loginError, setError] = useState('');
 
     const changeInput = (event) => {
@@ -19,9 +24,6 @@ function Login(){
             ))
     }
 
-    const {username, password} = userData;
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log();
@@ -31,14 +33,17 @@ function Login(){
         }
     }
 
+    // Submit user data
     const sendData = () => {
 
         //Clear error field
         setError(null);
 
-        fetch('http://localhost:3000/loginUser', {
+        fetch('http://localhost:3000/api/authnetication', {
             method:'POST',
-            headers:{'Content-Type':'application/json'},
+            headers:{
+                'Content-Type':'application/json',
+            },
             credential:false,
             body: JSON.stringify(userData)
         })
@@ -50,8 +55,10 @@ function Login(){
                     setError(data.message);
             }
             else{
-                console.log(data.message)
-                window.location.reload();
+                const receivedToken = data.token;
+                localStorage.setItem('token', receivedToken);
+                navigate('/dashboard');
+                console.log(receivedToken)
             }
             
         })

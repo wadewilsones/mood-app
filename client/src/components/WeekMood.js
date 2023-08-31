@@ -70,7 +70,7 @@ const  WeekMood = (props) => {
 
     return(
         <section className='weekMainContainer'>
-                <h3>You weekly data</h3>
+                <h3>Your weekly data</h3>
                 <div id='mood-days'>
                     <div className='days-div'>
                         {formatDates(weekMood[0].date)}<br/>

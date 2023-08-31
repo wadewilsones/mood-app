@@ -1,6 +1,6 @@
 import '../style/LoginStyle.css' 
 import React, { useState } from "react";
-import { Link  } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 function SignUp (){
@@ -22,7 +22,10 @@ function SignUp (){
 
     const {username, password} = userData;
 
-    const [notification, setNotificetion] = useState(false);
+    const [notification, setNotificetion] = useState({
+        isActive:false,
+        description:""
+    });
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -35,7 +38,7 @@ function SignUp (){
 
     const sendData = () => {
 
-        fetch('http://localhost:3000/signUpUser', {
+        fetch('http://localhost:3000/api/signup', {
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify(userData)
@@ -43,14 +46,21 @@ function SignUp (){
 
         .then(response => response.json())
         .then(data => {
-            console.log(data);
-            setNotificetion(true);
+            setNotificetion((prevState) => ({
+                ...prevState,
+                isActive: true,
+                description:data.message
+            }));
             })
     
     }
 
     const hideNotification = () =>{
-        setNotificetion(false)
+        setNotificetion((prevState) => ({
+            ...prevState,
+            isActive: false,
+            description:""
+        }));
         setUserdata({
             username:'',
             password:''
@@ -61,7 +71,7 @@ function SignUp (){
 
     return(
         <div className="sign-up-container">
-        <div className = {notification? "notification" : "notificationHidden"}><p>Thank you for registration, {username}</p><a onClick={hideNotification}>Close</a></div>
+        <div className = {notification.isActive? "notification" : "notificationHidden"}><p>Thank you for registration, {username}</p><a onClick={hideNotification}>Close</a></div>
             
             <div className = 'loginScreenHeader'> 
                 <h1>Feelu</h1>
