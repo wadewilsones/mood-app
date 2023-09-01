@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const secretKey = crypto.randomBytes(32).toString('hex');
 
-const getUserId = require('./helpers/queries');
+const [getUserId, getUserEntry] = require('./helpers/queries');
 
 
 
@@ -109,8 +109,19 @@ const authneticationCheck = (req, res, next) => {
 
 //PROTECTED ROUTES
 //Get user data to display on dashboard
-router.get(`/api/dashboard`, authneticationCheck, (req, res) => {
-    res.send({username: req.user.username});
+router.get(`/api/dashboard`, authneticationCheck, async (req, res) => {
+
+    const userId =  await getUserId(req.user.username);
+    const userEntry = await getUserEntry(userId);
+    console.log(userEntry);
+    if(userEntry[0].length > 0){
+        res.send({weeklyData:userEntry[0][0], username:req.user.username});
+    }
+    else{
+        res.send({message:'No data for this user'});
+    }
+    
+    //res.send({username: req.user.username});
 })
 
 
@@ -122,11 +133,8 @@ try{
     const { mood, entry } = req.body;
     const username = req.user.username;
     const userId = await getUserId(username); 
-    console.log(userId);
     //Check DB for existing information
     const checkData =  await pool.query("SELECT * FROM user_moods WHERE user_id = ?;", [userId]);
-    console.log(checkData[0].length);
-
     if(checkData[0].length > 0){
         console.log(checkData.rows);
         //Update mood
@@ -158,14 +166,18 @@ catch(err){
 
 
 
-router.get('/api/usersFeeling',  async (req,res) =>{
+router.get('/api/weekData',  authneticationCheck, async (req,res) =>{
 
 try{
-    const userId =  req.session.user.rows[0].userid;
-    const getMood = await pool.query ("SELECT * FROM user_moods WHERE user_idfk = $1 AND mood_date BETWEEN CURRENT_DATE - 3 AND CURRENT_DATE ORDER BY mood_id;", [userId])
-    if(getMood.rows.length > 0){
-        console.log(getMood.rows)
-        res.send(getMood.rows)
+    console.log("TEST")
+    const userId =  await getUserId(req.user.username);
+    const getMood = await pool.query(
+        "SELECT * FROM user_moods WHERE user_id = ? AND mood_date BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 3 DAY) AND CURRENT_DATE() ORDER BY mood_id;",
+        [userId]
+      );
+    if(getMood[0].length > 0){
+        console.log('SEND ' + getMood[0])
+        res.send(getMood[0])
     }
     else{
         res.send({message:'No entry found'})

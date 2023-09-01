@@ -11,4 +11,18 @@ const getUserId = async (username) => {
     }    
 }
 
-module.exports = getUserId;
+
+const getUserEntry = async (id) => {
+
+    try{
+        const result = await pool.query("Select * from user_moods WHERE user_id = ?;", [id]);
+        return result;
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+
+
+
+module.exports = [getUserId, getUserEntry];

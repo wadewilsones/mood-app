@@ -14,9 +14,9 @@ const Dashboard = (props) => {
 
 
     const[userData, setUserData] = useState({
-        username:''
-    })
-    
+        username:'',
+
+    })    
     useEffect(() => {
         fetch('http://localhost:3000/api/dashboard', {
             method: "GET",
@@ -42,7 +42,7 @@ const Dashboard = (props) => {
         <div id='moodContainer'>
             <Header  location = '/' username = {userData.username}/>
             <section id = "checkinSection">
-                <WeekMood/>
+                <WeekMood />
             </section>
             <section id = 'weatherSection'>
                 <Weather />

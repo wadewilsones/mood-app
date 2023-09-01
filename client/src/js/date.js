@@ -72,6 +72,9 @@
         yersterday: new Date(today),
         twoDaysAgo: new Date(today),
         threeDaysAgo: new Date(today),
+        fourDaysAgo: new Date(today),
+        fiveDaysAgo: new Date(today),
+        sixDaysAgo: new Date(today),
     }
 
     //for loop for week dates
